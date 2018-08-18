@@ -8,9 +8,11 @@ var Schema = mongoose.Schema;
 var ArtSchema = new Schema({
   // `title` is of type String
   title: String,
-  // `medium` is of type String
-  medium: String,
+  // `category` is of type String
+  category: String,
 //   datePosted: 
+// adding url to use for pictures for now
+  url: String,
 
   
 });

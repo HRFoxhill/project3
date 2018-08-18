@@ -11,8 +11,8 @@ var UserSchema = new Schema({
   local: {
     email: String,
     password: String,
-   },
- 
+  },
+
   artists: Boolean,
 
   patron: Boolean,
@@ -28,13 +28,12 @@ var UserSchema = new Schema({
   art: [{
     type: Schema.Types.ObjectId,
     ref: "Art"
-  }]
-});
+  }],
 
-shows: [{
-  type: Schema.Types.ObjectId,
-  ref: "Shows"
-}]
+  shows: [{
+    type: Schema.Types.ObjectId,
+    ref: "Shows"
+  }]
 });
 
 // Placeholder for hash and check of authentication

@@ -9,7 +9,6 @@ var Schema = mongoose.Schema;
 var ShowsSchema = new Schema({
   // for authentication/password
 
- 
   location: Boolean,
 
   time: Boolean,
@@ -18,7 +17,7 @@ var ShowsSchema = new Schema({
 
   bio: String,
   
-  URL: String
+  URL: String,
 
   // The ref property links the ObjectId to the Art model
   // This allows us to populate the User with an associated Art

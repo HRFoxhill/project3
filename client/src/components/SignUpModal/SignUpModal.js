@@ -3,7 +3,7 @@ import "./SignUpModal.css";
 import 'bulma/css/bulma.css';
 import SignInBtn from "../SignInBtn";
 import PasswordInputBox from "../PasswordInputBox";
-import PasswordInputBox from "../UsernameInputBox";
+import UsernameInputBox from "../UsenameInputBox";
 
 class SignUpModal extends Component {
 

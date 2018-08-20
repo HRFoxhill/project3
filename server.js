@@ -5,7 +5,7 @@ const express = require("express");
 const routes = require("./routes");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-var logger = require("morgan");
+// var logger = require("morgan");
 
 // Initialize Express
 // =====================================
@@ -15,7 +15,7 @@ const app = express();
 // Configure middleware
 // =====================================
 // Use morgan logger for logging requests
-app.use(logger("dev"));
+// app.use(logger("dev"));
 // Use body-parser for handling form submissions
 
 // !!anyone know if we need both of these?

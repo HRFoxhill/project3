@@ -1,6 +1,9 @@
 import React from "react";
 import "./SignUpModal.css";
 import 'bulma/css/bulma.css';
+import SignInBtn from "../SignInBtn";
+import PasswordInputBox from "../PasswordInputBox";
+import PasswordInputBox from "../UsernameInputBox";
 
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually
@@ -22,36 +25,9 @@ const Modal = props => (
                 </div>
                 <p class="help is-danger">This email is invalid</p>
             </div>
-
-            {/* Username */}
-            <div class="field">
-                <label class="label">Username</label>
-                <div class="control has-icons-left has-icons-right">
-                    <input class="input is-success" type="text" placeholder="Text input" value="bulma" />
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-user"></i>
-                    </span>
-                    <span class="icon is-small is-right">
-                        <i class="fas fa-check"></i>
-                    </span>
-                </div>
-                <p class="help is-success">This username is available</p>
-            </div>
-
-            {/* Password */}
-            <div class="field">
-                <label class="label">Password</label>
-                <div class="control has-icons-left has-icons-right">
-                    <input class="input is-success" type="text" placeholder="Text input" value="bulma" />
-                    <span class="icon is-small is-left">
-                        <i class="fas fa-user"></i>
-                    </span>
-                    <span class="icon is-small is-right">
-                        <i class="fas fa-check"></i>
-                    </span>
-                </div>
-                <p class="help is-success">This password is valid</p>
-            </div>
+            
+            <UsernameInputBox />
+            <PasswordInputBox />
 
             {/* Terms & conditions */}
             <div class="field">
@@ -87,6 +63,7 @@ const Modal = props => (
             </div>
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
+        <p>Already have an account? </p> <SignInBtn />
     </div>
 );
 

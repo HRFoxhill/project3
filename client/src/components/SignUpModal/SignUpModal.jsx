@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./SignUpModal.css";
-import 'bulma/css/bulma.css';
 import SignInBtn from "../SignInBtn";
 import PasswordInputBox from "../PasswordInputBox";
 import UsernameInputBox from "../UsernameInputBox";

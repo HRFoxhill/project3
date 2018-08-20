@@ -3,7 +3,7 @@ import "./SignUpModal.css";
 import 'bulma/css/bulma.css';
 import SignInBtn from "../SignInBtn";
 import PasswordInputBox from "../PasswordInputBox";
-import PasswordInputBox from "../UsernameInputBox";
+import UsernameInputBox from "../UsenameInputBox";
 
 // The ...props means, spread all of the passed props onto this element
 // That way we don't have to define them all individually

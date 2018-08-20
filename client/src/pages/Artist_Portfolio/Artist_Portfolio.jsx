@@ -1,10 +1,10 @@
-import React, { component } from "react";
-import 'bulma/css/bulma.css';
+import React, { Component } from "react";
+// import 'bulma/css/bulma.css';
 import artistPanel from "../../components/artistPanel";
 import artworkPanel from "../../components/artworkPanel";
-import navbar from "../../components/navbar";
-import footer from "../../components/footer";
-import localShows from "../../components/localShows";
+// import navbar from "../../components/navbar";
+// import footer from "../../components/footer";
+// import localShows from "../../components/localShows";
 
 class portfolio extends Component{
     state = {
@@ -13,6 +13,7 @@ class portfolio extends Component{
     render() {
         return (
             <div>
+                is this working?
                 <navbar/>
                 <artistPanel/>
                 <localShows/>

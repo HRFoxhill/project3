@@ -6,8 +6,6 @@
   "dependencies": {
     "axios": "^0.16.2",
     "body-parser": "^1.17.2",
-    "bulma": "^0.7.1",
-    "bulma-start": "^0.0.2",
     "express": "^4.15.4",
     "if-env": "^1.0.4",
     "mongoose": "^5.0.17"

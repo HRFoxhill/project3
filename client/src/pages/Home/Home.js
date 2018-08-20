@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
+import SignUpModal from "../../components/SignUpModal"
 
 class Home extends Component {
   state = {
@@ -10,7 +11,9 @@ class Home extends Component {
     return (
         <div>
             Hello WOrld!
+            <SignUpModal />
         </div>
+        
     )
   }
 }

@@ -9,17 +9,15 @@ var Schema = mongoose.Schema;
 var ArtistSchema = new Schema({
   // for authentication/password
   local: {
-    email: String,
-    password: String,
+    email: String, //unique, fixed structure
+    password: String, //limitations needed
   },
-
-  artists: Boolean,
-
-  patron: Boolean,
-
-  profileName: String,
-
-  bio: String,
+  artistName: String, //Full name of artist or whatever they call themselves
+  categories: String, //autopopulated based on categories assigned to artworks
+  phone: String, //phone number (optional)
+  websiteURL: String, //artist's personal website URL if exists
+  bio: String, //aka artist statement
+  profilePhoto: String, //url?
 
   // The ref property links the ObjectId to the Art model
   // This allows us to populate the User with an associated Art

@@ -8,8 +8,8 @@ import localShows from "../../components/localShows"
 
 //nav
 //artist panel & info
-    //profile image
-    //name, statement, website url, categories, phone #, 
+    //profile image comes from edit your page
+    //name, statement, website url, categories, phone #, comes from edit your page
 //shows
     //name, location, dates
 //artwork panels

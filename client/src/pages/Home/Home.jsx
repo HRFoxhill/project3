@@ -12,6 +12,7 @@ class Home extends Component {
         <div>
 
             Hello WOrld!
+            {/* the sign up modal is for testing purposes - feel free to remove/move */}
             <SignUpModal />
 
         </div>

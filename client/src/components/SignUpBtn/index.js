@@ -1,1 +1,1 @@
-export { default } from "./SignUpBtn.js";
+export { default } from "./SignUpBtn.jsx";

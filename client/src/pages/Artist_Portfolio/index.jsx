@@ -1,0 +1,1 @@
+export { default } from "./Artist_Portfolio.jsx";

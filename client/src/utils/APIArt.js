@@ -6,8 +6,8 @@ export default {
         return axios.get("/api/art");
     },
     // save Art
-    saveArtist: function (artData) {
-        return axios.post("/api/art", artData);
+    saveArt: function (artData, userId) {
+        return axios.post("/api/art/create/" + userId, artData);
     },
     // ==========================
     // Gets the Art Piece with the given id

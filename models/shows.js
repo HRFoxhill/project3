@@ -9,9 +9,9 @@ var Schema = mongoose.Schema;
 var ShowsSchema = new Schema({
   // for authentication/password
 
-  location: Boolean,
+  location: String,
 
-  time: Boolean,
+  time: String,
 
   date: String,
 

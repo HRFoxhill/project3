@@ -39,9 +39,6 @@ class SignUpModal extends Component {
     //         .then(res =>
     //             console.log(res)
     //         )
-
-
-
     // };
     updateArt = id => {
         APIArt.updateArtPiece(id)

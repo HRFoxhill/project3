@@ -68,7 +68,7 @@ class SignUpModal extends Component {
 
     render() {
         return (
-            <div className="modal is-active" id="SignInModal">
+            <div className="modal" id="SignInModal">
                 <div className="modal-background"></div>
                 <div className="modal-content">
                     <h3 className="has-text-centered is-size-3">Sign In</h3>

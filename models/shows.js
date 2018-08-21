@@ -17,18 +17,9 @@ var ShowsSchema = new Schema({
 
   bio: String,
   
-  URL: String,
+  URL: String
 
-  // The ref property links the ObjectId to the Art model
-  // This allows us to populate the User with an associated Art
-  // Can create an array with schema types if artists will have more than one type of medium
-
-//   art: [{
-//     type: Schema.Types.ObjectId,
-//     ref: "Art"
-//   }]
-// });
-
+});
 
 
 // This creates our model from the above schema, using mongoose's model method

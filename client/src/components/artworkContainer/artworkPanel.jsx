@@ -2,31 +2,31 @@ import React from "react";
 // import 'bulma/css/bulma.css';
 
 
-const artistPanel = props => (
-    <section className="hero is-medium is-primary is-bold">
+const artworkPanel = props => (
+    <section className="hero is-medium is-light is-bold">
         <div className="hero-body">
             <div className="container">
                 <div className="columns">
                     <div className="column is-one-third">
-                        <figure className="image is-128x128">
-                            <img className="is-rounded" src={props.profilePhoto}/>
+                        <figure className="image">
+                            <img className="artwork-image" src={props.url}/>
                         </figure>
                     </div>
                     <div class="column is-two-thirds">
                         <h1 class="title">
-                            {props.artistName}
+                            {props.title}
                         </h1>
                         <h2 class="subtitle">
-                            {props.bio}
+                            {props.category}
                         </h2>
                         <h2 class="subtitle">
-                            {props.websiteURL}
+                            {props.dimensions}
                         </h2>
                         <h2 class="subtitle">
-                            {props.phone}
+                            {props.yearCreated}
                         </h2>
                         <h2 class="subtitle">
-                            {props.categories}
+                            {props.description}
                         </h2>
                     </div>
                 </div>
@@ -35,4 +35,4 @@ const artistPanel = props => (
     </section>
 );
 
-export default artistPanel;
+export default artworkPanel;

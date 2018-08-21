@@ -12,10 +12,25 @@ var ArtistSchema = new Schema({
     email: String, //unique, fixed structure
     password: String, //limitations needed
   },
-  artistName: String, //Full name of artist or whatever they call themselves
-
-  // !!Do we need categories for artists?
-  // categories: String, //autopopulated based on categories assigned to artworks
+  email: {
+    type: String,
+    unique: true,
+    match: [/.+@.+\..+/, "Please enter a valid e-mail address"],
+    required: "Email is required"
+  }, 
+  password: {
+    type: String,
+    trim: true,
+    required: "Password is required",
+    validate: [
+      function(input) {
+        return input.length >= 6;
+      },
+      "Password should be longer."
+    ]
+  },
+  artistName: String, //Whatever they want to call themselves
+  categories: String, //autopopulated based on categories assigned to artworks
   phone: String, //phone number (optional)
   websiteURL: String, //artist's personal website URL if exists
   bio: String, //aka artist statement

@@ -16,7 +16,6 @@ class SignUpModal extends Component {
         email: "",
         password: "",
         confirmPassword: "",
-        modalOpen: false,
     };
 
     componentDidMount() {
@@ -37,7 +36,7 @@ class SignUpModal extends Component {
     };
 
     handleFormSubmit = event => {
-        
+        // saving to database and logging them in right away
     };
     handleSignUpModalClose() {
         document.querySelector("#SignUpModal").classList.remove("is-active");

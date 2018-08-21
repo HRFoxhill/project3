@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from "../../utils/API";
+import API from "../../utils/APIArtists";
 import SignUpModal from "../../components/SignInUpModals/SignUpModal";
 import SignInModal from "../../components/SignInUpModals/SignInModal";
 

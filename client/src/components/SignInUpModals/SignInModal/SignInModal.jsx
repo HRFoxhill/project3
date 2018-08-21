@@ -35,7 +35,7 @@ class SignUpModal extends Component {
     };
 
     handleFormSubmit = event => {
-        
+        // handling login
     };
     handleSignInModalClose() {
         document.querySelector("#SignInModal").classList.remove("is-active");
@@ -69,7 +69,7 @@ class SignUpModal extends Component {
                     <div className="field is-grouped">
                         <ModalSubmitBtn />
                         <ModalCancelBtn 
-                            onClick={this.handleSignUpModalClose}
+                            onClick={this.handleSignInModalClose}
                         />
                         <div className="control has-text-right">
                             Don't have an account yet? &nbsp;
@@ -78,7 +78,7 @@ class SignUpModal extends Component {
                         </div>
                     </div>
                 </div>
-                <button className="modal-close is-large" aria-label="close" onClick={this.handleSignUpModalClose}></button>
+                <button className="modal-close is-large" aria-label="close" onClick={this.handleSignInModalClose}></button>
             </div>
         )
     }

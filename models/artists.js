@@ -30,7 +30,7 @@ var ArtistSchema = new Schema({
 
   shows: [{
     type: Schema.Types.ObjectId,
-    ref: "Shows"
+    ref: "Show"
   }]
 });
 

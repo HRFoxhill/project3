@@ -22,7 +22,7 @@ module.exports = {
   },
   updateArtist: function (req, res) {
     db.Artist
-      .findOneAndUpdate({ _id: req.params.id }, req.body)
+      .findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -42,7 +42,7 @@ module.exports = {
   },
   getArtByArtist: function (req, res) {
     db.Artist
-      .findById({ _id: req.parms.id })
+      .findById({ _id: req.params.id })
       .populate("art")
       .then(dbModel => res.json(dbModel))
       .catch(err =>  res.status(422).json(err))

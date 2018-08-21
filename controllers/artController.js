@@ -17,6 +17,9 @@ module.exports = {
   create: function (req, res) {
     db.Art
       .create(req.body)
+      .then(dbArt => {
+        return db.Artist.findOneAndUpdate({ _id: req.params.id }, { $push: { art: dbArt._id } }, { new: true })
+      })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

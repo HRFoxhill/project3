@@ -13,7 +13,9 @@ var ArtistSchema = new Schema({
     password: String, //limitations needed
   },
   artistName: String, //Full name of artist or whatever they call themselves
-  categories: String, //autopopulated based on categories assigned to artworks
+
+  // !!Do we need categories for artists?
+  // categories: String, //autopopulated based on categories assigned to artworks
   phone: String, //phone number (optional)
   websiteURL: String, //artist's personal website URL if exists
   bio: String, //aka artist statement

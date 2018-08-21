@@ -2,10 +2,10 @@
 // ===================================
 const express = require("express");
 // const path = require("path");
-const routes = require("./routes");
+// const routes = require("./routes");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-var logger = require("morgan");
+// var logger = require("morgan");
 
 // Initialize Express
 // =====================================
@@ -15,7 +15,7 @@ const app = express();
 // Configure middleware
 // =====================================
 // Use morgan logger for logging requests
-app.use(logger("dev"));
+// app.use(logger("dev"));
 // Use body-parser for handling form submissions
 
 // !!anyone know if we need both of these?
@@ -37,7 +37,7 @@ if (process.env.NODE_ENV === "production") {
 // Routes
 // =====================================
 // Add routes, both API and view
-app.use(routes);
+// app.use(routes);
 
 // !!not sure we need the below code with pulling in the routes (not finished). Joe, what's your take? - Amanda
 

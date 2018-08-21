@@ -9,7 +9,7 @@ var ArtSchema = new Schema({
   // `title` is of type String **required
   title: String,
   // `category` is of type String **required
-  category: String,
+  medium: String,
 // adding url to use for pictures for now **required
   url: String,
 // dimensions of artwork piece (optional)

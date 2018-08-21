@@ -23,7 +23,7 @@ const Nav = props => {
             <p class="control">
               <span class="select">
                 <select>
-                  <option>Category</option>
+                  <option>Medium</option>
                   <option>Artist</option>
                 </select>
               </span>

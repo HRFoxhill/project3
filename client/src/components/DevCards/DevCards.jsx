@@ -2,7 +2,7 @@ import React from "react";
 
 const DevCard = props => {
   return (
-    <div class="tile is-4 is-parent card-container">
+    <div class="tile is-3 is-parent card-container">
       <figure class="media-left">
         <p class="image is-64x64">
           <img class="is-rounded" src={props.img} />

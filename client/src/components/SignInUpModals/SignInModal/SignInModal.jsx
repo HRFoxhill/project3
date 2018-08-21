@@ -6,6 +6,10 @@ import EmailInputBox from "../EmailInputBox";
 import ModalSubmitBtn from "../ModalSubmitBtn"
 import ModalCancelBtn from "../ModalCancelBtn";
 
+// APIs
+import APIArtists from "../../../utils/APIArtists";
+import APIArt from "../../../utils/APIArt";
+
 class SignUpModal extends Component {
     // If you need to have access to the parent component in the handler, you also need to bind the function to the component instance:
     // constructor(props) {
@@ -27,9 +31,24 @@ class SignUpModal extends Component {
             [name]: value
         });
     };
-    handleEmailValidation = event => {
-        // need to query DB for existing emails...
+
+    // LEFT OFF HERE -- incomplete
+    // handleEmailValidation = event => {
+    //     // need to query DB for existing emails...
+    //     APIArtists.getArtists()
+    //         .then(res =>
+    //             console.log(res)
+    //         )
+
+
+
+    // };
+    updateArt = id => {
+        APIArt.updateArtPiece(id)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
     };
+
     handlePasswordValidation = event => {
 
     };
@@ -67,8 +86,10 @@ class SignUpModal extends Component {
                     />
                     {/* Submit/close btns */}
                     <div className="field is-grouped">
-                        <ModalSubmitBtn />
-                        <ModalCancelBtn 
+                        <ModalSubmitBtn
+                            onClick={this.handleEmailValidation}
+                        />
+                        <ModalCancelBtn
                             onClick={this.handleSignInModalClose}
                         />
                         <div className="control has-text-right">

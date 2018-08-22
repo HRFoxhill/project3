@@ -5,34 +5,52 @@ import PasswordInputBox from "../PasswordInputBox";
 import EmailInputBox from "../EmailInputBox";
 import ModalSubmitBtn from "../ModalSubmitBtn"
 import ModalCancelBtn from "../ModalCancelBtn";
+// import { isThisHour } from "date-fns";
 
 class SignUpModal extends Component {
     // If you need to have access to the parent component in the handler, you also need to bind the function to the component instance:
-    // constructor(props) {
-    //     super(props);
-    //     this.handleClick = this.handleClick.bind(this);
-    //   }
-    state = {
-        email: "",
-        password: "",
-        confirmPassword: "",
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            email: "",
+            password: "",
+            confirmPassword: "",
+        };
+
+        this.handleSignUpModalClose = this.handleSignUpModalClose.bind(this);
+        this.handleSignInModalOpen = this.handleSignInModalOpen.bind(this);
+
+      }
+    
 
     componentDidMount() {
         // do I need this?
     };
 
-    handleInputChange = event => {
+    handleInputChange = (event, callback) => {
         const { name, value } = event.target;
         this.setState({
             [name]: value
-        });
+        }, callback);
     };
     handleEmailValidation = event => {
         // need to query DB for existing emails...
-    };
-    handlePasswordValidation = event => {
 
+    };
+    handlePasswordConfirmValidation = event => {
+        this.handleInputChange(event, () => {
+            console.log(this.state.password, this.state.confirmPassword)
+            if (this.state.password !== this.state.confirmPassword) {
+
+            } else {
+
+
+            }
+        });
+        // compare password state to confirm password state - if they are !not equal display red and add the caution sign symbol
+
+        // else display green and checkmark symbol
     };
 
     handleFormSubmit = event => {
@@ -40,12 +58,22 @@ class SignUpModal extends Component {
     };
     handleSignUpModalClose() {
         document.querySelector("#SignUpModal").classList.remove("is-active");
+        this.setState({
+            email: "",
+            password: "",
+            confirmPassword: "",
+        });
     };
     handleSignInModalOpen() {
         // open sign-in
         document.querySelector("#SignInModal").classList.add("is-active");
         // close sign-up
         document.querySelector("#SignUpModal").classList.remove("is-active");
+        this.setState({
+            email: "",
+            password: "",
+            confirmPassword: "",
+        });
     };
 
     render() {
@@ -59,21 +87,24 @@ class SignUpModal extends Component {
                         onChange={this.handleInputChange}
                         name="email"
                         placeholder="enter your email address"
-                    />
+                    >
+                    </EmailInputBox>
                     <PasswordInputBox
                         value={this.state.password}
                         onChange={this.handleInputChange}
                         name="password"
                         placeholder="enter a new password"
-                    />
+                    >
+                    </PasswordInputBox>
 
                     {/* confirm password box */}
                     <div className="field">
                         <label class="label">confirm password</label>
                         <div className="control has-icons-left has-icons-right">
+                            {/* Password confirm */}
                             <input className="input is-success" type="password"
                                 value={this.state.confirmPassword}
-                                onChange={this.handleInputChange}
+                                onChange={this.handlePasswordConfirmValidation}
                                 name="confirmPassword"
                                 placeholder="confirm your password"
                             />
@@ -100,12 +131,12 @@ class SignUpModal extends Component {
                     {/* Submit/close btns */}
                     <div className="field is-grouped">
                         <ModalSubmitBtn />
-                        <ModalCancelBtn 
+                        <ModalCancelBtn
                             onClick={this.handleSignUpModalClose}
                         />
                         <div className="control has-text-right">
                             Already have an account? &nbsp;
-                            <SignInBtn 
+                            <SignInBtn
                                 onClick={this.handleSignInModalOpen}
                             />
                         </div>

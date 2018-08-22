@@ -12,14 +12,18 @@ import APIArt from "../../../utils/APIArt";
 
 class SignUpModal extends Component {
     // If you need to have access to the parent component in the handler, you also need to bind the function to the component instance:
-    // constructor(props) {
-    //     super(props);
-    //     this.handleClick = this.handleClick.bind(this);
-    //   }
-    state = {
-        email: "",
-        password: "",
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            email: "",
+            password: "",
+        };
+
+        this.handleSignInModalClose = this.handleSignInModalClose.bind(this);
+        this.handleSignUpModalOpen = this.handleSignUpModalOpen.bind(this);
+    }
+
 
     componentDidMount() {
         // do I need this?
@@ -33,16 +37,18 @@ class SignUpModal extends Component {
     };
 
     // LEFT OFF HERE -- incomplete
-    // handleEmailValidation = event => {
-    //     // need to query DB for existing emails...
-    //     APIArtists.getArtists()
-    //         .then(res =>
-    //             console.log(res)
-    //         )
+    handleEmailValidation = event => {
+        // need to query DB for existing emails...
+        // tested: getArtists, saveArtist(send new artist as object),getArtistById, udpateArtist, deleteArtist, 
+        // (not able to test associations at this time)
 
-
-
-    // };
+        // tested: getAllArt, saveArt(provide userId, object), getArtPiece, deleteArtPiece,
+        APIArt.getArtByMedium("Ceramics")
+            .then(res =>
+                console.log(res)
+            )
+            .catch(err => console.log(err));
+    };
     updateArt = id => {
         APIArt.updateArtPiece(id)
             .then(res => console.log(res))
@@ -58,12 +64,20 @@ class SignUpModal extends Component {
     };
     handleSignInModalClose() {
         document.querySelector("#SignInModal").classList.remove("is-active");
+        this.setState({
+            email: "",
+            password: "",
+        });
     };
     handleSignUpModalOpen() {
         // open sign-up
         document.querySelector("#SignUpModal").classList.add("is-active");
         // close sign-in
         document.querySelector("#SignInModal").classList.remove("is-active");
+        this.setState({
+            email: "",
+            password: "",
+        });
     };
 
     render() {

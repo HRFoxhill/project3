@@ -23,9 +23,14 @@ router
   .route("/art/:id")
   .get(artistsController.getArtByArtist)
 
-// Matches with "/api/user/:name/:password" 
+// Matches with "/api/user/artist/:name/:password" 
 router
-  .route("/:name/:password")
+  .route("/artist/:name/:password")
   .get(artistsController.checkLogin)
+
+// Matches with "/api/user/artist/:name"
+router
+  .route("/artist/:name")
+  .get(artistsController.findArtistByName)
 
 module.exports = router;

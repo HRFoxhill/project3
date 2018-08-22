@@ -1,5 +1,4 @@
 var mongoose = require("mongoose");
-// var bcrypt   = require('bcrypt-nodejs');
 
 // Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
@@ -51,16 +50,13 @@ var ArtistSchema = new Schema({
   }]
 });
 
-// Placeholder for hash and check of authentication
+ArtistSchema.methods.toJSON = function() {
+  var obj = this.toObject();
+  delete obj.password;
+  delete obj.local.password
+  return obj;
+ }
 
-// userSchema.methods.generateHash = function(password) {
-//     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-// };
-
-// // checking if password is valid
-// userSchema.methods.validPassword = function(password) {
-//     return bcrypt.compareSync(password, this.local.password);
-// };
 
 // This creates our model from the above schema, using mongoose's model method
 var Artist = mongoose.model("Artist", ArtistSchema);

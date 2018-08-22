@@ -7,15 +7,27 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err))
     },
+    findById: function (req, res) {
+        db.Shows
+            .findById(req.params.id)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
     createShow: function (req, res) {
         db.Shows
             .create(req.body)
+            .then(dbShow => {
+                return db.Artist.findOneAndUpdate({ _id: req.params.id }, { $push: { shows: dbShow._id } }, { new: true })
+            })
             .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err))
+            .catch(err => {
+                console.log(err)
+                res.status(422).json(err)
+            })
     },
     editShow: function (req, res) {
         db.Shows
-            .findOneAndUpdate({ _id: req.params.id })
+            .findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err))
     },
@@ -26,5 +38,5 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err))
     },
-    
+
 }

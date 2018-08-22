@@ -20,7 +20,7 @@ router
 
 // Matches with "/api/user/art/:id"
 router
-    .route("/art/:id`")
+    .route("/art/:id")
     .get(artistsController.getArtByArtist)
 
 module.exports = router;

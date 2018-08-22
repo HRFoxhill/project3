@@ -1,3 +1,6 @@
+nav{
+    margin-bottom:20px;
+}
 .input{
     max-width: 1000px;
     width:40vw;
@@ -28,6 +31,8 @@
     margin:0 auto;
 }
 .card-container{
+    font-size: 10px;
+    line-height:15px;
     margin:5px;
     border-radius:10px;
     background: -moz-linear-gradient(top, rgba(243,248,253,1) 0%, rgba(250,252,254,0) 100%); /* FF3.6-15 */

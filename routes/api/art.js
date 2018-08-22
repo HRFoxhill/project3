@@ -1,22 +1,26 @@
 const router = require("express").Router();
-const artControler = require("../../controllers/artController");
+const artController = require("../../controllers/artController");
 
 // Matches with "/api/art"
 router.route("/")
-  .get(artControler.findAll)
-  .post(artControler.create);
+  .get(artController.findAll)
+  // .post(artController.create);
+
+// Matches with "/api/art/create/:id"
+router.route("/create/:id")
+  .post(artController.create)
 
 // Matches with "/api/art/:id"
 router
   .route("/:id")
-  .get(artControler.findById)
-  .put(artControler.update)
-  .delete(artControler.remove);
+  .get(artController.findById)
+  .put(artController.update)
+  .delete(artController.remove);
 
 // Matches with "/api/art/:category"
 router
     .route("/art/:category")
-    .get(artControler.findByCategory)
+    .get(artController.findByCategory)
 
 
 module.exports = router;

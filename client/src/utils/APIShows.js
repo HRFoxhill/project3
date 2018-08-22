@@ -6,8 +6,8 @@ export default {
     return axios.get("/api/shows");
   },
   // save Show
-  saveShow: function(showData) {
-    return axios.post("/api/shows", showData);
+  saveShow: function(showData, userId) {
+    return axios.post("/api/shows/create/" + userId, showData);
   },
   // ==========================
   // Updates the Show with the given id

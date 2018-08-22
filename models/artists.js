@@ -30,7 +30,7 @@ var ArtistSchema = new Schema({
     ]
   },
   artistName: String, //Whatever they want to call themselves
-  categories: String, //autopopulated based on categories assigned to artworks
+  medium: String, //autopopulated based on categories assigned to artworks
   phone: String, //phone number (optional)
   websiteURL: String, //artist's personal website URL if exists
   bio: String, //aka artist statement
@@ -47,7 +47,7 @@ var ArtistSchema = new Schema({
 
   shows: [{
     type: Schema.Types.ObjectId,
-    ref: "Shows"
+    ref: "Show"
   }]
 });
 

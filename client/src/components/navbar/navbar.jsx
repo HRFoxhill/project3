@@ -5,7 +5,6 @@ import SignUpModal from "../SignInUpModals/SignUpModal";
 
 
 class Nav extends Component {
-
   handleSignInModalOpen = () => {
     // open sign-up
     document.querySelector("#SignInModal").classList.add("is-active");
@@ -35,7 +34,7 @@ class Nav extends Component {
               <p class="control">
                 <span class="select">
                   <select>
-                    <option>Category</option>
+                    <option>Medium</option>
                     <option>Artist</option>
                   </select>
                 </span>
@@ -72,9 +71,7 @@ class Nav extends Component {
             <div class="navbar-item">
               <div class="field">
                 <p class="control">
-                  <a class="button is-info"
-                    onClick={this.handleSignInModalOpen}
-                  >
+                  <a class="button is-info">
                     <span class="icon">
                       <i class="fas fa-sign-in-alt" />
                     </span>

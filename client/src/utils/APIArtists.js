@@ -16,7 +16,7 @@ export default {
   },
   // Updates the Artist with the given id
   updateArtist: function(id, artistData) {
-    return axios.put("/api/user/" + id, {artistData: artistData});
+    return axios.put("/api/user/" + id, artistData);
   },
   // Deletes the Artist with the given id
   deleteArtist: function(id) {

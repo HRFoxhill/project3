@@ -36,9 +36,10 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findByCategory: function (req, res) {
+  findByMedium: function (req, res) {
+    console.log(req.params.medium)
     db.Art
-      .find({ medium: req.params.category })
+      .find({ medium: req.params.medium })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   }

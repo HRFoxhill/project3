@@ -12,7 +12,7 @@ export default {
   // ==========================
   // Updates the Show with the given id
   updateShow: function(id, showData) {
-    return axios.put("/api/shows/" + id, {showData: showData});
+    return axios.put("/api/shows/" + id, showData);
   },
   // Deletes the Show with the given id
   deleteShow: function(id) {

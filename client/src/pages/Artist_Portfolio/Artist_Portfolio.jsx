@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 // import 'bulma/css/bulma.css';
-import artistPanel from "../../components/artistPanel";
-import {artworkPanel, artworkContainer} from "../../components/artworkContainer";
-// import navbar from "../../components/navbar";
-// import footer from "../../components/footer";
-// import localShows from "../../components/localShows";
+import ArtistPanel from "../../components/artistPanel";
+import {ArtworkPanel, ArtworkContainer} from "../../components/artworkContainer";
+// import LocalShows from "../../components/localShows";
 
 class portfolio extends Component{
     state = {
@@ -21,9 +19,7 @@ class portfolio extends Component{
     render() {
         return (
             <div>
-                is this working?
-                <navbar/>
-                <artistPanel
+                <ArtistPanel
                   profilePhoto={this.state.Artist.profilePhoto}
                   artistName={this.state.Artist.artistName}
                   bio={this.state.Artist.bio}
@@ -31,11 +27,11 @@ class portfolio extends Component{
                   phone={this.state.Artist.phone}
                   categories={this.state.Artist.categories}
                 />
-                <localShows/>
-                <artworkContainer>
+                <LocalShows/>
+                <ArtworkContainer>
                     {this.state.Artist.art.map(artwork => {
                         return (
-                            <artworkPanel
+                            <ArtworkPanel
                                 url={artwork.url}
                                 title={artwork.title}
                                 category={artwork.category}
@@ -45,8 +41,7 @@ class portfolio extends Component{
                             />
                         );
                     })}
-                </artworkContainer>
-                <footer/>
+                </ArtworkContainer>
             </div>
         )
     }

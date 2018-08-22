@@ -1,3 +1,14 @@
+import React, { Component } from "react";
+
+
+class EditArt extends Component {
+    state = {
+        
+    };
+  
+    render() {
+      return (
+          <div>
 // container
     //previews
         //panel
@@ -25,3 +36,7 @@
         //SOLD(?)
         //submit button
     //save and return to portfolio button
+      </div>
+    )}}
+
+export default EditArt;

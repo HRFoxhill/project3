@@ -12,14 +12,18 @@ import APIArt from "../../../utils/APIArt";
 
 class SignUpModal extends Component {
     // If you need to have access to the parent component in the handler, you also need to bind the function to the component instance:
-    // constructor(props) {
-    //     super(props);
-    //     this.handleClick = this.handleClick.bind(this);
-    //   }
-    state = {
-        email: "",
-        password: "",
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            email: "",
+            password: "",
+        };
+
+        this.handleSignInModalClose = this.handleSignInModalClose.bind(this);
+        this.handleSignUpModalOpen = this.handleSignUpModalOpen.bind(this);
+      }
+    
 
     componentDidMount() {
         // do I need this?
@@ -47,7 +51,7 @@ class SignUpModal extends Component {
     };
 
     handlePasswordValidation = event => {
-
+        
     };
 
     handleFormSubmit = event => {
@@ -55,12 +59,20 @@ class SignUpModal extends Component {
     };
     handleSignInModalClose() {
         document.querySelector("#SignInModal").classList.remove("is-active");
+        this.setState({
+            email: "",
+            password: "",
+        });
     };
     handleSignUpModalOpen() {
         // open sign-up
         document.querySelector("#SignUpModal").classList.add("is-active");
         // close sign-in
         document.querySelector("#SignInModal").classList.remove("is-active");
+        this.setState({
+            email: "",
+            password: "",
+        });
     };
 
     render() {

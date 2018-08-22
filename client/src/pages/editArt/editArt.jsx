@@ -12,9 +12,16 @@
         //title
         //dimensions __ X __
         //medium dropdown
+        <div class="control">
+            <div class="select">
+                <select>
+                    <option>Mediums</option>
+                    <option>With options</option>
+                </select>
+            </div>
+        </div>
         //year YYYY
         //description
         //SOLD(?)
         //submit button
     //save and return to portfolio button
-    

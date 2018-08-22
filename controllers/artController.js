@@ -38,8 +38,9 @@ module.exports = {
   },
   findByCategory: function (req, res) {
     db.Art
-      .find({ category: req.params.category })
+      .find({ medium: req.params.category })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   }
+  
 };

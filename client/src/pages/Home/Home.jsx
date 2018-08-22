@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../../utils/APIArtists";
 import SignUpModal from "../../components/SignInUpModals/SignUpModal";
 import Tiles from "../../components/Tiles";
+import About from "../../components/about";
 
 class Home extends Component {
   state = {};
@@ -21,6 +22,7 @@ class Home extends Component {
           cat9="Craft"           bg9="https://pfollansbee.files.wordpress.com/2017/09/sept-spoons-detail.jpg"
           cat10="Graphic Design" bg10="http://incytemedia.com/wp-content/uploads/2008/12/34.jpg"
         />
+        <About/>
       </div>
     );
   }

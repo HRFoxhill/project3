@@ -13,20 +13,20 @@ describe('Load a Page', function() {
   describe('/ (Home Page)', () => {
     it('should load without error', done => {
       // your actual testing urls will likely be `http://localhost:port/path`
-      nightmare.goto('https://www.simple.com/')
+      nightmare.goto('http://localhost:3000/')
         .end()
         .then(function (result) { done() })
         .catch(done)
     })
   })
 
-  describe('/auth (Login Page)', () => {
-    it('should load without error',  done => {
-          // your actual testing urls will likely be `http://localhost:port/auth`
-      nightmare.goto('https://signin.simple.com/')
-        .end()
-        .then(result => { done() })
-        .catch(done)
-    })
-  })
+  // describe('/auth (Login Page)', () => {
+  //   it('should load without error',  done => {
+  //         // your actual testing urls will likely be `http://localhost:port/auth`
+  //     nightmare.goto('https://signin.simple.com/')
+  //       .end()
+  //       .then(result => { done() })
+  //       .catch(done)
+  //   })
+  // })
 })

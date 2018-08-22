@@ -11,7 +11,7 @@ export default {
   },
   // ==========================
   // Gets the Artist with the given id
-  getArtist: function(id) {
+  getArtistById: function(id) {
     return axios.get("/api/user/" + id);
   },
   // Updates the Artist with the given id

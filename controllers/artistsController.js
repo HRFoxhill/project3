@@ -1,4 +1,6 @@
 const db = require("../models");
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 // Defining methods for the artistsController
 module.exports = {
@@ -17,6 +19,10 @@ module.exports = {
   createArtist: function (req, res) {
     db.Artist
       .create(req.body)
+      .then(dbArtist => {
+        let hash = bcrypt.hashSync(dbArtist.password, saltRounds)
+        return db.Artist.findOneAndUpdate({ _id: dbArtist._id }, { local: { password: hash, email: dbArtist.local.email }, password: hash }, { new: true })
+      })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -45,6 +51,6 @@ module.exports = {
       .findById({ _id: req.params.id })
       .populate("art")
       .then(dbModel => res.json(dbModel))
-      .catch(err =>  res.status(422).json(err))
+      .catch(err => res.status(422).json(err))
   }
 };

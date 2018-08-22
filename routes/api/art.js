@@ -17,10 +17,10 @@ router
   .put(artController.update)
   .delete(artController.remove);
 
-// Matches with "/api/art/:category"
+// Matches with "/api/art/:medium"
 router
-    .route("/art/:category")
-    .get(artController.findByCategory)
+    .route("/art/:medium")
+    .get(artController.findByMedium)
 
 
 module.exports = router;

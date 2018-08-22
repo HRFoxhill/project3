@@ -5,7 +5,7 @@ import "./ModalSubmitBtn.css";
 // That way we don't have to define them all individually
 const ModalSubmitBtn = props => (
     <div className="control">
-        <button className="button is-link is-rounded" {...props} id="modal-submit-btn" disabled>Sign In</button>
+        <button className="button is-link is-rounded" {...props} id="modal-submit-btn" /*disabled*/>Sign In</button>
     </div>
 );
 

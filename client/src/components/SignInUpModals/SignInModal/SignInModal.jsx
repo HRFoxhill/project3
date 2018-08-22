@@ -22,8 +22,8 @@ class SignUpModal extends Component {
 
         this.handleSignInModalClose = this.handleSignInModalClose.bind(this);
         this.handleSignUpModalOpen = this.handleSignUpModalOpen.bind(this);
-      }
-    
+    }
+
 
     componentDidMount() {
         // do I need this?
@@ -37,13 +37,18 @@ class SignUpModal extends Component {
     };
 
     // LEFT OFF HERE -- incomplete
-    // handleEmailValidation = event => {
-    //     // need to query DB for existing emails...
-    //     APIArtists.getArtists()
-    //         .then(res =>
-    //             console.log(res)
-    //         )
-    // };
+    handleEmailValidation = event => {
+        // need to query DB for existing emails...
+        // tested: getArtists, saveArtist(send new artist as object),getArtistById, udpateArtist, deleteArtist, 
+        // (not able to test associations at this time)
+
+        // tested: getAllArt, saveArt(provide userId, object), getArtPiece, deleteArtPiece,
+        APIArt.getArtByMedium("Ceramics")
+            .then(res =>
+                console.log(res)
+            )
+            .catch(err => console.log(err));
+    };
     updateArt = id => {
         APIArt.updateArtPiece(id)
             .then(res => console.log(res))
@@ -51,7 +56,7 @@ class SignUpModal extends Component {
     };
 
     handlePasswordValidation = event => {
-        
+
     };
 
     handleFormSubmit = event => {

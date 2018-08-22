@@ -24,7 +24,11 @@ module.exports = {
         return db.Artist.findOneAndUpdate({ _id: dbArtist._id }, { local: { password: hash, email: dbArtist.local.email }, password: hash }, { new: true })
       })
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => {
+        console.log(err);
+        res.send(err)
+        // res.status(422).json(err)
+      });
   },
   updateArtist: function (req, res) {
     db.Artist

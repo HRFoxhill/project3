@@ -24,7 +24,6 @@ class SignUpModal extends Component {
         this.handleSignUpModalOpen = this.handleSignUpModalOpen.bind(this);
     }
 
-
     componentDidMount() {
         // do I need this?
     };
@@ -37,26 +36,25 @@ class SignUpModal extends Component {
     };
 
     // LEFT OFF HERE -- incomplete
-    handleEmailValidation = event => {
-        // need to query DB for existing emails...
-        APIArtists.getArtByArtist("5b7d7b649752afd46dcff970")
-            .then(res =>
-                console.log(res)
-            )
-            .catch(err => console.log(err));
-    };
-    updateArt = id => {
-        APIArt.updateArtPiece(id)
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
-    };
+    // handleEmailValidation = event => {
+    //     // need to query DB for existing emails...
+    //     APIArtists.getArtByArtist("5b7d7b649752afd46dcff970")
+    //         .then(res =>
+    //             console.log(res)
+    //         )
+    //         .catch(err => console.log(err));
+    // };
 
-    handlePasswordValidation = event => {
+    // handlePasswordValidation = event => {
 
-    };
+    // };
 
     handleFormSubmit = event => {
         // handling login
+
+        // APIArtists.getArtists()
+        // .then(data => console.log(data))
+        // .catch(err => console.log(err));
     };
     handleSignInModalClose() {
         document.querySelector("#SignInModal").classList.remove("is-active");
@@ -79,37 +77,39 @@ class SignUpModal extends Component {
     render() {
         return (
             <div className="modal" id="SignInModal">
-                <div className="modal-background"></div>
-                <div className="modal-content">
-                    <h3 className="has-text-centered is-size-3">Sign In</h3>
-                    <EmailInputBox
-                        value={this.state.email}
-                        onChange={this.handleInputChange}
-                        name="email"
-                        placeholder="enter your email address"
-                    />
-                    <PasswordInputBox
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
-                        name="password"
-                        placeholder="enter a new password"
-                    />
-                    {/* Submit/close btns */}
-                    <div className="field is-grouped">
-                        <ModalSubmitBtn
-                            onClick={this.handleEmailValidation}
+                <div className="box">
+                    <div className="modal-background"></div>
+                    <div className="modal-content">
+                        <h3 className="has-text-centered is-size-3">Sign In</h3>
+                        <EmailInputBox
+                            value={this.state.email}
+                            onChange={this.handleInputChange}
+                            name="email"
+                            placeholder="enter your email address"
                         />
-                        <ModalCancelBtn
-                            onClick={this.handleSignInModalClose}
+                        <PasswordInputBox
+                            value={this.state.password}
+                            onChange={this.handleInputChange}
+                            name="password"
+                            placeholder="enter a new password"
                         />
-                        <div className="control has-text-right">
-                            Don't have an account yet? &nbsp;
-                            <SignUpBtn onClick={this.handleSignUpModalOpen}
+                        {/* Submit/close btns */}
+                        <div className="field is-grouped">
+                            <ModalSubmitBtn
+                                onClick={this.handleFormSubmit}
                             />
+                            <ModalCancelBtn
+                                onClick={this.handleSignInModalClose}
+                            />
+                            <div className="control has-text-right">
+                                Don't have an account yet? &nbsp;
+                            <SignUpBtn onClick={this.handleSignUpModalOpen}
+                                />
+                            </div>
                         </div>
                     </div>
+                    <button className="modal-close is-large" aria-label="close" onClick={this.handleSignInModalClose}></button>
                 </div>
-                <button className="modal-close is-large" aria-label="close" onClick={this.handleSignInModalClose}></button>
             </div>
         )
     }

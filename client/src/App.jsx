@@ -5,18 +5,19 @@ import Home from "./pages/Home";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/navbar";
 import Footer from "./components/footer";
-import portfolio from './pages/Artist_Portfolio';
-
+import portfolio from "./pages/Artist_Portfolio";
 
 const App = () => (
   <Router>
     <div>
       <Nav />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/portfolio" component={portfolio} />
-        <Route component={NoMatch} />
-      </Switch>
+      <div class="container">
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/portfolio" component={portfolio} />
+          <Route component={NoMatch} />
+        </Switch>
+      </div>
       <Footer />
     </div>
   </Router>

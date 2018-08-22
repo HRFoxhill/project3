@@ -71,7 +71,7 @@ class Nav extends Component {
             <div class="navbar-item">
               <div class="field">
                 <p class="control">
-                  <a class="button is-info">
+                  <a class="button is-info" onClick={this.handleSignInModalOpen}>
                     <span class="icon">
                       <i class="fas fa-sign-in-alt" />
                     </span>

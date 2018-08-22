@@ -21,7 +21,7 @@ module.exports = {
       .create(req.body)
       .then(dbArtist => {
         let hash = bcrypt.hashSync(dbArtist.password, saltRounds)
-        return db.Artist.findOneAndUpdate({ _id: dbArtist._id }, { local: { password: hash, email: dbArtist.local.email }, password: hash }, { new: true })
+        return db.Artist.findOneAndUpdate({ _id: dbArtist._id }, { local: { password: hash, email: dbArtist.email }, password: hash }, { new: true })
       })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -52,5 +52,20 @@ module.exports = {
       .populate("art")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
+  },
+  checkLogin: function (req, res) {
+    console.log("name: " + req.params.name)
+    db.Artist
+    .find({ email: req.params.name})
+    .then(dbArtist => {
+      console.log(dbArtist[0].password)
+      let check = bcrypt.compareSync(req.params.password, dbArtist[0].password)
+      if (check === true){
+        return dbArtist
+      }
+      else return false            
+    })
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err))
   }
 };

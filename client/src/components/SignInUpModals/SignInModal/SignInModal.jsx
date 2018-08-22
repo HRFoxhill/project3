@@ -39,11 +39,7 @@ class SignUpModal extends Component {
     // LEFT OFF HERE -- incomplete
     handleEmailValidation = event => {
         // need to query DB for existing emails...
-        // tested: getArtists, saveArtist(send new artist as object),getArtistById, udpateArtist, deleteArtist, 
-        // (not able to test associations at this time)
-
-        // tested: getAllArt, saveArt(provide userId, object), getArtPiece, deleteArtPiece,
-        APIArt.getArtByMedium("Ceramics")
+        APIArtists.getArtByArtist("5b7d7b649752afd46dcff970")
             .then(res =>
                 console.log(res)
             )

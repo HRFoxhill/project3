@@ -25,6 +25,6 @@ export default {
     // ==========================
     // gets all art with a certain medium
     getArtByMedium: function (medium) {
-        return axios.get("/api/art/" + medium);
+        return axios.get("/api/art/art/" + medium);
     },
 };

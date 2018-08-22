@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../../utils/APIArtists";
 import SignUpModal from "../../components/SignInUpModals/SignUpModal";
 import Tiles from "../../components/Tiles";
+import About from "../../components/about";
 
 class Home extends Component {
   state = {};
@@ -31,6 +32,7 @@ class Home extends Component {
           cat10="Digital Art" bg10="http://incytemedia.com/wp-content/uploads/2008/12/34.jpg"
           desc10="Digital art is any art in which computers play a role in production or display of the artwork. Such art can be an image, sound, animation, video, CD-ROM, DVD-ROM, video game, website, algorithm, performance or gallery installation. ... As a result,defining computer art by its end product can thus be difficult."
         />
+        <About/>
       </div>
     );
   }

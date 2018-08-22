@@ -74,6 +74,7 @@ div.tile-box {
 .tile {
   position: relative;
 }
+
 p.description {
   font-size: 14px;
   font-weight: normal;
@@ -94,3 +95,12 @@ p.description {
   transition: max-height 0.5s ease-in-out;
 }
 
+h1 { 
+    display: block;
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}

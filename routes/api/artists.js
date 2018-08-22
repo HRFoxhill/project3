@@ -15,12 +15,22 @@ router
 
 // Matches with "/api/user/shows/:id"
 router
-    .route("/shows/:id")
-    .get(artistsController.getShowsByArtist)
+  .route("/shows/:id")
+  .get(artistsController.getShowsByArtist)
 
 // Matches with "/api/user/art/:id"
 router
-    .route("/art/:id")
-    .get(artistsController.getArtByArtist)
+  .route("/art/:id")
+  .get(artistsController.getArtByArtist)
+
+// Matches with "/api/user/artist/:name/:password" 
+router
+  .route("/artist/:name/:password")
+  .get(artistsController.checkLogin)
+
+// Matches with "/api/user/artist/:name"
+router
+  .route("/artist/:name")
+  .get(artistsController.findArtistByName)
 
 module.exports = router;

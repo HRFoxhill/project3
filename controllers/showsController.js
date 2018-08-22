@@ -9,16 +9,14 @@ module.exports = {
     },
     findById: function (req, res) {
         db.Shows
-          .findById(req.params.id)
-          .then(dbModel => res.json(dbModel))
-          .catch(err => res.status(422).json(err));
-      },
+            .findById(req.params.id)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
     createShow: function (req, res) {
         db.Shows
             .create(req.body)
             .then(dbShow => {
-                console.log(dbShow)
-                console.log("req.params.id: " + req.params.id )
                 return db.Artist.findOneAndUpdate({ _id: req.params.id }, { $push: { shows: dbShow._id } }, { new: true })
             })
             .then(dbModel => res.json(dbModel))

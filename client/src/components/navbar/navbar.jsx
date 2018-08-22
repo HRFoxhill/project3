@@ -73,10 +73,14 @@ const Nav = props => {
           {/* bottom nav categories */}
           <div class="navbar-item nav-div is-light">
             <div className="categories-container">
-              <a class="nav-categories">Ceramic</a>
-              <a class="nav-categories">Paint</a>
-              <a class="nav-categories">Abstract</a>
-              <a class="nav-categories">Other</a>
+              <a class="nav-categories">Mixed Media</a>
+              <a class="nav-categories">Ceramics</a>
+              <a class="nav-categories">Drawing</a>
+              <a class="nav-categories">Illustration</a>
+              <a class="nav-categories"> Painting</a>
+              <a class="nav-categories">Photography</a>
+              <a class="nav-categories">Sculpture</a>
+              <a class="nav-categories">Glass Works</a>
             </div>
           </div>
         </div>

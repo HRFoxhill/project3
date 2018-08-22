@@ -20,11 +20,11 @@ nav{
     padding:0;
     margin:0;
     background:rgb(206, 206, 206);
-    font-size:16px;
+    font-size:14px;
     font-weight:bolder;
 }
 .nav-categories{
-    margin:0 5vw;
+    margin:0 3vw;
     color:rgb(27, 27, 27);
 }
 .categories-container{
@@ -39,4 +39,26 @@ nav{
     background: -webkit-linear-gradient(top, rgba(243,248,253,1) 0%,rgba(250,252,254,0) 100%); /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to bottom, rgba(243,248,253,1) 0%,rgba(250,252,254,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f8fd', endColorstr='#00fafcfe',GradientType=0 ); /* IE6-9 */
+}
+.social-footer{
+    background-color:red;
+}
+section.foot{
+    margin-top:30px;
+    background:rgb(199, 199, 199);
+}
+div.tile-box{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    padding:10px 50px;
+    font-size: 22px;
+    background-color:rgba(0, 0, 0, 0.52);
+    color:white;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.tile{
+    position:relative;
 }

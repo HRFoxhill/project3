@@ -18,7 +18,7 @@ const App = () => (
           <Route component={NoMatch} />
         </Switch>
       </div>
-      <Footer />
+      <Footer/>
     </div>
   </Router>
 );

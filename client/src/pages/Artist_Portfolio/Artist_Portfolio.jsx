@@ -27,7 +27,7 @@ class portfolio extends Component{
                   phone={this.state.Artist.phone}
                   categories={this.state.Artist.categories}
                 />
-                <LocalShows/>
+                {/* <LocalShows/> */}
                 <ArtworkContainer>
                     {this.state.Artist.art.map(artwork => {
                         return (

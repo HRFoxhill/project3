@@ -6,19 +6,21 @@ import NoMatch from "./pages/NoMatch";
 import Nav from "./components/navbar";
 import Footer from "./components/footer";
 import Portfolio from "./pages/Artist_Portfolio";
-import Category from "./pages/Category";
+import {Medium} from "./pages/Medium";
 import EditInfo from "./pages/editInfoPage";
 import EditArt from "./pages/editArt";
+import FeaturedCarousel from "./components/featured/featured";
+
 
 const App = () => (
   <Router>
-    <div>
+    <div id= "featured">
       <Nav />
       <div class="container">
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/portfolio" component={Portfolio} />
-          <Route exact path="/category" component={Category} />
+          <Route exact path="/medium" component={Medium} />
           <Route exact path="/editinfo" component={EditInfo} />
           <Route exact path="/editart" component={EditArt} />
           <Route component={NoMatch} />

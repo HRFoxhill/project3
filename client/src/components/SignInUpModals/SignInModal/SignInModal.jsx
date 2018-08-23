@@ -31,11 +31,11 @@ class SignUpModal extends Component {
         // do I need this?
     };
 
-    handleInputChange = event => {
+    handleInputChange = (event, callback) => {
         const { name, value } = event.target;
         this.setState({
             [name]: value
-        });
+        }, callback);
     };
 
     // LEFT OFF HERE -- incomplete
@@ -52,14 +52,63 @@ class SignUpModal extends Component {
 
     // };
 
+    handleInputValidation = event => {
+        this.handleInputChange(event, () => {
+            if (this.state.email.length >= 1) {
+                this.setState({
+                    emailValidated: true,
+                    emailValidationMessage: "please enter your email"
+                });
+            } else {
+                this.setState({
+                    emailValidated: false,
+                    emailValidationMessage: "please enter your email"
+                    
+                });
+            };
+            if (this.state.password.length >= 1) {
+                this.setState({
+                    passwordValidated: true,
+                    passwordValidationMessage: "please enter your password"
+                });
+            } else {
+                this.setState({
+                    passwordValidated: false,
+                    passwordValidationMessage: "please enter your password"
+                    
+                });
+            };
+        });
+    };
+
     handleFormSubmit = event => {
         // handling login
-// not working yet
-        // APIArtists.getArtistByName("Laura Garabedian")
-        // .then(data => console.log(data))
-        // .catch(err => console.log(err));
-        APIArtists.checkLogin("DBrewer@Art.com", "password")
-        .then(data => console.log(data))
+        APIArtists.checkLogin(this.state.email, this.state.password)
+        .then(data => {
+            let results = data.data;
+            console.log(results);
+            function isEmpty(myObject) {
+                for(var key in myObject) {
+                    if (myObject.hasOwnProperty(key)) false
+                }
+                return true;
+            }
+// ENDED OFF HERE: NOT FULLY WORKING!
+            if (isEmpty(results)) {
+                console.log("could not find email");
+                this.setState({
+                    emailValidationMessage: "invalid email"
+                });
+            } else if (results === false) {
+                console.log("incorrect password");
+                this.setState({
+                    passwordValidationMessage: "incorrect password"
+                });
+            } else if (results.length >= 1) {
+                console.log("'logged in'");
+                
+            }
+        })
         .catch(err => console.log(err));
     };
 
@@ -68,6 +117,10 @@ class SignUpModal extends Component {
         this.setState({
             email: "",
             password: "",
+            emailValidated: false,
+            emailValidationMessage: "please enter your email address",
+            passwordValidated: false,
+            passwordValidationMessage: "please enter your password",
         });
     };
     handleSignUpModalOpen() {
@@ -78,12 +131,16 @@ class SignUpModal extends Component {
         this.setState({
             email: "",
             password: "",
+            emailValidated: false,
+            emailValidationMessage: "please enter your email address",
+            passwordValidated: false,
+            passwordValidationMessage: "please enter your password",
         });
     };
 
     render() {
         return (
-            <div className="modal" id="SignInModal">
+            <div className="modal"/*{this.props.modalClassName}*/  id="SignInModal">
                 <div className="box">
                     <div className="modal-background"></div>
                     <div className="modal-content">
@@ -92,9 +149,9 @@ class SignUpModal extends Component {
                             label="email"                            
                             inputClassName={this.state.emailValidated? "input is-success": "input is-danger"}
                             inputType="email"
-                            inputId="signUpEmailInputBox"
+                            inputId="signInEmailInputBox"
                             inputValue={this.state.email}
-                            inputOnChange={this.handleInputChange}
+                            inputOnChange={this.handleInputValidation}
                             inputName="email"
                             inputPlaceholder="enter your email"
                             leftIconClassName="fas fa-envelope"
@@ -107,12 +164,12 @@ class SignUpModal extends Component {
                             label="password"                            
                             inputClassName={this.state.passwordValidated? "input is-success": "input is-danger"}
                             inputType="password"
-                            inputId="signUpPasswordInputBox"
+                            inputId="signInPasswordInputBox"
                             inputValue={this.state.password}
-                            inputOnChange={this.handleInputChange}
+                            inputOnChange={this.handleInputValidation}
                             inputName="password"
                             inputPlaceholder="enter your password"
-                            leftIconClassName="fas fa-envelope"
+                            leftIconClassName="fas fa-key"
                             rightIconClassName= {this.state.passwordValidated? "fas fa-check": "fas fa-exclamation-triangle"}
                             paragraphClassName={this.state.passwordValidated? "help is-success": "help is-danger"}
                             paragraphMessage={this.state.passwordValidationMessage}
@@ -121,6 +178,7 @@ class SignUpModal extends Component {
                         <div className="field is-grouped">
                             <ModalSubmitBtn
                                 onClick={this.handleFormSubmit}
+                                disabled={this.state.passwordValidated && this.state.emailValidated? "": "disabled"}
                             />
                             <ModalCancelBtn
                                 onClick={this.handleSignInModalClose}

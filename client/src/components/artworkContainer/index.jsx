@@ -1,2 +1,2 @@
-export * from "./artworkContainer.jsx";
-export * from "./artworkPanel.jsx";
+export { ArtworkContainer } from "./artworkContainer";
+export { ArtworkPanel } from "./artworkPanel";

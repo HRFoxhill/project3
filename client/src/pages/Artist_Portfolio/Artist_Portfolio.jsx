@@ -19,15 +19,13 @@ class portfolio extends Component{
         Art: []
     };
     componentDidMount = event => {
-        
+
         this.setState({
             Artist: APIArtists.getArtistByName("Dick Brewer"),
             Art: APIArt.getAllArt()
           })
-          .then(data => console.log(data))
-          .catch(err => console.log(err));
+          
       }
-
 
     render() {
         return (

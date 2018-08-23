@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 // import 'bulma/css/bulma.css';
 import ArtistPanel from "../../components/artistPanel";
-import {ArtworkPanel, ArtworkContainer} from "../../components/artworkContainer";
+import {ArtworkContainer, ArtworkPanel} from "../../components/artworkContainer";
+
 // import LocalShows from "../../components/localShows";
 
 class portfolio extends Component{
@@ -27,7 +28,7 @@ class portfolio extends Component{
                   phone={this.state.Artist.phone}
                   categories={this.state.Artist.categories}
                 />
-                {/* <LocalShows/> */}
+
                 <ArtworkContainer>
                     {this.state.Artist.art.map(artwork => {
                         return (

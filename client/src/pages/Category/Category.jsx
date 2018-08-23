@@ -4,8 +4,6 @@ import API from "../../utils/APIArtists";
 import Featured from "../../components/featured";
 import Discover from "../../components/discover";
 import ArtistCard from "../../components/artistCard";
-import Navbar from "../../components/navbar";
-import Footer from "../../components/footer";
 // import localShows from "../../components/localShows";
 
 class Category extends Component{

@@ -1,8 +1,15 @@
-//featured hero container
-<section class="hero is-primary is-medium">
-  <div class="hero-body">
-    <div class="container">
-    {props.children}
-    </div>
-  </div>
-</section>
+import React, { Component } from 'react';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import Carousel from "./Carousel";
+
+const FeaturedCarousel = () => {     
+        return (
+                <div>
+                <Carousel />
+                </div>
+         );   
+  };
+ 
+// ReactDOM.render(<FeaturedCarousel />, document.querySelector('.featured-carousel'));
+ 
+export default FeaturedCarousel;

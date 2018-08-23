@@ -52,9 +52,9 @@ class SignUpModal extends Component {
     handleFormSubmit = event => {
         // handling login
 
-        // APIArtists.getArtists()
-        // .then(data => console.log(data))
-        // .catch(err => console.log(err));
+        APIArtists.getArtistByName("Laura Garabedian")
+        .then(data => console.log(data))
+        .catch(err => console.log(err));
     };
     handleSignInModalClose() {
         document.querySelector("#SignInModal").classList.remove("is-active");

@@ -11,7 +11,7 @@ const DevCard = props => {
       <div class="media-content  tile is-child">
         <div class="content">
           <p>
-            <strong>{props.name}</strong>{" "}
+            <strong class="name">{props.name}</strong>{" "}
             <small>
               <i>{props.role}</i>
             </small>
@@ -22,17 +22,17 @@ const DevCard = props => {
         <nav class="level is-mobile  tile is-child">
           <div class="level-left">
             <a target="blank" class="level-item" href={props.github}>
-              <span class="icon">
+              <span class="icon footer-icon">
                 <i class="fab fa-github-square" />
               </span>
             </a>
             <a target="blank" class="level-item" href={props.linkedIn}>
-              <span class="icon">
+              <span class="icon footer-icon">
                 <i class="fab fa-linkedin" />
               </span>
             </a>
             <a target="blank" class="level-item" href={props.portfolio}>
-              <span class="icon">
+              <span class="icon footer-icon">
                 <i class="fas fa-portrait" />
               </span>
             </a>

@@ -1,1 +1,1 @@
-export { default } from "./localShows.jsx";
+export { default } from "./localShows";

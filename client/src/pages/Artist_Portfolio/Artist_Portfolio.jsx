@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 // import 'bulma/css/bulma.css';
 import ArtistPanel from "../../components/artistPanel";
-import {ArtworkPanel, ArtworkContainer} from "../../components/artworkContainer";
+import {ArtworkContainer, ArtworkPanel} from "../../components/artworkContainer";
+import APIArtists from "../../utils/APIArtists"
+import APIArt from "../../utils/APIArt"
 // import LocalShows from "../../components/localShows";
 
 class portfolio extends Component{
@@ -12,10 +14,21 @@ class portfolio extends Component{
             bio: "",
             websiteURL: "",
             phone: "",
-            categories: "",
-            art: []
-        }
+            mediums: ""
+        },
+        Art: []
     };
+    componentDidMount = event => {
+        
+        this.setState({
+            Artist: APIArtists.getArtistByName("Dick Brewer"),
+            Art: APIArt.getAllArt()
+          })
+          .then(data => console.log(data))
+          .catch(err => console.log(err));
+      }
+
+
     render() {
         return (
             <div>
@@ -25,16 +38,16 @@ class portfolio extends Component{
                   bio={this.state.Artist.bio}
                   websiteURL={this.state.Artist.websiteURL}
                   phone={this.state.Artist.phone}
-                  categories={this.state.Artist.categories}
+                  categories={this.state.Artist.email}
                 />
-                {/* <LocalShows/> */}
+
                 <ArtworkContainer>
-                    {this.state.Artist.art.map(artwork => {
+                    {this.state.Art.map(artwork => {
                         return (
                             <ArtworkPanel
                                 url={artwork.url}
                                 title={artwork.title}
-                                category={artwork.category}
+                                category={artwork.medium}
                                 dimensions={artwork.dimensions}
                                 yearCreated={artwork.yearCreated}
                                 description={artwork.description}

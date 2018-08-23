@@ -12,6 +12,7 @@ class Nav extends Component {
     this.state = {
       signInModalOpen: false,
       searchBarValue: "",
+      searchDropDownValue: "Medium",
     };
   };
 
@@ -21,6 +22,19 @@ class Nav extends Component {
       [name]: value
     }, callback);
   };
+
+  handleDropDownChange = selectedValue => {
+    console.log(this.state.searchDropDownValue)
+    this.setState({
+      searchDropDownValue: selectedValue.target.value
+    });
+    
+  };
+
+  launchSearch = () => {
+    
+  };
+
 
   handleSignInModalOpen = () => {
     // open sign-up
@@ -56,14 +70,22 @@ class Nav extends Component {
           {/* search */}
           <div class="navbar-item search-bar">
             <div class="field has-addons">
+
+            {/* search dropdown menu */}
               <p class="control">
                 <span class="select">
-                  <select id="navbarSearchDropdown">
+                  <select
+                    id="navbarSearchDropdown"
+                    value={this.state.searchDropDownValue}
+                    onChange={this.handleDropDownChange}
+                  >
                     <option>Medium</option>
                     <option>Artist</option>
                   </select>
                 </span>
               </p>
+
+              {/* search bar */}
               <div class="control">
                 <input class="input " type="text" placeholder="Search..." id="navbarSearchBox" onChange={this.handleInputChange} />
               </div>

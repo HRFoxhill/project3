@@ -34,4 +34,3 @@ export const ArtworkPanel = props => (
         </div>
     </section>
 );
-

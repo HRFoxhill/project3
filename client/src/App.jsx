@@ -9,11 +9,14 @@ import Portfolio from "./pages/Artist_Portfolio";
 import Category from "./pages/Category";
 import EditInfo from "./pages/editInfoPage";
 import EditArt from "./pages/editArt";
+import FeaturedCarousel from "./components/featured/featured";
+
 
 const App = () => (
   <Router>
-    <div>
+    <div id= "featured">
       <Nav />
+      <FeaturedCarousel />
       <div class="container">
         <Switch>
           <Route exact path="/" component={Home} />

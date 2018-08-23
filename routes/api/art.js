@@ -4,7 +4,7 @@ const artController = require("../../controllers/artController");
 // Matches with "/api/art"
 router.route("/")
   .get(artController.findAll)
-  // .post(artController.create);
+// .post(artController.create);
 
 // Matches with "/api/art/create/:id"
 router.route("/create/:id")

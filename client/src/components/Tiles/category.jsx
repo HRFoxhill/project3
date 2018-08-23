@@ -1,13 +1,13 @@
 import React, { Component } from "react";
+import { CSSTransitionGroup } from "react-transition-group";
 
-// function description(props) {
-//   const tileState = props.tileState;
-//   if (tileState) {
-//     return "HELLO WORLD";
-//   }
-// }
-
-
+function Description(props) {
+  const tileState = props.tileState;
+  if (tileState) {
+    return <p class="description">{props.input}</p>;
+  }
+  return null;
+}
 
 class Category extends Component {
   constructor(props) {
@@ -42,8 +42,19 @@ class Category extends Component {
         onMouseLeave={this.hideDescription.bind(this)}
         class="tile is-child box"
       >
-        
-        <div class="box tile-box">{this.props.name}</div>
+        <CSSTransitionGroup
+          transitionName="example"
+          transitionEnterTimeout={1}
+          transitionLeaveTimeout={1}
+        >
+          <div class="box tile-box" key={this.state.tileState}>
+            {this.props.name}
+            <Description
+              tileState={this.state.tileState}
+              input={this.props.description}
+            />
+          </div>
+        </CSSTransitionGroup>
       </article>
     );
   }

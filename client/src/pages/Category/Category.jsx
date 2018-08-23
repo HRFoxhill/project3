@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 // import 'bulma/css/bulma.css';
-import featured from "../../components/featured";
-import discover from "../../components/discover";
-import artistCard from "../../components/artistCard";
-// import navbar from "../../components/navbar";
-// import footer from "../../components/footer";
+import API from "../../utils/APIArtists";
+import Featured from "../../components/featured";
+import Discover from "../../components/discover";
+import ArtistCard from "../../components/artistCard";
+import Navbar from "../../components/navbar";
+import Footer from "../../components/footer";
 // import localShows from "../../components/localShows";
 
 class Category extends Component{
@@ -17,21 +18,18 @@ class Category extends Component{
     render() {
         return (
             <div>
-                is this working?
-                <navbar/>
-                <featured/>
-                <discover>
+                <Featured/>
+                <Discover>
                   {this.state.category.artists.map(artist => {
                       return (
-                        <artistCard
+                        <ArtistCard
                           featuredPhoto={artist.featuredPhoto}
                           profilePhoto={artist.profilePhoto}
                           artistName={artist.artistName}
                         />
                       )
                   })}  
-                </discover>
-                <footer/>
+                </Discover>
             </div>
         )
     }

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./SignInModal.css";
 import SignUpBtn from "../SignUpBtn";
-import PasswordInputBox from "../PasswordInputBox";
-import EmailInputBox from "../EmailInputBox";
+import InputBox from "../InputBox";
 import ModalSubmitBtn from "../ModalSubmitBtn"
 import ModalCancelBtn from "../ModalCancelBtn";
 
@@ -18,6 +17,10 @@ class SignUpModal extends Component {
         this.state = {
             email: "",
             password: "",
+            emailValidated: false,
+            emailValidationMessage: "please enter your email address",
+            passwordValidated: false,
+            passwordValidationMessage: "please enter your password",
         };
 
         this.handleSignInModalClose = this.handleSignInModalClose.bind(this);
@@ -51,11 +54,15 @@ class SignUpModal extends Component {
 
     handleFormSubmit = event => {
         // handling login
-
-        APIArtists.getArtistByName("Laura Garabedian")
+// not working yet
+        // APIArtists.getArtistByName("Laura Garabedian")
+        // .then(data => console.log(data))
+        // .catch(err => console.log(err));
+        APIArtists.checkLogin("DBrewer@Art.com", "password")
         .then(data => console.log(data))
         .catch(err => console.log(err));
     };
+
     handleSignInModalClose() {
         document.querySelector("#SignInModal").classList.remove("is-active");
         this.setState({
@@ -81,17 +88,34 @@ class SignUpModal extends Component {
                     <div className="modal-background"></div>
                     <div className="modal-content">
                         <h3 className="has-text-centered is-size-3">Sign In</h3>
-                        <EmailInputBox
-                            value={this.state.email}
-                            onChange={this.handleInputChange}
-                            name="email"
-                            placeholder="enter your email address"
+                        <InputBox
+                            label="email"                            
+                            inputClassName={this.state.emailValidated? "input is-success": "input is-danger"}
+                            inputType="email"
+                            inputId="signUpEmailInputBox"
+                            inputValue={this.state.email}
+                            inputOnChange={this.handleInputChange}
+                            inputName="email"
+                            inputPlaceholder="enter your email"
+                            leftIconClassName="fas fa-envelope"
+                            rightIconClassName= {this.state.emailValidated? "fas fa-check": "fas fa-exclamation-triangle"}
+                            paragraphClassName={this.state.emailValidated? "help is-success": "help is-danger"}
+                            paragraphMessage={this.state.emailValidationMessage}
                         />
-                        <PasswordInputBox
-                            value={this.state.password}
-                            onChange={this.handleInputChange}
-                            name="password"
-                            placeholder="enter a new password"
+                        {/* Password input box */}
+                        <InputBox
+                            label="password"                            
+                            inputClassName={this.state.passwordValidated? "input is-success": "input is-danger"}
+                            inputType="password"
+                            inputId="signUpPasswordInputBox"
+                            inputValue={this.state.password}
+                            inputOnChange={this.handleInputChange}
+                            inputName="password"
+                            inputPlaceholder="enter your password"
+                            leftIconClassName="fas fa-envelope"
+                            rightIconClassName= {this.state.passwordValidated? "fas fa-check": "fas fa-exclamation-triangle"}
+                            paragraphClassName={this.state.passwordValidated? "help is-success": "help is-danger"}
+                            paragraphMessage={this.state.passwordValidationMessage}
                         />
                         {/* Submit/close btns */}
                         <div className="field is-grouped">

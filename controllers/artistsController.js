@@ -73,10 +73,9 @@ module.exports = {
       .catch(err => res.status(422).json(err))
   },
   findArtistByName: function (req, res) {
-    let spacedName = req.params.name.replace(/%20/g, " ");
-    console.log(spacedName);
+    console.log(req.params.name);
     db.Artist
-      .find({ artistName: spacedName })
+      .find({ artistName: req.params.name })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   }

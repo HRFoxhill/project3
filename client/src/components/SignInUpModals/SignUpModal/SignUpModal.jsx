@@ -1,3 +1,5 @@
+// update modal to set className on modal based on is-open? Or maybe can't because that's based on the navbar
+
 import React, { Component } from "react";
 import "./SignUpModal.css";
 import SignInBtn from "../SignInBtn";
@@ -18,10 +20,10 @@ class SignUpModal extends Component {
             email: "",
             password: "",
             confirmPassword: "",
-            emailValidated: true,
+            emailValidated: false,
             emailValidationMessage: "please enter a valid email",
-            passwordValidated: true,
-            passwordValidationMessage: "please enter a valid password",confirmPasswordValidated: true,
+            passwordValidated: false,
+            passwordValidationMessage: "please enter a valid password",confirmPasswordValidated: false,
             confirmPasswordValidationMessage: "passwords must match",
         };
 
@@ -48,15 +50,30 @@ class SignUpModal extends Component {
     handlePasswordConfirmValidation = event => {
         this.handleInputChange(event, () => {
             console.log(this.state.password, this.state.confirmPassword)
-            if (this.state.password !== this.state.confirmPassword) {
-
+            if (this.state.password.length >= 7) {
+                this.setState({
+                    passwordValidated: true,
+                    passwordValidationMessage: "that'll work"
+                });
             } else {
-
+                this.setState({
+                    passwordValidated: false,
+                    passwordValidationMessage: "please enter a password"
+                    
+                });
+            }
+            if (this.state.passwordValidated && (this.state.password === this.state.confirmPassword)) {
+                this.setState({
+                    confirmPasswordValidated: true,
+                    confirmPasswordValidationMessage: "it's a match!"
+                });
+            } else {
+                this.setState({
+                    confirmPasswordValidated: false,
+                    confirmPasswordValidationMessage: "passwords must match"
+                });
             }
         });
-        // compare password state to confirm password state - if they are !not equal display red and add the caution sign symbol
-
-        // else display green and checkmark symbol
     };
 
     handleFormSubmit = event => {
@@ -75,6 +92,11 @@ class SignUpModal extends Component {
             email: "",
             password: "",
             confirmPassword: "",
+            emailValidated: false,
+            emailValidationMessage: "please enter a valid email",
+            passwordValidated: false,
+            passwordValidationMessage: "please enter a valid password",confirmPasswordValidated: false,
+            confirmPasswordValidationMessage: "passwords must match",
         });
     };
     handleSignInModalOpen() {
@@ -86,12 +108,17 @@ class SignUpModal extends Component {
             email: "",
             password: "",
             confirmPassword: "",
+            emailValidated: false,
+            emailValidationMessage: "please enter a valid email",
+            passwordValidated: false,
+            passwordValidationMessage: "please enter a valid password",confirmPasswordValidated: false,
+            confirmPasswordValidationMessage: "passwords must match",
         });
     };
 
     render() {
         return (
-            <div className="modal" id="SignUpModal">
+            <div className="modal"/*{this.props.modalClassName}*/ id="SignUpModal">
                 <div className="box">
                     <div className="modal-background"></div>
                     <div className="modal-content">
@@ -118,10 +145,10 @@ class SignUpModal extends Component {
                             inputType="password"
                             inputId="signUpPasswordInputBox"
                             inputValue={this.state.password}
-                            inputOnChange={this.handleInputChange}
+                            inputOnChange={this.handlePasswordConfirmValidation}
                             inputName="password"
                             inputPlaceholder="7 character minimum"
-                            leftIconClassName="fas fa-envelope"
+                            leftIconClassName="fas fa-key"
                             rightIconClassName= {this.state.passwordValidated? "fas fa-check": "fas fa-exclamation-triangle"}
                             paragraphClassName={this.state.passwordValidated? "help is-success": "help is-danger"}
                             paragraphMessage={this.state.passwordValidationMessage}
@@ -137,7 +164,7 @@ class SignUpModal extends Component {
                             inputOnChange={this.handlePasswordConfirmValidation}
                             inputName="confirmPassword"
                             inputPlaceholder="confirm password"
-                            leftIconClassName="fas fa-envelope"
+                            leftIconClassName="fas fa-key"
                             rightIconClassName= {this.state.confirmPasswordValidated? "fas fa-check": "fas fa-exclamation-triangle"}
                             paragraphClassName={this.state.confirmPasswordValidated? "help is-success": "help is-danger"}
                             paragraphMessage={this.state.confirmPasswordValidationMessage}
@@ -158,6 +185,7 @@ class SignUpModal extends Component {
                             <ModalSubmitBtn
                                 onClick={this.handleFormSubmit}
                                 id="modal-sign-up-submit-btn"
+                                disabled={this.state.confirmPasswordValidated && this.state.passwordValidated && this.state.emailValidated? "": "disabled"}
                             />
                             <ModalCancelBtn
                                 onClick={this.handleSignUpModalClose}

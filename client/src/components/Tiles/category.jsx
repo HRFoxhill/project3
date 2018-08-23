@@ -1,31 +1,24 @@
 import React, { Component } from "react";
-import { CSSTransitionGroup } from "react-transition-group";
+import Description from "./description";
 
-function Description(props) {
-  const tileState = props.tileState;
-  if (tileState) {
-    return <p class="description">{props.input}</p>;
-  }
-  return null;
-}
 
 class Category extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tileState: false
+      show: false
     };
   }
 
-  showDescription() {
+  hoverIn() {
     this.setState({
-      tileState: true
+      show: true
     });
   }
 
-  hideDescription() {
+  hoverOut() {
     this.setState({
-      tileState: false
+      show: false
     });
   }
 
@@ -38,23 +31,17 @@ class Category extends Component {
           backgroundPosition: "center",
           backgroundSize: "cover"
         }}
-        onMouseEnter={this.showDescription.bind(this)}
-        onMouseLeave={this.hideDescription.bind(this)}
+        onMouseEnter={this.hoverIn.bind(this)}
+        onMouseLeave={this.hoverOut.bind(this)}
         class="tile is-child box"
       >
-        <CSSTransitionGroup
-          transitionName="example"
-          transitionEnterTimeout={1}
-          transitionLeaveTimeout={1}
-        >
-          <div class="box tile-box" key={this.state.tileState}>
-            {this.props.name}
-            <Description
-              tileState={this.state.tileState}
-              input={this.props.description}
-            />
-          </div>
-        </CSSTransitionGroup>
+        <div class="box tile-box">
+          {this.props.name}
+          <Description
+            show={this.state.show}
+            input={this.props.description}
+          />
+        </div>
       </article>
     );
   }

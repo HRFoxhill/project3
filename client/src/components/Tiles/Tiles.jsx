@@ -4,7 +4,7 @@ import Category from "./category";
 class Tiles extends Component {
   render() {
     return (
-      <div>
+      <div class="medium-tiles">
         <div class="tile is-ancestor">
           <div class="tile is-parent">
             <Category

@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 // import 'bulma/css/bulma.css';
 import API from "../../utils/APIArtists";
-import Featured from "../../components/featured";
 import Discover from "../../components/discover";
 import ArtistCard from "../../components/artistCard";
-import Navbar from "../../components/navbar";
-import Footer from "../../components/footer";
 // import localShows from "../../components/localShows";
 
-class Category extends Component{
+class Medium extends Component{
     state = {
         category: {
             categoryName: "",
@@ -17,8 +14,7 @@ class Category extends Component{
     };
     render() {
         return (
-            <div>
-                <Featured/>
+            <div> 
                 <Discover>
                   {this.state.category.artists.map(artist => {
                       return (
@@ -31,8 +27,8 @@ class Category extends Component{
                   })}  
                 </Discover>
             </div>
-        )
+        );
     }
 }
 
-export default Category;
+export default Medium;

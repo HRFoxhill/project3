@@ -133,3 +133,9 @@ h1 {
     margin-right: 0;
     font-weight: bold;
 }
+
+.carousel { 
+    width: 50%;
+    height: auto;
+
+}

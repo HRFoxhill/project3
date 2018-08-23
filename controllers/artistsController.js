@@ -70,7 +70,10 @@ module.exports = {
         else return false
       })
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err))
+      .catch(err => {
+        res.send(err)
+        // res.status(422).json(err)
+      })
   },
   findArtistByName: function (req, res) {
     console.log(req.params.name);

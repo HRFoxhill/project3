@@ -53,7 +53,7 @@ var ArtistSchema = new Schema({
 ArtistSchema.methods.toJSON = function() {
   var obj = this.toObject();
   delete obj.password;
-  delete obj.local.password
+  // delete obj.local.password
   return obj;
  }
 

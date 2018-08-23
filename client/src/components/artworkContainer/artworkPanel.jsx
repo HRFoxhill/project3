@@ -2,7 +2,7 @@ import React from "react";
 // import 'bulma/css/bulma.css';
 
 
-const ArtworkPanel = props => (
+export const ArtworkPanel = props => (
     <section className="hero is-medium is-light is-bold">
         <div className="hero-body">
             <div className="container">
@@ -34,4 +34,3 @@ const ArtworkPanel = props => (
         </div>
     </section>
 );
-export default ArtworkPanel;

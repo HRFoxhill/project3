@@ -1,7 +1,3 @@
-//can model after navbar.jsx and index.jsx
-//also remember to edit app.jsx line 7
-
-
 import React from "react";
 
 

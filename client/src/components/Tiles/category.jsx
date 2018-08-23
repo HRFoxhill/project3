@@ -1,31 +1,24 @@
 import React, { Component } from "react";
-
-// function description(props) {
-//   const tileState = props.tileState;
-//   if (tileState) {
-//     return "HELLO WORLD";
-//   }
-// }
-
+import Description from "./description";
 
 
 class Category extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tileState: false
+      show: false
     };
   }
 
-  showDescription() {
+  hoverIn() {
     this.setState({
-      tileState: true
+      show: true
     });
   }
 
-  hideDescription() {
+  hoverOut() {
     this.setState({
-      tileState: false
+      show: false
     });
   }
 
@@ -38,12 +31,17 @@ class Category extends Component {
           backgroundPosition: "center",
           backgroundSize: "cover"
         }}
-        onMouseEnter={this.showDescription.bind(this)}
-        onMouseLeave={this.hideDescription.bind(this)}
+        onMouseEnter={this.hoverIn.bind(this)}
+        onMouseLeave={this.hoverOut.bind(this)}
         class="tile is-child box"
       >
-        
-        <div class="box tile-box">{this.props.name}</div>
+        <div class="box tile-box">
+          {this.props.name}
+          <Description
+            show={this.state.show}
+            input={this.props.description}
+          />
+        </div>
       </article>
     );
   }

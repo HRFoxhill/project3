@@ -5,7 +5,6 @@ import MediumPanel from "../../components/mediumPanel";
 import ArtistCard from "../../components/artistCard";
 import {ArtworkContainer} from "../../components/artworkContainer";
 
-// import mediumPanel from "../../components/artistPanel/mediumPanel";
 // import localShows from "../../components/localShows";
 
 class Medium extends Component {
@@ -25,10 +24,11 @@ class Medium extends Component {
         // get art by medium
         APIArt.getArtByMedium(parsedUrlMedium)
             .then(data => {
-                // console.log(data.data);
+                console.log(data.data);
                 data.data.forEach(item => {
                     APIArtists.getArtistByArt(item._id)
                         .then(results => {
+                            console.log(results)
                             item.artistInfo = results.data[0]
                             populatedArtArray.push(item);
 
@@ -48,17 +48,20 @@ class Medium extends Component {
 
     componentDidUpdate = () => {
         let parsedUrlMedium = window.location.href.split("=").pop();
-
+        
         if (parsedUrlMedium !== this.state.medium) {
             this.handleMediumSearch();
         };
+    //    this doesn't work - Joe taking over
+        // if (this.state.art.length) {
+        //     this.handleMediumSearch();
+        // }
     };
     
     render() {
         return (
             <div>
-                {/* <ArtworkContainer> */}
-                <h3>What up</h3>
+                <ArtworkContainer>
                     {this.state.art.map(art => {
                         return (
                             <div>
@@ -76,7 +79,7 @@ class Medium extends Component {
                             </div>
                         );
                     })}
-                {/* </ArtworkContainer> */}
+                </ArtworkContainer>
             </div>
         )
     }

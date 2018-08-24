@@ -1,6 +1,4 @@
 import React from "react";
-// import 'bulma/css/bulma.css';
-
 
 export const ArtworkPanel = props => (
     <div class="card is-one-third" id="artwork-card">
@@ -20,6 +18,8 @@ export const ArtworkPanel = props => (
                 <p class="subtitle is-6">{props.dimensions}</p>
                 <p class="subtitle is-6">{props.yearCreated}</p>
                 <p class="subtitle is-6">{props.description}</p>
+                <p class="subtitle is-6">{props.artistName}</p>
+                <p class="subtitle is-6">{props.portfolioLink}</p>
             </div>
         </div>
     </div>

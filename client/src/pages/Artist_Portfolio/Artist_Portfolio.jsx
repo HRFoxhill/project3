@@ -63,6 +63,7 @@ class portfolio extends Component {
                     {this.state.art.map(artwork => {
                         return (
                             <ArtworkPanel
+                                key={artwork._id}
                                 url={artwork.url}
                                 title={artwork.title}
                                 category={artwork.medium}

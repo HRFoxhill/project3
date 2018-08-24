@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import APIArt from "../../utils/APIArt";
 import APIArtists from "../../utils/APIArtists";
-import {ArtworkPanel, ArtworkContainer} from "../../components/artworkContainer";
+import { ArtworkPanel, ArtworkContainer } from "../../components/artworkContainer";
 import ArtistCard from "../../components/artistCard";
 // import ArtworkContainer from "../../components/artworkContainer";
 
@@ -24,11 +25,10 @@ class Medium extends Component {
         // get art by medium
         APIArt.getArtByMedium(parsedUrlMedium)
             .then(data => {
-                console.log(data.data);
+                // console.log(data.data);
                 data.data.forEach(item => {
                     APIArtists.getArtistByArt(item._id)
                         .then(results => {
-                            console.log(results)
                             item.artistInfo = results.data[0]
                             populatedArtArray.push(item);
 
@@ -48,16 +48,16 @@ class Medium extends Component {
 
     componentDidUpdate = () => {
         let parsedUrlMedium = window.location.href.split("=").pop();
-        
+
         if (parsedUrlMedium !== this.state.medium) {
             this.handleMediumSearch();
         };
-    //    this doesn't work - Joe taking over
+        //    this doesn't work - Joe taking over
         // if (this.state.art.length) {
         //     this.handleMediumSearch();
         // }
     };
-    
+
     render() {
         return (
             <div>
@@ -71,10 +71,9 @@ class Medium extends Component {
                                 dimensions={artwork.dimensions}
                                 yearCreated={artwork.yearCreated}
                                 description={artwork.description}
-                                // artistName={artwork.artistInfo.artistName}
-                                //add link that routes to portfolio page here. portfolioLink={}
+                                artistName={"By " + artwork.artistInfo.artistName}
+                                artistId={artwork.artistInfo._id}
                             />
-                            </div>
                         );
                     })}
                 </ArtworkContainer>

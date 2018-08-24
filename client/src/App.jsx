@@ -6,10 +6,10 @@ import NoMatch from "./pages/NoMatch";
 import Nav from "./components/navbar";
 import Footer from "./components/footer";
 import Portfolio from "./pages/Artist_Portfolio";
-import {Medium} from "./pages/Medium";
+import Medium from "./pages/Medium";
 import EditInfo from "./pages/editInfoPage";
 import EditArt from "./pages/editArt";
-import FeaturedCarousel from "./components/featured/featured";
+// import FeaturedCarousel from "./components/featured/featured";
 
 
 const App = () => (
@@ -19,8 +19,8 @@ const App = () => (
       <div class="container">
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/portfolio" component={Portfolio} />
-          <Route exact path="/medium" component={Medium} />
+          <Route path="/portfolio:id" component={Portfolio} />
+          <Route path="/medium:medium" component={Medium} />
           <Route exact path="/editinfo" component={EditInfo} />
           <Route exact path="/editart" component={EditArt} />
           <Route component={NoMatch} />

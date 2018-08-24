@@ -49,7 +49,7 @@ class SignUpModal extends Component {
     };
     handlePasswordConfirmValidation = event => {
         this.handleInputChange(event, () => {
-            console.log(this.state.password, this.state.confirmPassword)
+            // console.log(this.state.password, this.state.confirmPassword)
             if (this.state.password.length >= 7) {
                 this.setState({
                     passwordValidated: true,

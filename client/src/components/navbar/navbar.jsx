@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SignInModal from "../SignInUpModals/SignInModal";
 import SignUpModal from "../SignInUpModals/SignUpModal";
+// import APIArtist from "../../utils/APIArtists";
 
 
 
@@ -24,15 +25,14 @@ class Nav extends Component {
   };
 
   handleDropDownChange = selectedValue => {
-    console.log(this.state.searchDropDownValue)
     this.setState({
       searchDropDownValue: selectedValue.target.value
     });
 
   };
 
-  launchSearch = () => {
-
+  handleSearchBarUpdate = event => {
+    
   };
 
 
@@ -49,15 +49,15 @@ class Nav extends Component {
   render() {
     return (
 
-      <nav class="navbar is-light">
+      <nav className="navbar is-light">
         <SignInModal
         // modalClassName={this.state.signInModalOpen? "modal is-active":"modal"}
         />
         <SignUpModal />
-        <div class="navbar-brand">
+        <div className="navbar-brand">
 
           {/* logo */}
-          <Link class="navbar-item" to="/">
+          <Link className="navbar-item" to="/">
             <img
               src="https://bulma.io/images/bulma-logo.png"
               alt="Logo Name"
@@ -68,12 +68,12 @@ class Nav extends Component {
 
 
           {/* search */}
-          <div class="navbar-item search-bar">
-            <div class="field has-addons">
+          <div className="navbar-item search-bar">
+            <div className="field has-addons">
 
               {/* search dropdown menu */}
-              <p class="control">
-                <span class="select">
+              <p className="control">
+                <span className="select">
                   <select
                     id="navbarSearchDropdown"
                     value={this.state.searchDropDownValue}
@@ -86,21 +86,33 @@ class Nav extends Component {
               </p>
 
               {/* search bar */}
-              <div class="control">
-                <input class="input " type="text" placeholder="Search..." id="navbarSearchBox" onChange={this.handleInputChange} />
+              <div className="control">
+                <input
+                  className="input "
+                  type="text"
+                  placeholder="Search..."
+                  id="navbarSearchBox"
+                  onChange={this.handleInputChange}
+                  name="searchBarValue"
+                  // value={this.state.searchBarValue}
+                />
               </div>
-              <div class="control">
-                <a class="button is-info">
+              <div className="control">
+                <Link
+                  className="button is-info"
+                  to={this.state.searchDropDownValue === "Medium" ? ("/searchMedium/?=" + this.state.searchBarValue) : this.state.searchDropDownValue === "Artist" ? ("/searchArtist/?=" + this.state.searchBarValue) : ""}
+                  onClick={this.updateSearchBarValue}
+                >
                   <span className="icon">
-                    <i class="fas fa-search" />
+                    <i className="fas fa-search" />
                   </span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>
 
           {/* burger */}
-          <div class="navbar-burger burger">
+          <div className="navbar-burger burger">
             <span />
             <span />
             <span />
@@ -110,18 +122,18 @@ class Nav extends Component {
         {/* navbar menu */}
         <div className="navbar-menu">
           <div className="navbar-start" />
-          <div class="navbar-end">
+          <div className="navbar-end">
 
 
             {/* Login/Signup */}
-            <div class="navbar-item">
-              <div class="field">
-                <p class="control">
-                  <a class="button is-info"
+            <div className="navbar-item">
+              <div className="field">
+                <p className="control">
+                  <a className="button is-info"
                     onClick={this.handleSignInModalOpen}
                     id="signInModalOpen"
                   >
-                    <span class="icon">
+                    <span className="icon">
                       <i class="fas fa-sign-in-alt" />
                     </span>
                     <span>Login | Sign-Up</span>
@@ -131,16 +143,16 @@ class Nav extends Component {
             </div>
 
             {/* bottom nav categories */}
-            <div class="navbar-item nav-div is-light">
+            <div className="navbar-item nav-div is-light">
               <div className="categories-container">
                 <Link class="nav-categories" to="/medium=Mixed%20Media">Mixed Media</Link>
-                <Link class="nav-categories" to="/medium=Ceramics">Ceramics</Link>
-                <Link class="nav-categories" to="/medium=Drawing">Drawing</Link>
-                <Link class="nav-categories" to="/medium=Illustration">Illustration</Link>
-                <Link class="nav-categories" to="/medium=Painting">Painting</Link>
-                <Link class="nav-categories" to="/medium=Photography">Photography</Link>
-                <Link class="nav-categories" to="/medium=Sculpture">Sculpture</Link>
-                <Link class="nav-categories" to="/medium=Glass%20Works">Glass Works</Link>
+                <Link className="nav-categories" to="/medium=Ceramics">Ceramics</Link>
+                <Link className="nav-categories" to="/medium=Drawing">Drawing</Link>
+                <Link className="nav-categories" to="/medium=Illustration">Illustration</Link>
+                <Link className="nav-categories" to="/medium=Painting">Painting</Link>
+                <Link className="nav-categories" to="/medium=Photography">Photography</Link>
+                <Link className="nav-categories" to="/medium=Sculpture">Sculpture</Link>
+                <Link className="nav-categories" to="/medium=Glass%20Works">Glass Works</Link>
               </div>
             </div>
           </div>

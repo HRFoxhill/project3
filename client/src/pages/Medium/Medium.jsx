@@ -9,40 +9,49 @@ class Medium extends Component {
     state = {
         medium: "",
         art: [],
-        featuredPhoto: "", 
+        featuredPhoto: "",
         profilePhoto: "",
         artistName: "",
     };
-
-    componentDidMount = event => {
+    
+    componentDidUpdate = event => {
         let parsedUrlMedium = window.location.href.split("=").pop();
-        this.setState({
-            medium: parsedUrlMedium,
-        })
-        console.log(parsedUrlMedium)
 
-        // get art pieces by medium
-        APIArt.getArtByMedium(parsedUrlMedium)
-            .then(data => {
-                console.log(data.data);
-                // then for each piece that is returned, query the artist Db for the artist that has that art id in their art array
-                data.data.forEach(item => {
-                    // this route doesn't exist yet - Joe is making
-                    APIArtists.getArtistByArt(item._id)
-                        .then(results => {
-                            // bundle all that info into a useful state to be rendered on that page
-                            console.log(results)
-                        })
-                        .catch(err => console.log(err));
-                })
+        if (parsedUrlMedium !== this.state.medium) {
+            let populatedArtArray = [];
 
-                this.setState({
-                    art: data.data
-                })
-                // console.log(this.state.art)
+            this.setState({
+                medium: parsedUrlMedium,
             })
-            .catch(err => console.log(err));
-    }
+            console.log(parsedUrlMedium)
+
+            // get art by medium
+            APIArt.getArtByMedium(parsedUrlMedium)
+                .then(data => {
+                    console.log(data.data);
+                    data.data.forEach(item => {
+                        APIArtists.getArtistByArt(item._id)
+                            .then(results => {
+                                // bundle all that info into a useful state to be rendered on that page
+                                
+                                item.artistInfo = results.data[0]
+                                console.log(results.data[0]);
+                                console.log(item)
+                                populatedArtArray.push(item);
+                                this.setState({
+                                    art:  populatedArtArray
+                                })
+                                console.log(this.state.art)
+                            })
+                            .catch(err => console.log(err));
+                    })
+
+                    
+                    // console.log(this.state.art)
+                })
+                .catch(err => console.log(err));
+        };
+    };
 
     render() {
         return (

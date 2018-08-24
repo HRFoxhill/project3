@@ -4,7 +4,7 @@ export const ArtworkPanel = props => (
     <div class="card is-one-third" id="artwork-card">
         <div class="card-image">
             <figure class="image">
-                <img src={props.url} className="artwork-image" id="portfolio-artwork" alt="Placeholder image"/>
+                <img src={props.url} className="artwork-image" id="portfolio-artwork" alt="Placeholder image" />
             </figure>
         </div>
         <div class="card-content">

@@ -38,8 +38,8 @@ export default {
   getArtistByArt: function(id) {
     return axios.get("/api/user/art/artist/" + id);
    },
-   checkLogin: function(username, password) {
-    return axios.get("/api/user/artist/" + username + "/" + password);
+   checkLogin: function(body) {
+    return axios.post("/api/login", body);
    }
 
 };

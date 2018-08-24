@@ -23,10 +23,8 @@ const strategy = new Strategy(
                 console.log("PASSWORD: " + password)
                 console.log("DB USER: " + DBuser[0].password)
                 console.log("Back from the database! Let's check if our credentials are good: ");
-                let compare = bcrypt.compare(password, DBuser[0].password, function(err, res){
-                    if (err) throw err
-                    return res
-                })
+                let compare = DBuser[0].checkPassword(password) 
+                console.log("Compare: " + compare)
                 if (!DBuser) {
                     console.log("User " + username + " was not in the DB");
                     return done(null, false, { message: 'Incorrect username.' });

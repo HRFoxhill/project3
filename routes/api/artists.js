@@ -33,4 +33,8 @@ router
   .route("/artist/:name")
   .get(artistsController.findArtistByName)
 
+router
+  .route("/art/artist/:id")
+  .get(artistsController.findArtistByArt)
+
 module.exports = router;

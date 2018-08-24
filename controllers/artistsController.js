@@ -19,10 +19,10 @@ module.exports = {
   createArtist: function (req, res) {
     db.Artist
       .create(req.body)
-      .then(dbArtist => {
-        let hash = bcrypt.hashSync(dbArtist.password, saltRounds)
-        return db.Artist.findOneAndUpdate({ _id: dbArtist._id }, { local: { password: hash, email: dbArtist.email }, password: hash }, { new: true })
-      })
+      // .then(dbArtist => {
+      //   let hash = bcrypt.hashSync(dbArtist.password, saltRounds)
+      //   return db.Artist.findOneAndUpdate({ _id: dbArtist._id }, { local: { password: hash, email: dbArtist.email }, password: hash }, { new: true })
+      // })
       .then(dbModel => res.json(dbModel))
       .catch(err => {
         console.log(err);
@@ -79,6 +79,12 @@ module.exports = {
     console.log(req.params.name);
     db.Artist
       .find({ artistName: req.params.name })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err))
+  },
+  findArtistByArt: function (req, res) {
+    db.Artist
+      .find({ art: req.params.id })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   }

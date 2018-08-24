@@ -28,11 +28,11 @@ class Nav extends Component {
     this.setState({
       searchDropDownValue: selectedValue.target.value
     });
-    
+
   };
 
   launchSearch = () => {
-    
+
   };
 
 
@@ -57,21 +57,21 @@ class Nav extends Component {
         <div class="navbar-brand">
 
           {/* logo */}
-          <a class="navbar-item" href="/">
+          <Link class="navbar-item" to="/">
             <img
               src="https://bulma.io/images/bulma-logo.png"
               alt="Logo Name"
               width="112"
               height="28"
             />
-          </a>
+          </Link>
 
 
           {/* search */}
           <div class="navbar-item search-bar">
             <div class="field has-addons">
 
-            {/* search dropdown menu */}
+              {/* search dropdown menu */}
               <p class="control">
                 <span class="select">
                   <select
@@ -117,9 +117,9 @@ class Nav extends Component {
             <div class="navbar-item">
               <div class="field">
                 <p class="control">
-                  <a class="button is-info" 
-                  onClick={this.handleSignInModalOpen}
-                  id="signInModalOpen"
+                  <a class="button is-info"
+                    onClick={this.handleSignInModalOpen}
+                    id="signInModalOpen"
                   >
                     <span class="icon">
                       <i class="fas fa-sign-in-alt" />
@@ -133,36 +133,14 @@ class Nav extends Component {
             {/* bottom nav categories */}
             <div class="navbar-item nav-div is-light">
               <div className="categories-container">
-                <a class="nav-categories">
-                  <Link
-                    to="/editinfo">
-                    Mixed Media
-                  </Link>
-                </a>
-                <a class="nav-categories">
-                  <Link
-                    to="/editinfo">
-                    Ceramics
-                  </Link>
-                </a>
-                <a class="nav-categories">
-                  <Link to="/editinfo">Drawing</Link>
-                </a>
-                <a class="nav-categories">
-                  <Link to="/editinfo">Drawing</Link>
-                </a>
-                <a class="nav-categories">
-                  <Link to="/editinfo">Drawing</Link>
-                </a>
-                <a class="nav-categories">
-                  <Link to="/editinfo">Drawing</Link>
-                </a>
-                <a class="nav-categories">
-                  <Link to="/editinfo">Sculpture</Link>
-                </a>
-                <a class="nav-categories">
-                  <Link to="/editinfo">Glass Works</Link>
-                </a>
+                <Link class="nav-categories" to="/medium=Mixed%20Media">Mixed Media</Link>
+                <Link class="nav-categories" to="/medium=Ceramics">Ceramics</Link>
+                <Link class="nav-categories" to="/medium=Drawing">Drawing</Link>
+                <Link class="nav-categories" to="/medium=Illustration">Illustration</Link>
+                <Link class="nav-categories" to="/medium=Painting">Painting</Link>
+                <Link class="nav-categories" to="/medium=Photography">Photography</Link>
+                <Link class="nav-categories" to="/medium=Sculpture">Sculpture</Link>
+                <Link class="nav-categories" to="/medium=Glass%20Works">Glass Works</Link>
               </div>
             </div>
           </div>

@@ -1,3 +1,4 @@
+// HALEY!  hi :) see below 
 // http://localhost:3000/portfolio=5b7e9fda7432aaf5ad99f5bc
 // use the above url to test but use an id from your Artist collection in your DB (ours will all be different)
 
@@ -24,13 +25,13 @@ class portfolio extends Component {
     };
     componentDidMount = event => {
         // this still needs to be tested
-        let parsedUrlId = window.location.href.split("=").pop();
+        let parsedUrlArtistId = window.location.href.split("=").pop();
         this.setState({
-            _id: parsedUrlId,
+            _id: parsedUrlArtistId,
         })
-        console.log(parsedUrlId)
+        console.log(parsedUrlArtistId)
 
-        APIArtists.getArtByArtist(parsedUrlId)
+        APIArtists.getArtByArtist(parsedUrlArtistId)
             .then(data => {
                 console.log(data.data);
                 this.setState({
@@ -45,9 +46,6 @@ class portfolio extends Component {
                 console.log(this.state.art)
             })
             .catch(err => console.log(err));
-
-
-
     }
 
     render() {

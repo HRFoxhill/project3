@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import APIArt from "../../utils/APIArt";
 import APIArtists from "../../utils/APIArtists";
-import MediumPanel from "../../components/mediumPanel";
+import {ArtworkPanel, ArtworkContainer} from "../../components/artworkContainer";
 import ArtistCard from "../../components/artistCard";
-import {ArtworkContainer} from "../../components/artworkContainer";
+// import ArtworkContainer from "../../components/artworkContainer";
 
 // import mediumPanel from "../../components/artistPanel/mediumPanel";
 // import localShows from "../../components/localShows";
@@ -57,21 +57,18 @@ class Medium extends Component {
     render() {
         return (
             <div>
-                {/* <ArtworkContainer> */}
-                <h3>What up</h3>
-                    {this.state.art.map(art => {
+                <ArtworkContainer>
+                    {this.state.art.map(artwork => {
                         return (
-                            <div>
-                            <MediumPanel
-                                key={art._id}
-                                artTitle={art.title}
-                                artMedium={art.medium}
-                                artURL={art.url}
-                                artDimensions={art.dimensions}
-                                artYearCreated={art.yearCreated}
-                                artDescription={art.description}
-                                // artArtistName={art.artistInfo.artistName}
-                                // artArtistWebsite={art.artistInfo.artistWebsite}
+                            <ArtworkPanel
+                                url={artwork.url}
+                                title={artwork.title}
+                                category={artwork.medium}
+                                dimensions={artwork.dimensions}
+                                yearCreated={artwork.yearCreated}
+                                description={artwork.description}
+                                // artistName={artwork.artistInfo.artistName}
+                                //add link that routes to portfolio page here. portfolioLink={}
                             />
                             </div>
                         );

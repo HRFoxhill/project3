@@ -7,15 +7,15 @@ router.route("/")
 // .post(artController.create);
 
 // Matches with "/api/art/create/:id"
-router.route("/create/:id")
-  .post(artController.create)
+// router.route("/create/:id")
+//   .post(artController.create)
 
 // Matches with "/api/art/:id"
 router
   .route("/:id")
   .get(artController.findById)
-  .put(artController.update)
-  .delete(artController.remove);
+  // .put(artController.update)
+  // .delete(artController.remove);
 
 // Matches with "/api/art/:medium"
 router

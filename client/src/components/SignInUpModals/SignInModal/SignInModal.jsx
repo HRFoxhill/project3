@@ -87,29 +87,30 @@ class SignUpModal extends Component {
         .then(data => {
             let results = data.data.user;
             console.log(results);
-            function isEmpty(myObject) {
-                for(var key in myObject) {
-                    if (myObject.hasOwnProperty(key)) false
-                }
-                return true;
-            }
+            // function isEmpty(myObject) {
+            //     for(var key in myObject) {
+            //         if (myObject.hasOwnProperty(key)) false
+            //     }
+            //     return true;
+            // }
 // ENDED OFF HERE: NOT FULLY WORKING!
-            if (isEmpty(results)) {
-                console.log("could not find email");
-                this.setState({
-                    emailValidationMessage: "invalid email"
-                });
-            } else if (results === false) {
-                console.log("incorrect password");
-                this.setState({
-                    passwordValidationMessage: "incorrect password"
-                });
-            } else if (results.length >= 1) {
-                console.log("'logged in'");
+            // if (isEmpty(results)) {
+            //     console.log("could not find email");
+            //     this.setState({
+            //         emailValidationMessage: "invalid email"
+            //     });
+            // } else if (results === false) {
+            //     console.log("incorrect password");
+            //     this.setState({
+            //         passwordValidationMessage: "incorrect password"
+            //     });
+            // } else if (results.length >= 1) {
+            //     console.log("'logged in'");
                 
-            }
+            // }
+            console.log("Logged in as: " + results[0].email)
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log("Failed to log in: " + err));
     };
 
     handleSignInModalClose() {

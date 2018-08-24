@@ -1,1 +1,1 @@
-export { default } from "./mediumPanel.jsx";
+export { default } from "./mediumPanel";

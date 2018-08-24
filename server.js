@@ -25,7 +25,21 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Connect to the Mongo DB
 let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/artdb";
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, function(error) {
+    // Log any errors connecting with mongoose
+    if (error) {
+      console.error(error);
+    }
+    // Or log a success message
+    else {
+      console.log("mongoose connection is successful");
+    }
+  });
+
+//Mlab credentails commented out below
+//mongodb://<Project3Users>:<Password123>@ds121674.mlab.com:21674/heroku_8x7lz6hg
+//mongo ds121674.mlab.com:21674/heroku_8x7lz6hg -u <Project3Users> -p <Password123>
+
 
 // Use express.static to serve the public folder as a static directory
 // app.use(express.static("public"));

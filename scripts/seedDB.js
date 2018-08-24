@@ -61,7 +61,7 @@ const DickArtSeed = [
         url: "http://dixplexia.com/thumbnails/pics/17Isisframe.jpg",
         dimensions: "27x21",
         yearCreated: "2017",
-        description: "Created using a 21,000 ROM grinder.",
+        description: "Created using a 21,000 RPM grinder.",
     },
     {
         title: "Eldorado Blvd",
@@ -69,7 +69,7 @@ const DickArtSeed = [
         url: "http://dixplexia.com/thumbnails/pics/5EldoradoBlvdframe.jpg",
         dimensions: "29x23",
         yearCreated: "2018",
-        description: "Created using a 21,000 ROM grinder.",
+        description: "Created using a 21,000 RPM grinder.",
     },
 ]
 

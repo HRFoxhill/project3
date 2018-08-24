@@ -10,14 +10,12 @@ import Portfolio from "./pages/Artist_Portfolio";
 import Medium from "./pages/Medium";
 import EditInfo from "./pages/editInfoPage";
 import EditArt from "./pages/editArt";
-// import FeaturedCarousel from "./components/featured/featured";
 
 
 const App = () => (
   <Router>
     <div id= "featured">
-      <Nav />
-      <div class="container">
+      <Nav/>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/searchMedium/:?=medium" component={SearchResults} />
@@ -29,7 +27,6 @@ const App = () => (
           <Route exact path="/editart" component={EditArt} />
           <Route component={NoMatch} />
         </Switch>
-      </div>
       <Footer/>
     </div>
   </Router>

@@ -2,7 +2,7 @@ import React from "react";
 
 const Shows = props => {
   return (
-      <div class="box">
+      <div className="box">
         Upcoming Shows
       </div>
 );

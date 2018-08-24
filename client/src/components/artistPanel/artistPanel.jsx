@@ -12,23 +12,23 @@ const artistPanel = props => (
                             <img className="is-rounded" src={props.profilePhoto}/>
                         </figure>
                     </div>
-                    <div class="column is-three-quarters is-centered">
+                    <div className="column is-three-quarters is-centered">
                         <div className="tile is-ancestor">
                             <div className="tile is-parent">
-                                <article class="tile is-child notification is-primary">
-                                    <h1 class="title">
+                                <article className="tile is-child notification is-primary">
+                                    <h1 className="title">
                                         {props.artistName}
                                     </h1>
-                                    <h2 class="subtitle">
+                                    <h2 className="subtitle">
                                         {props.bio}
                                     </h2>
-                                    <h2 class="subtitle">
+                                    <h2 className="subtitle">
                                         {props.websiteURL}
                                     </h2>
-                                    <h2 class="subtitle">
+                                    <h2 className="subtitle">
                                         {props.phone}
                                     </h2>
-                                    <h2 class="subtitle">
+                                    <h2 className="subtitle">
                                         {props.categories}
                                     </h2>
                                 </article>

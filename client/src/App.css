@@ -139,3 +139,12 @@ h1 {
     height: auto;
 
 }
+#artwork-panel {
+  margin: 0 px;
+  padding: 30 px;
+
+}
+#portfolio-artwork {
+  height: 400px;
+  width: auto;
+}

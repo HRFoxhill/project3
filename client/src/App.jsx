@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
+import SearchResults from "./pages/SearchResults";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/navbar";
 import Footer from "./components/footer";
@@ -16,9 +17,12 @@ const App = () => (
   <Router>
     <div id= "featured">
       <Nav />
-      <div class="container">
+      <div className="container">
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/searchMedium/:?=medium" component={SearchResults} />
+          <Route path="/searchArtist/:?=medium" component={SearchResults} />
+          
           <Route path="/portfolio:id" component={Portfolio} />
           <Route path="/medium:medium" component={Medium} />
           <Route exact path="/editinfo" component={EditInfo} />

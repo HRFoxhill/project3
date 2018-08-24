@@ -2,7 +2,7 @@
 // ===================================
 const express = require("express");
 // const path = require("path");
-const routes = require("./routes");
+// const app = require("./routes");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 // var logger = require("morgan");
@@ -11,7 +11,7 @@ const mongoose = require("mongoose");
 // =====================================
 const PORT = process.env.PORT || 3001;
 const app = express();
-
+app.use(require('cookie-parser')());
 // Configure middleware
 // =====================================
 // Use morgan logger for logging requests
@@ -27,22 +27,21 @@ let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/artdb";
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
-// Mlab Credentails
-// mongo ds121674.mlab.com:21674/heroku_8x7lz6hg -u <Project3Users> -p <P@ssword1>
-// mongodb: <Project3Users>:<P@ssword1>@ds121674.mlab.com:21674/heroku_8x7lz6hg
-
-
 // Use express.static to serve the public folder as a static directory
-app.use(express.static("public"));
+// app.use(express.static("public"));
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+ //
+
+//Setup Passport
+const routes = require('./routes')(app);
 
 // Routes
 // =====================================
 // Add routes, both API and view
-app.use(routes);
+// app.use(routes);
 
 // !!not sure we need the below code with pulling in the routes (not finished). Joe, what's your take? - Amanda
 

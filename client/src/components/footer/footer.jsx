@@ -3,10 +3,10 @@ import DevCard from "../DevCards";
 
 const Footer = props => {
   return (
-    <section class="hero is-small foot">
+    <section className="hero is-small foot">
       <div className="hero-body">
         <div className="container">
-          <div class="tile is-ancestor is-12">
+          <div className="tile is-ancestor is-12">
             <DevCard
               name="Jon Opacich"
               img="https://avatars1.githubusercontent.com/u/37026747?s=460&v=4"
@@ -34,9 +34,9 @@ const Footer = props => {
               linkedIn="https://www.linkedin.com/in/peg-mickelson-2baab1/"
               portfolio="/"
             />
-            <div class="social-links tile is-child is-3" />
+            <div className="social-links tile is-child is-3" />
           </div>
-          <div class="tile is-ancestor is-12 dev-bottom-row">
+          <div className="tile is-ancestor is-12 dev-bottom-row">
             <DevCard
               name="Heather Foxhill"
               img="https://media.licdn.com/dms/image/C5603AQHxJW97_2gipg/profile-displayphoto-shrink_200_200/0?e=1539820800&v=beta&t=WRmv1bpoz31meV1cmZpNloVuWclVqVNb8Bkpa_SoWPU"
@@ -66,22 +66,22 @@ const Footer = props => {
             />
           </div>
           <div className="social-links">
-          <p class="social-title">Connect With Us:</p>
-            <a class="social-icons">
-              <i class="fab fa-facebook" />
+          <p className="social-title">Connect With Us:</p>
+            <a className="social-icons">
+              <i className="fab fa-facebook" />
             </a>
-            <a class="social-icons">
-              <i class="fab fa-twitter-square" />
+            <a className="social-icons">
+              <i className="fab fa-twitter-square" />
             </a>
             <br />
-            <a class="social-icons">
-              <i class="fab fa-pinterest-square" />
+            <a className="social-icons">
+              <i className="fab fa-pinterest-square" />
             </a>
-            <a class="social-icons">
-              <i class="fab fa-instagram" />
+            <a className="social-icons">
+              <i className="fab fa-instagram" />
             </a>
           </div>
-          <div class="content has-text-centered">
+          <div className="content has-text-centered">
             <p>
               <strong>ArtSposé</strong> is licensed under{" "}
               <a

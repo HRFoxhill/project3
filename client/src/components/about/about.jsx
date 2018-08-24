@@ -6,24 +6,24 @@ const About = props => {
         <section className="hero is-primary is-medium">
         <div className="hero-body">
           <div className="container">
-          <div class="columns">
-  <div class="column">
+          <div className="columns">
+  <div className="column">
   <h1>
     A one-of-a-kind community
     </h1>
     <h2>
-    Artsy is a local online marketplace where artists display their art by medium and patrons view art.
+    ArtSpose is a local online marketplace where artists display their art by medium and patrons view art.
     </h2>
   </div>
-  <div class="column">
+  <div className="column">
   <h1>
     Support local creators
     </h1>
     <h2>
-    There is no Artsy warehouse - just local artists showing the things they love. And local patrons and artists searching for art by medium to view our artists' work.
+    There is no ArtSpose warehouse - just local artists showing the things they love. And local patrons and artists searching for art by medium to view our artists' work.
     </h2>
   </div>
-  <div class="column">
+  <div className="column">
 
    <h1>
     Peace of mind

@@ -177,15 +177,19 @@ class SignUpModal extends Component {
                         {/* Submit/close btns */}
                         <div className="field is-grouped">
                             <ModalSubmitBtn
+                                id="signInBtn"
                                 onClick={this.handleFormSubmit}
                                 disabled={this.state.passwordValidated && this.state.emailValidated? "": "disabled"}
                             />
                             <ModalCancelBtn
+                                id="cancelBtn"
                                 onClick={this.handleSignInModalClose}
                             />
                             <div className="control has-text-right">
                                 Don't have an account yet? &nbsp;
-                            <SignUpBtn onClick={this.handleSignUpModalOpen}
+                            <SignUpBtn 
+                              id="createAnAccountBtn"
+                            onClick={this.handleSignUpModalOpen}
                                 />
                             </div>
                         </div>

@@ -1531,7 +1531,15 @@ lodash@^4.17.10, lodash@^4.5.1:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 loose-envify@^1.0.0, loose-envify@^1.3.1:
+=======
+loose-envify@^1.3.1:
+>>>>>>> 5a8c0539ba4e02e6c149e4a2b5a100b664e61284
+=======
+loose-envify@^1.0.0, loose-envify@^1.3.1:
+>>>>>>> d0ffde514fff437718a967746bb58b539b66e17f
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
   dependencies:
@@ -2156,7 +2164,15 @@ progress-stream@^1.1.0:
     speedometer "~0.1.2"
     through2 "~0.2.3"
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+prop-types@^15.5.6, prop-types@^15.6.2:
+=======
+prop-types@^15.5.8:
+>>>>>>> 5a8c0539ba4e02e6c149e4a2b5a100b664e61284
+=======
 prop-types@^15.5.6, prop-types@^15.5.8, prop-types@^15.6.2:
+>>>>>>> d0ffde514fff437718a967746bb58b539b66e17f
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:
@@ -2237,6 +2253,20 @@ rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+react-transition-group@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-1.2.1.tgz#e11f72b257f921b213229a774df46612346c7ca6"
+  dependencies:
+    chain-function "^1.0.0"
+    dom-helpers "^3.2.0"
+    loose-envify "^1.3.1"
+    prop-types "^15.5.6"
+    warning "^3.0.0"
+=======
+=======
+>>>>>>> d0ffde514fff437718a967746bb58b539b66e17f
 react-easy-swipe@^0.0.16:
   version "0.0.16"
   resolved "https://registry.yarnpkg.com/react-easy-swipe/-/react-easy-swipe-0.0.16.tgz#5a3d949a8f975d05be92a818254315d1318a81ea"
@@ -2250,6 +2280,9 @@ react-responsive-carousel@^3.1.41:
     classnames "^2.2.5"
     prop-types "^15.5.8"
     react-easy-swipe "^0.0.16"
+<<<<<<< HEAD
+>>>>>>> 5a8c0539ba4e02e6c149e4a2b5a100b664e61284
+=======
 
 react-transition-group@^1.2.1:
   version "1.2.1"
@@ -2260,6 +2293,7 @@ react-transition-group@^1.2.1:
     loose-envify "^1.3.1"
     prop-types "^15.5.6"
     warning "^3.0.0"
+>>>>>>> d0ffde514fff437718a967746bb58b539b66e17f
 
 read-pkg-up@^1.0.1:
   version "1.0.1"

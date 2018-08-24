@@ -133,16 +133,13 @@ h1 {
     margin-right: 0;
     font-weight: bold;
 }
-
 .carousel { 
     width: 50%;
     height: auto;
-
 }
 #artwork-panel {
   margin: 0 px;
   padding: 30 px;
-
 }
 #portfolio-artwork {
   height: 400px;

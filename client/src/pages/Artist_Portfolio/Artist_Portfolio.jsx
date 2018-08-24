@@ -58,7 +58,6 @@ class portfolio extends Component {
                     phone={this.state.phone}
                     categories={this.state.email}
                 />
-
                 <ArtworkContainer>
                     {this.state.art.map(artwork => {
                         return (

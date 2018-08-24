@@ -5,7 +5,7 @@ const Description = (props)=> {
     const componentClasses = ["description"];
     if (props.show) { componentClasses.push("show"); }
     return(
-      <p class={componentClasses.join(" ")}>{props.input}</p>
+      <p className={componentClasses.join(" ")}>{props.input}</p>
     )
 }
 

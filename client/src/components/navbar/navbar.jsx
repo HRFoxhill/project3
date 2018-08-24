@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SignInModal from "../SignInUpModals/SignInModal";
 import SignUpModal from "../SignInUpModals/SignUpModal";
+import Logo from "../../images/FaviconLogo options/Option2.JPG"
 // import APIArtist from "../../utils/APIArtists";
 
 
@@ -59,7 +60,7 @@ class Nav extends Component {
           {/* logo */}
           <Link className="navbar-item" to="/">
             <img
-              src="https://bulma.io/images/bulma-logo.png"
+              src= {Logo}
               alt="Logo Name"
               width="112"
               height="28"
@@ -134,7 +135,7 @@ class Nav extends Component {
                     id="signInModalOpen"
                   >
                     <span className="icon">
-                      <i class="fas fa-sign-in-alt" />
+                      <i className="fas fa-sign-in-alt" />
                     </span>
                     <span>Login | Sign-Up</span>
                   </a>
@@ -145,7 +146,7 @@ class Nav extends Component {
             {/* bottom nav categories */}
             <div className="navbar-item nav-div is-light">
               <div className="categories-container">
-                <Link class="nav-categories" to="/medium=Mixed%20Media">Mixed Media</Link>
+                <Link className="nav-categories" to="/medium=Mixed%20Media">Mixed Media</Link>
                 <Link className="nav-categories" to="/medium=Ceramics">Ceramics</Link>
                 <Link className="nav-categories" to="/medium=Drawing">Drawing</Link>
                 <Link className="nav-categories" to="/medium=Illustration">Illustration</Link>

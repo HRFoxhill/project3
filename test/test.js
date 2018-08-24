@@ -1,9 +1,10 @@
 const Nightmare = require('nightmare')
-const assert = require('assert')
+const chai = require('chai')
+const expect = chai.expect
 
 describe('ArtSpose', function () {
   // Recommended: 5s locally, 10s to remote server, 30s from airplane ¯\_(ツ)_/¯
-  this.timeout('30s')
+  this.timeout('120s')
 
   let nightmare = null
   beforeEach(() => {
@@ -21,7 +22,7 @@ describe('ArtSpose', function () {
     
     it('should load without error', done => {
       // your actual testing urls will likely be `http://localhost:port/path`
-      nightmare.goto('http://localhost:3000/medium')
+      nightmare.goto('http://localhost:3000/medium=Sculpture')
         .end()
         .then(function (result) { done() })
         .catch(done)
@@ -48,17 +49,17 @@ describe('ArtSpose', function () {
     it('should indicate invalid email', done => {
       new Nightmare({ show: true})
       .goto('http://localhost:3000/')
-      .type("email", "heatheriscool"
-    .click("#signInModalOpen")
+            .type("#signInEmailInputBox", "heatheriscool")
+            .type("#signInPasswordInputBox", "password")
+    .click("#signInBtn")
     .evaluate(function () {
-      return document.querySelector("#signInBtn")
+      return document.querySelector(".is-success").text()
     })
     .then(function (result) {
-      expect(result) .to .equal("invalid email");
-      done()
+      expect(result).to.equal("invalid email");
     })
-    .catch(done)
-  )
+    .done()
+  
     })
     // it('should bring up login modal', done => {
     //   new Nightmare({show: true})

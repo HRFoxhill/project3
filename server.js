@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Connect to the Mongo DB
-let MONGODB_URI = process.env.MONGODB_URI || "mongodb://<Project3Users>:<Password123>@ds121674.mlab.com:21674/heroku_8x7lz6hg";
+let MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/artdb";
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, function(error) {
     // Log any errors connecting with mongoose

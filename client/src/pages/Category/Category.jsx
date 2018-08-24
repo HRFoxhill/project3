@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import 'bulma/css/bulma.css';
 import API from "../../utils/APIArtists";
-import Featured from "../../components/featured";
+import Featured from "../../components/Carousel";
 import Discover from "../../components/discover";
 import ArtistCard from "../../components/artistCard";
 import Navbar from "../../components/navbar";

@@ -4,6 +4,7 @@ import SignUpModal from "../../components/SignInUpModals/SignUpModal";
 import Tiles from "../../components/Tiles";
 import About from "../../components/about";
 import Shows from "../../components/localShows";
+import Carousel from "../../components/Carousel";
 
 class Home extends Component {
   state = {};
@@ -11,8 +12,14 @@ class Home extends Component {
   render() {
     return (
       <div>
+        <div className="container">
+        <Carousel title1="title1" description1="description1" img1=""
+        title2="title2" description2="description2" img2=""
+        title3="title3" description3="description3" img3=""/>
         <Shows/>
+        </div>
         <About/>
+        <div className="container">
         <Tiles
           cat1="Mixed Media"     bg1="https://www.powertex.co.uk/img/customgallery/1/2/0/120.jpg"
           desc1="Mixed-media tends to refer to artworks that use a combination of materials in their construction"
@@ -35,6 +42,7 @@ class Home extends Component {
           cat10="Digital Art" bg10="http://incytemedia.com/wp-content/uploads/2008/12/34.jpg"
           desc10="Digital art is any art in which computers play a role in production or display of the artwork. Such art can be an image, sound, animation, video, CD-ROM, DVD-ROM, video game, website, algorithm, performance or gallery installation. ... As a result,defining computer art by its end product can thus be difficult."
         />
+        </div>
       </div>
     );
   }

@@ -9,15 +9,13 @@ import Portfolio from "./pages/Artist_Portfolio";
 import Category from "./pages/Category";
 import EditInfo from "./pages/editInfoPage";
 import EditArt from "./pages/editArt";
-import FeaturedCarousel from "./components/featured/featured";
+
 
 
 const App = () => (
   <Router>
     <div id= "featured">
       <Nav />
-      <FeaturedCarousel />
-      <div class="container">
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/portfolio" component={Portfolio} />
@@ -26,7 +24,6 @@ const App = () => (
           <Route exact path="/editart" component={EditArt} />
           <Route component={NoMatch} />
         </Switch>
-      </div>
       <Footer/>
     </div>
   </Router>

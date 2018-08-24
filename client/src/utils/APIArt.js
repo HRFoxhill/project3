@@ -7,7 +7,7 @@ export default {
     },
     // save Art
     saveArt: function (userId, artData) {
-        return axios.post("/api/art/create/" + userId, artData);
+        return axios.post("/api/protected/art/create/" + userId, artData);
     },
     // ==========================
     // Gets the Art Piece with the given id
@@ -16,11 +16,11 @@ export default {
     },
     // Updates the Art Piece with the given id
     updateArtPiece: function (id, artData) {
-        return axios.put("/api/art/" + id, artData);
+        return axios.put("/api/protected/art/" + id, artData);
     },
     // Deletes the Art Piece with the given id
     deleteArtPiece: function (id) {
-        return axios.delete("/api/art/" + id);
+        return axios.delete("/api/protected/art/" + id);
     },
     // ==========================
     // gets all art with a certain medium

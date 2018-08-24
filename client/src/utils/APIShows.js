@@ -7,15 +7,15 @@ export default {
   },
   // save Show
   saveShow: function(showData, userId) {
-    return axios.post("/api/shows/create/" + userId, showData);
+    return axios.post("/api/protected/shows/create/" + userId, showData);
   },
   // ==========================
   // Updates the Show with the given id
   updateShow: function(id, showData) {
-    return axios.put("/api/shows/" + id, showData);
+    return axios.put("/api/protected/shows/" + id, showData);
   },
   // Deletes the Show with the given id
   deleteShow: function(id) {
-    return axios.delete("/api/shows/" + id);
+    return axios.delete("/api/protected/shows/" + id);
   },
 };

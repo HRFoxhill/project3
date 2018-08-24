@@ -83,9 +83,9 @@ class SignUpModal extends Component {
 
     handleFormSubmit = event => {
         // handling login
-        APIArtists.checkLogin(this.state.email, this.state.password)
+        APIArtists.checkLogin(this.state)
         .then(data => {
-            let results = data.data;
+            let results = data.data.user;
             console.log(results);
             function isEmpty(myObject) {
                 for(var key in myObject) {

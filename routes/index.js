@@ -16,7 +16,7 @@ module.exports = function (app) {
   // app.use(authenticationRoutes)
   // If no API routes are hit, send the React app
   // protectedRoutes.use(PROTECTED)
-  app.use("/api", protectedRoutes);
+  app.use("/api/protected", protectedRoutes);
 
   // !!!change to "../client/build/index.html" once we have a build folder
   app.use(function (req, res) {

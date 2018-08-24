@@ -1,25 +1,58 @@
 import React, { Component } from "react";
 import SubmitCancel from "../../components/submit_cancel";
 import {ArtworkPanel, ArtworkContainer} from "../../components/artworkContainer";
+import APIArtist from "../../utils/APIArtists";
 
 class EditArt extends Component {
     state = {
-        
+        _id: "",
+        url: "",
+        title: "",
+        medium: "",
+        description: "",
+        yearCreated: "",
+        dimensions: "",
+        art: []
     };
   
+componentDidMount = event => {
+    let parsedUrlArtId = window.location.href.split("=").pop();
+    this.setState({
+        _id: parsedUrlArtId,
+    })
+    console.log(parsedUrlArtId)
+
+    APIArtist.getArtByArtist(parsedUrlArtId)
+        .then(data => {
+            console.log(data.data);
+            console.log(this.state.art)
+            this.setState({
+                url: data.data.url,
+                title: data.data.title,
+                // medium: data.data.medium,
+                description: data.data.description,
+                yearCreated: data.data.yearCreated,
+                dimensions: data.data.dimensions,
+                art: data.data.art,
+            })
+            console.log(this.state.art.url)
+        })
+        .catch(err => console.log(err));
+    }
+
     render() {
       return (
           <div>
               <div className="columns">
                 <div className="column">
                     <ArtworkContainer>
-                        {this.state.Artist.art.map(artwork => {
+                        {this.state.art.map(artwork => {
                             return (
                                 <div>
                                 <ArtworkPanel
                                     url={artwork.url}
                                     title={artwork.title}
-                                    category={artwork.category}
+                                    medium={artwork.medium}
                                     dimensions={artwork.dimensions}
                                     yearCreated={artwork.yearCreated}
                                     description={artwork.description}
@@ -101,7 +134,7 @@ class EditArt extends Component {
         <div className="control">
             <div className="select">
                 <select>
-                    {this.state.Artist.mediums.map(medium => {
+                    {this.state.art.map(medium => {
                         return (
                         <option>{medium}</option>
                     )

@@ -10,8 +10,8 @@ router.route("/")
 router
   .route("/:id")
   .get(artistsController.findArtistById)
-  .put(artistsController.updateArtist)
-  .delete(artistsController.removeArtist);
+  // .put(artistsController.updateArtist)
+  // .delete(artistsController.removeArtist);
 
 // Matches with "/api/user/shows/:id"
 router
@@ -32,9 +32,5 @@ router
 router
   .route("/artist/:name")
   .get(artistsController.findArtistByName)
-
-router
-  .route("/art/artist/:id")
-  .get(artistsController.findArtistByArt)
 
 module.exports = router;

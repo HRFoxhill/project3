@@ -98,8 +98,8 @@ class EditArt extends Component {
             </div>
         </div>
         {/* //medium dropdown */}
-        <div class="control">
-            <div class="select">
+        <div className="control">
+            <div className="select">
                 <select>
                     {this.state.Artist.mediums.map(medium => {
                         return (
@@ -138,7 +138,7 @@ class EditArt extends Component {
         {/* //SOLD(?) */}
             <div className="field">
                 <div className="control">
-                    <label class="checkbox">
+                    <label className="checkbox">
                         <input type="checkbox"/>
                             Sold
                     </label>

@@ -2,16 +2,16 @@ import React from "react";
 
 const DevCard = props => {
   return (
-    <div class="tile is-3 is-parent card-container">
-      <figure class="media-left">
-        <p class="image is-64x64">
-          <img class="is-rounded" src={props.img} />
+    <div className="tile is-3 is-parent card-container">
+      <figure className="media-left">
+        <p className="image is-64x64">
+          <img className="is-rounded" src={props.img} />
         </p>
       </figure>
-      <div class="media-content  tile is-child">
-        <div class="content">
+      <div className="media-content  tile is-child">
+        <div className="content">
           <p>
-            <strong class="name">{props.name}</strong>{" "}
+            <strong className="name">{props.name}</strong>{" "}
             <small>
               <i>{props.role}</i>
             </small>
@@ -19,21 +19,21 @@ const DevCard = props => {
             {props.bio}
           </p>
         </div>
-        <nav class="level is-mobile  tile is-child">
-          <div class="level-left">
-            <a target="blank" class="level-item" href={props.github}>
-              <span class="icon footer-icon">
-                <i class="fab fa-github-square" />
+        <nav className="level is-mobile  tile is-child">
+          <div className="level-left">
+            <a target="blank" className="level-item" href={props.github}>
+              <span className="icon footer-icon">
+                <i className="fab fa-github-square" />
               </span>
             </a>
-            <a target="blank" class="level-item" href={props.linkedIn}>
-              <span class="icon footer-icon">
-                <i class="fab fa-linkedin" />
+            <a target="blank" className="level-item" href={props.linkedIn}>
+              <span className="icon footer-icon">
+                <i className="fab fa-linkedin" />
               </span>
             </a>
-            <a target="blank" class="level-item" href={props.portfolio}>
-              <span class="icon footer-icon">
-                <i class="fas fa-portrait" />
+            <a target="blank" className="level-item" href={props.portfolio}>
+              <span className="icon footer-icon">
+                <i className="fas fa-portrait" />
               </span>
             </a>
           </div>

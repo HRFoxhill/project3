@@ -1,5 +1,6 @@
 // HALEY!  hi :) see below 
 // http://localhost:3000/portfolio=5b7e9fda7432aaf5ad99f5bc
+//ObjectId("5b8020e07b4e1c21e08ecc36")
 // use the above url to test but use an id from your Artist collection in your DB (ours will all be different)
 
 // Also feel free to update the seedDB.js file with pictures, etc that better meet your needs

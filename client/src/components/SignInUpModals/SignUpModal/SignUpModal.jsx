@@ -20,7 +20,7 @@ class SignUpModal extends Component {
             email: "",
             password: "",
             confirmPassword: "",
-            emailValidated: false,
+            emailValidated: true,
             emailValidationMessage: "please enter a valid email",
             passwordValidated: false,
             passwordValidationMessage: "please enter a valid password",confirmPasswordValidated: false,

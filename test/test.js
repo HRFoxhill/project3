@@ -4,7 +4,7 @@ const expect = chai.expect
 
 describe('ArtSpose', function () {
   // Recommended: 5s locally, 10s to remote server, 30s from airplane ¯\_(ツ)_/¯
-  this.timeout('120s')
+  this.timeout('30s')
 
   let nightmare = null
   beforeEach(() => {
@@ -49,16 +49,22 @@ describe('ArtSpose', function () {
     it('should indicate invalid email', done => {
       new Nightmare({ show: true})
       .goto('http://localhost:3000/')
+      .click("#signInModalOpen")
+      .wait("#signInEmailInputBox")
             .type("#signInEmailInputBox", "heatheriscool")
             .type("#signInPasswordInputBox", "password")
-    .click("#signInBtn")
+    .click(".fas")
     .evaluate(function () {
-      return document.querySelector(".is-success").text()
+      console.log("Thanks Joe",document.querySelector(".is-success"));
+      
+      return document.querySelector(".is-success")[0].innerText
     })
+    .end()
     .then(function (result) {
       expect(result).to.equal("invalid email");
+      done()
     })
-    .done()
+   
   
     })
     // it('should bring up login modal', done => {

@@ -20,18 +20,15 @@ const strategy = new Strategy(
         //our user is in Sequelize,
         User.find({ email: username }).then(
             function (DBuser) {
+                console.log(DBuser)
                 console.log("PASSWORD: " + password)
-                console.log("DB USER: " + DBuser[0].password)
                 console.log("Back from the database! Let's check if our credentials are good: ");
-                let compare = bcrypt.compare(password, DBuser[0].password, function(err, res){
-                    if (err) throw err
-                    return res
-                })
-                if (!DBuser) {
+               
+                if (DBuser.length === 0) {
                     console.log("User " + username + " was not in the DB");
                     return done(null, false, { message: 'Incorrect username.' });
                 }
-                if (compare === false) {
+                if (DBuser[0].checkPassword(password) === false) {
                     // if (!(DBuser.password===password)) {
                     console.log("Password " + password + " does not match the password in the DB: " + DBuser.password); //For the love of all that is good and secure, never console log user passwords in a production app
 

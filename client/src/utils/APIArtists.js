@@ -16,11 +16,11 @@ export default {
   },
   // Updates the Artist with the given id
   updateArtist: function(id, artistData) {
-    return axios.put("/api/user/" + id, artistData);
+    return axios.put("/api/protected/user/" + id, artistData);
   },
   // Deletes the Artist with the given id
   deleteArtist: function(id) {
-    return axios.delete("/api/user/" + id);
+    return axios.delete("/api/protected/user/" + id);
   },
   // ==========================
   getShowsByArtist: function(id) {
@@ -38,8 +38,8 @@ export default {
   getArtistByArt: function(id) {
     return axios.get("/api/user/art/artist/" + id);
    },
-   checkLogin: function(username, password) {
-    return axios.get("/api/user/artist/" + username + "/" + password);
+   checkLogin: function(body) {
+    return axios.post("/api/login", body);
    }
 
 };

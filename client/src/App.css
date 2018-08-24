@@ -142,9 +142,10 @@ h1 {
   padding: 30 px;
 }
 #portfolio-artwork {
-  height: 400px;
+  /* height: 400px; */
   width: auto;
 }
+<<<<<<< HEAD
 
 
 /* css for artist panel */
@@ -168,3 +169,9 @@ h1 {
   
 
 }
+=======
+#artwork-card {
+  width: 30%;
+  margin: 15px;
+}
+>>>>>>> 69c8891f65e58cec3de58e4f52f975a0870cf8f7

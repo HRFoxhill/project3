@@ -1,1 +1,1 @@
-export { Medium } from "./Medium.jsx";
+export { default } from "./Medium.jsx";

@@ -5,11 +5,10 @@
 // Also feel free to update the seedDB.js file with pictures, etc that better meet your needs
 
 import React, { Component } from "react";
-// import 'bulma/css/bulma.css';
 import ArtistPanel from "../../components/artistPanel";
 import { ArtworkContainer, ArtworkPanel } from "../../components/artworkContainer";
 import APIArtists from "../../utils/APIArtists"
-import APIArt from "../../utils/APIArt"
+// import APIArt from "../../utils/APIArt"
 // import LocalShows from "../../components/localShows";
 
 class portfolio extends Component {
@@ -24,7 +23,6 @@ class portfolio extends Component {
         art: []
     };
     componentDidMount = event => {
-        // this still needs to be tested
         let parsedUrlArtistId = window.location.href.split("=").pop();
         this.setState({
             _id: parsedUrlArtistId,

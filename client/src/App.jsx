@@ -6,10 +6,10 @@ import NoMatch from "./pages/NoMatch";
 import Nav from "./components/navbar";
 import Footer from "./components/footer";
 import Portfolio from "./pages/Artist_Portfolio";
-import {Medium} from "./pages/Medium";
+import Medium from "./pages/Medium";
 import EditInfo from "./pages/editInfoPage";
 import EditArt from "./pages/editArt";
-import FeaturedCarousel from "./components/featured/featured";
+// import FeaturedCarousel from "./components/featured/featured";
 
 
 const App = () => (

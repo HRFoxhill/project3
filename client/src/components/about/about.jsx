@@ -12,7 +12,7 @@ const About = props => {
     A one-of-a-kind community
     </h1>
     <h2>
-    Artsy is a local online marketplace where artists display their art by medium and patrons view art.
+    ArtSpose is a local online marketplace where artists display their art by medium and patrons view art.
     </h2>
   </div>
   <div class="column">
@@ -20,7 +20,7 @@ const About = props => {
     Support local creators
     </h1>
     <h2>
-    There is no Artsy warehouse - just local artists showing the things they love. And local patrons and artists searching for art by medium to view our artists' work.
+    There is no ArtSpose warehouse - just local artists showing the things they love. And local patrons and artists searching for art by medium to view our artists' work.
     </h2>
   </div>
   <div class="column">

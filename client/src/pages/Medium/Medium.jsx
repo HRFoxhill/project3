@@ -1,11 +1,11 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import APIArt from "../../utils/APIArt";
 import APIArtists from "../../utils/APIArtists";
-import {ArtworkPanel, ArtworkContainer} from "../../components/artworkContainer";
+import { ArtworkPanel, ArtworkContainer } from "../../components/artworkContainer";
 import ArtistCard from "../../components/artistCard";
 // import ArtworkContainer from "../../components/artworkContainer";
 
-// import mediumPanel from "../../components/artistPanel/mediumPanel";
 // import localShows from "../../components/localShows";
 
 class Medium extends Component {
@@ -52,8 +52,12 @@ class Medium extends Component {
         if (parsedUrlMedium !== this.state.medium) {
             this.handleMediumSearch();
         };
+        //    this doesn't work - Joe taking over
+        // if (this.state.art.length) {
+        //     this.handleMediumSearch();
+        // }
     };
-    
+
     render() {
         return (
             <div>
@@ -67,13 +71,12 @@ class Medium extends Component {
                                 dimensions={artwork.dimensions}
                                 yearCreated={artwork.yearCreated}
                                 description={artwork.description}
-                                // artistName={artwork.artistInfo.artistName}
-                                //add link that routes to portfolio page here. portfolioLink={}
+                                artistName={"By " + artwork.artistInfo.artistName}
+                                artistId={artwork.artistInfo._id}
                             />
-                            </div>
                         );
                     })}
-                {/* </ArtworkContainer> */}
+                </ArtworkContainer>
             </div>
         )
     }

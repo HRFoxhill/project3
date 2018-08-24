@@ -35,7 +35,11 @@ export default {
     let noSpaceName = name.replace(/\s+/g, "%20");
     return axios.get("/api/user/artist/" + noSpaceName);
   },
+  getArtistByArt: function(id) {
+    return axios.get("/api/user/art/artist/" + id);
+   },
    checkLogin: function(username, password) {
     return axios.get("/api/user/artist/" + username + "/" + password);
    }
+
 };

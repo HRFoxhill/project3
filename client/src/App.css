@@ -145,6 +145,11 @@ h1 {
 
 }
 #portfolio-artwork {
-  height: 400px;
+  /* height: 400px; */
   width: auto;
+}
+#artwork-card {
+  width: 30%;
+  margin: 10px;
+  
 }

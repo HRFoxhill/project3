@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import API from "../../utils/APIArtists";
-import SignUpModal from "../../components/SignInUpModals/SignUpModal";
 import Tiles from "../../components/Tiles";
 import About from "../../components/about";
 import Shows from "../../components/localShows";

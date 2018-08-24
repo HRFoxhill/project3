@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-
+var bcrypt = require("bcrypt")
 // Save a reference to the Schema constructor
 var Schema = mongoose.Schema;
 
@@ -7,10 +7,10 @@ var Schema = mongoose.Schema;
 // This is similar to a Sequelize model
 var ArtistSchema = new Schema({
   // for authentication/password
-  local: {
-    email: String, //unique, fixed structure
-    password: String, //limitations needed
-  },
+  // local: {
+  //   email: String, //unique, fixed structure
+  //   password: String, //limitations needed
+  // },
   email: {
     type: String,
     unique: true,
@@ -50,12 +50,25 @@ var ArtistSchema = new Schema({
   }]
 });
 
-ArtistSchema.methods.toJSON = function() {
-  var obj = this.toObject();
-  delete obj.password;
-  delete obj.local.password
-  return obj;
- }
+ArtistSchema.methods = {
+  toJSON: function () {
+    var obj = this.toObject();
+    delete obj.password;
+    // delete obj.local.password
+    return obj;
+  },
+  checkPassword: function (inputPassword) {
+    return bcrypt.compareSync(inputPassword, this.password)
+  },
+  hashPassword: plainTextPassword => {
+    return bcrypt.hashSync(plainTextPassword, 10)
+  }
+};
+
+ArtistSchema.pre('save', function (next) {
+  this.password = this.hashPassword(this.password)
+  next()
+});
 
 
 // This creates our model from the above schema, using mongoose's model method

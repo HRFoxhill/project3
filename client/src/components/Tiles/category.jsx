@@ -33,9 +33,9 @@ class Category extends Component {
         }}
         onMouseEnter={this.hoverIn.bind(this)}
         onMouseLeave={this.hoverOut.bind(this)}
-        class="tile is-child box"
+        className="tile is-child box"
       >
-        <div class="box tile-box">
+        <div className="box tile-box">
           {this.props.name}
           <Description
             show={this.state.show}

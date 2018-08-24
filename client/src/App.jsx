@@ -17,7 +17,7 @@ const App = () => (
   <Router>
     <div id= "featured">
       <Nav />
-      <div class="container">
+      <div className="container">
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/searchMedium/:?=medium" component={SearchResults} />

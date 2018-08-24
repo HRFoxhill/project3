@@ -16,7 +16,7 @@ class EditArt extends Component {
     };
   
 componentDidMount = event => {
-    let parsedUrlArtId = window.location.href.split("=").pop();
+    let parsedUrlArtId = window.location.href.split(":").pop();
     this.setState({
         _id: parsedUrlArtId,
     })
@@ -39,7 +39,7 @@ componentDidMount = event => {
         })
         .catch(err => console.log(err));
     }
-
+    
     render() {
       return (
           <div>

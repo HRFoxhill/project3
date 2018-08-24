@@ -7,13 +7,13 @@ router.route("/")
     // .post(showsController.createShow);
 
 // Matches with "api/shows/create/:artistId"
-router.route("/create/:id")
-    .post(showsController.createShow);
+// router.route("/create/:id")
+//     .post(showsController.createShow);
 
 // Matches with "api/shows/:id"
 router.route("/:id")
     .get(showsController.findById)
-    .put(showsController.editShow)
-    .delete(showsController.removeShow);
+    // .put(showsController.editShow)
+    // .delete(showsController.removeShow);
 
 module.exports = router;

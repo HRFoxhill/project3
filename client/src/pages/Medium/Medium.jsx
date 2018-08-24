@@ -12,11 +12,6 @@ class Medium extends Component {
     state = {
         medium: "",
         art: [],
-        
-        
-        // featuredPhoto: "",
-        // profilePhoto: "",
-        // artistName: "",
     };
     handleMediumSearch = () => {
         let parsedUrlMedium = window.location.href.split("=").pop();
@@ -58,31 +53,30 @@ class Medium extends Component {
             this.handleMediumSearch();
         };
     };
-
-    consoleLog = (data)=> {
-        console.log(data)
-    }
     
     render() {
         return (
             <div>
-                <ArtworkContainer>
+                {/* <ArtworkContainer> */}
+                <h3>What up</h3>
                     {this.state.art.map(art => {
                         return (
+                            <div>
                             <MediumPanel
-                            
+                                key={art._id}
                                 artTitle={art.title}
                                 artMedium={art.medium}
                                 artURL={art.url}
                                 artDimensions={art.dimensions}
                                 artYearCreated={art.yearCreated}
                                 artDescription={art.description}
-                                artArtistName={art.artistInfo.artistName}
-                                artArtistWebsite={art.artistInfo.artistWebsite}
+                                // artArtistName={art.artistInfo.artistName}
+                                // artArtistWebsite={art.artistInfo.artistWebsite}
                             />
+                            </div>
                         );
                     })}
-                </ArtworkContainer>
+                {/* </ArtworkContainer> */}
             </div>
         )
     }

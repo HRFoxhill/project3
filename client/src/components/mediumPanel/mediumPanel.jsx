@@ -1,17 +1,10 @@
 import React from "react";
-// import 'bulma/css/bulma.css';
-
 
 const mediumPanel = props => (
     <section className="hero is-medium is-primary is-bold">
         <div className="hero-body">
             <div className="container">
                 <div className="columns">
-                    <div className="column is-centered">
-                        <figure className="image is-128x128">
-                            <img className="is-rounded" src={props.profilePhoto} />
-                        </figure>
-                    </div>
                     <div class="column is-three-quarters is-centered">
                         <div className="tile is-ancestor">
                             <div className="tile is-parent">

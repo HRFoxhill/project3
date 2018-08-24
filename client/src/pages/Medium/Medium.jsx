@@ -12,12 +12,6 @@ class Medium extends Component {
     state = {
         medium: "",
         art: [],
-
-        
-        
-        // featuredPhoto: "",
-        // profilePhoto: "",
-        // artistName: "",
     };
     handleMediumSearch = () => {
         let parsedUrlMedium = window.location.href.split("=").pop();
@@ -59,10 +53,6 @@ class Medium extends Component {
             this.handleMediumSearch();
         };
     };
-
-    consoleLog = (data)=> {
-        console.log(data)
-    }
     
     render() {
         return (
@@ -80,9 +70,10 @@ class Medium extends Component {
                                 // artistName={artwork.artistInfo.artistName}
                                 //add link that routes to portfolio page here. portfolioLink={}
                             />
+                            </div>
                         );
                     })}
-                </ArtworkContainer>
+                {/* </ArtworkContainer> */}
             </div>
         )
     }

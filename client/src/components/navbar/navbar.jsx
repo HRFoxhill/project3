@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SignInModal from "../SignInUpModals/SignInModal";
 import SignUpModal from "../SignInUpModals/SignUpModal";
-
+import Logo from "../../images/FaviconLogo options/Option2.JPG"
 
 
 class Nav extends Component {
@@ -59,7 +59,7 @@ class Nav extends Component {
           {/* logo */}
           <Link class="navbar-item" to="/">
             <img
-              src="https://bulma.io/images/bulma-logo.png"
+              src= {Logo}
               alt="Logo Name"
               width="112"
               height="28"

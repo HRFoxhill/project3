@@ -3,7 +3,7 @@ import React from "react";
 
 
 const artistPanel = props => (
-    <section className="hero is-medium is-info is-bold">
+    <section className="hero is-medium is-primary is-bold">
         <div className="hero-body">
             <div className="container">
                 <div className="columns">

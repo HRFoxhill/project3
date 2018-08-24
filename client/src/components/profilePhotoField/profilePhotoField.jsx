@@ -6,9 +6,9 @@ const ProfilePhotoField = props => {
     <div className="tile is-parent is-8">
         <div className="tile is-child box">
             <figure className="image is-50x50">
-                <img className="is-rounded"src="https://i.pinimg.com/originals/5e/12/50/5e125039e7283e37a51b52c6cb261aeb.jpg"/>
+                <img className="is-rounded"src={props.profilePhoto}/>
             </figure>
-            <input className="input" type="text" placeholder="url"></input>
+            <input className="input" type="text" placeholder={props.profilePhoto}></input>
         </div>
     </div>
 

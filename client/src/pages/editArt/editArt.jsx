@@ -16,9 +16,9 @@ class EditArt extends Component {
             yearCreated: "",
             dimensions: "",
             art: [],
-            artId: ""
+            artId: "",
             // deletePiece: "",
-            // update: false,
+            update: false,
         };
         this.handleInputChange = this.handleInputChange.bind(this);
     };
@@ -34,10 +34,10 @@ class EditArt extends Component {
         APIArtist.getArtByArtist(parsedUrlArtistId)
             .then(data => {
                 console.log(data.data);
-                    this.setState({
-                        art: data.data.art,
-                    })
-                    // this.setState({update:true})
+                this.setState({
+                    art: data.data.art,
+                })
+                // this.setState({update:true})
                 // this.forceUpdate()
                 console.log(this.state.art)
             })
@@ -49,9 +49,10 @@ class EditArt extends Component {
     };
     componentDidUpdate = () => {
         // !!this will also needs to be updated with Joe's patch and to actually make sense with the data on this page
-        let parsedUrlArtistId = window.location.href.split(":").pop();
-
-        if (parsedUrlArtistId !== this.state.artistId) {
+        // let parsedUrlArtistId = window.location.href.split(":").pop();
+        let currentUpdateState = this.state.update
+        if (currentUpdateState === true) {
+            this.setState({ update: false })
             this.populateThePage()
         };
 
@@ -60,25 +61,28 @@ class EditArt extends Component {
     populateEditFields = artId => {
         console.log(artId);
         APIArt.getArtPiece(artId)
-        .then(data => {
-            console.log(data)
-            this.setState({
-                url: data.data.url,
-                title: data.data.title,
-                // medium: data.data.medium,
-                description: data.data.description,
-                yearCreated: data.data.yearCreated,
-                dimensions: data.data.dimensions,
-                artId: data.data._id
+            .then(data => {
+                console.log(data)
+                this.setState({
+                    url: data.data.url,
+                    title: data.data.title,
+                    // medium: data.data.medium,
+                    description: data.data.description,
+                    yearCreated: data.data.yearCreated,
+                    dimensions: data.data.dimensions,
+                    artId: data.data._id
+                })
             })
-        })
-        .catch(err => console.log(err))
+            .catch(err => console.log(err))
     };
 
     deleteArt = artId => {
         console.log("deleting...need to refresh to see effect")
         APIArt.deleteArtPiece(artId)
-            .then(data => console.log(data))
+            .then(data => {
+                this.setState({ update: true })
+                console.log(data)
+            })
             .catch(err => console.log(err))
     };
 
@@ -93,7 +97,10 @@ class EditArt extends Component {
             description: this.state.description,
             artId: this.state.artId
         })
-            .then(data => console.log(data))
+            .then(data => {
+                this.setState({ update: true })
+                console.log(data)
+            })
             .catch(err => console.log(err))
     };
 
@@ -107,10 +114,11 @@ class EditArt extends Component {
             yearCreated: this.state.yearCreated,
             description: this.state.description,
         })
-        .then(data => {
-            console.log(data)
-        })
-        .catch(err => console.log(err))
+            .then(data => {
+                this.setState({ update: true })
+                console.log(data)
+            })
+            .catch(err => console.log(err))
     };
 
     resetState = () => {
@@ -202,7 +210,7 @@ class EditArt extends Component {
         //url */}
                         <div className="tile is-parent is-8">
                             <div className="tile is-child box">
-                            <h1>Add/Update Art Piece Here</h1>
+                                <h1>Add/Update Art Piece Here</h1>
                                 <figure className="image is-50x50">
                                     <img className="artwork-photo" src={this.state.url} />
                                 </figure>
@@ -318,11 +326,11 @@ class EditArt extends Component {
                         </div>
 
                         {/* //submit button */}
-                        <SubmitCancel 
+                        <SubmitCancel
                             addOnClick={this.addArt}
                             updateOnClick={() => this.updateArt(this.state.artId)}
                             cancelOnClick={this.resetState}
-                            
+
                         />
                         {/* //save and return to portfolio button */}
                     </div>

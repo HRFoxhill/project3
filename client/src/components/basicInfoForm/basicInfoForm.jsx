@@ -10,12 +10,12 @@ return (
         <form className="is" id="basic-info-form">
                 <div className="field is-horizontal">
                     <div className="field-label is-normal">
-                        <label className="label">{this.props.artistName}</label>
+                        <label className="label">Name</label>
                     </div>
                     <div className="field-body">
                         <div className="field">
                             <div className="control">
-                                <input className="input" type="text" placeholder="Name"/>
+                                <input className="input" type="text" placeholder="Name" defaultValue={this.props.artistName}/>
                             </div>
                         </div>
                     </div>
@@ -28,7 +28,7 @@ return (
                     <div className="field-body">
                         <div className="field">
                         <div className="control">
-                            <input className="input" type="text" placeholder={this.props.websiteURL}/>
+                            <input className="input" type="text" placeholder="url" defaultValue={this.props.websiteURL}/>
                         </div>
                         </div>
                     </div>
@@ -41,7 +41,7 @@ return (
                     <div className="field-body">
                         <div className="field">
                         <div className="control">
-                            <input className="input" type="text" placeholder={this.props.phone}/>
+                            <input className="input" type="text" placeholder="666-666-6666" defaultValue={this.props.phone}/>
                         </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@ return (
                     <div className="field-body">
                         <div className="field">
                             <div className="control">
-                                <textarea className="textarea" placeholder="Artist Statement">{this.props.bio}</textarea>
+                                <textarea className="textarea" placeholder="Artist Statement" defaultValue={this.props.bio}></textarea>
                             </div>
                         </div>
                     </div>

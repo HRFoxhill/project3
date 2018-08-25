@@ -134,10 +134,10 @@ componentDidMount = event => {
         <div className="control">
             <div className="select">
                 <select>
-                    {this.state.art.map(medium => {
+                    {/* {this.state.art.map(medium => {
                         return (
                         <option>{medium}</option>
-                    )
+                    ) */}
                     })}
                 </select>
             </div>

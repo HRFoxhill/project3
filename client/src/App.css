@@ -172,7 +172,14 @@ h1.about-title{
 #portfolio-artwork {
   width: auto;
 }
-
+/* css for portfolio page */
+.portfolio-div {
+  background-image: url("./images/Backgrounds/paint-texture2.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 /* css for artist panel */
 .artist-panel-text {
   margin-left: 60px;
@@ -187,6 +194,15 @@ h1.about-title{
 #artistPanelContainer {
   padding: 0px;
   margin: 0px;
+}
+.dark-translucent {
+  background-color: rgba(0, 0, 0, .6);
+}
+.dark-translucentish {
+  background-color: rgba(0, 0, 0, .8);
+}
+.transparent-background {
+  background: transparent;
 }
 /* #artistPanelContainer {
   width: 85%;

@@ -2,7 +2,7 @@ import React from "react";
 // import 'bulma/css/bulma.css';
 
 const artistPanel = props => (
-  <section className="hero is-light" id="PanelWrapper">
+  <section className="hero dark-translucent" id="PanelWrapper">
     <div className="hero-body">
       <div className="container" id="artistPanelContainer">
         <div className="columns">
@@ -17,17 +17,17 @@ const artistPanel = props => (
           </div>
           <div className="column">
             
-              <p className="title is-3 artist-panel-text" id="artistPanelTitle">
+              <p className="title is-3 artist-panel-text  has-text-white-ter" id="artistPanelTitle">
                 {props.artistName}
               </p>
-              <p className="subtitle is-5 artist-panel-text ">
+              <p className="subtitle is-5 artist-panel-text  has-text-grey-lighter">
                 {props.websiteURL}
               </p>
-              <p className="subtitle is-5 artist-panel-text ">{props.phone}</p>
-              <p className="subtitle is-5 artist-panel-text ">
+              <p className="subtitle is-5 artist-panel-text  has-text-grey-lighter">{props.phone}</p>
+              <p className="subtitle is-5 artist-panel-text  has-text-grey-lighter">
                 {props.categories}
               </p>
-              <p className="subtitle is-6 artist-panel-bio">{props.bio}</p>
+              <p className="subtitle is-6 artist-panel-bio has-text-grey-lighter">{props.bio}</p>
             
           </div>
         </div>

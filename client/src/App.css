@@ -27,6 +27,9 @@ nav {
   margin: 0 3vw;
   color: rgb(27, 27, 27);
 }
+.has-margins{
+  margin:0px 0 20px;
+}
 .categories-container {
   margin: 0 auto;
 }
@@ -83,6 +86,7 @@ strong.name{
 section.foot {
   position:relative;
   margin-top: 30px;
+  
   padding-top:20px;
   background: rgb(199, 199, 199);
 }
@@ -138,16 +142,12 @@ p.description.show{
 h1.about-title{ 
     display: block;
     font-size: 2em;
-    margin-top: 0.67em;
-    margin-bottom: 0.67em;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0.67em 0;
     font-weight: bold;
 }
 .parallax { 
   /* The image used */
   background-image: url("./images/DickBrewerArt/About-Background.jpg");
-
   /* Set a specific height */
   height: 500px; 
 

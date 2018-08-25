@@ -9,7 +9,7 @@ import Footer from "./components/footer";
 import Portfolio from "./pages/Artist_Portfolio";
 import Medium from "./pages/Medium";
 import EditInfo from "./pages/editInfoPage";
-import EditArt from "./pages/editArt";
+import EditArt from "./pages/editArt";  
 
 
 const App = () => (

@@ -10,6 +10,7 @@ class carousel extends Component {
     };
 
     return (
+      <div className="has-margins">
       <Carousel
         autoPlay={true}
         showThumbs={false}
@@ -34,6 +35,7 @@ class carousel extends Component {
           description={this.props.description3}
         />
       </Carousel>
+      </div>
     );
   }
 }

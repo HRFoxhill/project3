@@ -20,10 +20,10 @@ class SignUpModal extends Component {
             email: "",
             password: "",
             confirmPassword: "",
-            emailValidated: true,
+            emailValidated: false,
             emailValidationMessage: "please enter a valid email",
             passwordValidated: false,
-            passwordValidationMessage: "please enter a valid password",confirmPasswordValidated: false,
+            passwordValidationMessage: "please enter a valid password", confirmPasswordValidated: false,
             confirmPasswordValidationMessage: "passwords must match",
         };
 
@@ -43,9 +43,15 @@ class SignUpModal extends Component {
         }, callback);
     };
     handleEmailValidation = event => {
-        // need to query DB for existing emails...
-        // if email comes back with new entry, set emailValidated state to true,
-        // else change emailValidationMessage to be helpful
+        this.handleInputChange(event, () => {
+            // !!this could be made way better but will work for now (actually match email format)
+            if (this.state.email.length >= 1) {
+                this.setState({
+                    emailValidated: true,
+                    emailValidationMessage: "please enter your email"
+                });
+            };
+        });
     };
     handlePasswordConfirmValidation = event => {
         this.handleInputChange(event, () => {
@@ -59,7 +65,7 @@ class SignUpModal extends Component {
                 this.setState({
                     passwordValidated: false,
                     passwordValidationMessage: "please enter a password"
-                    
+
                 });
             }
             if (this.state.passwordValidated && (this.state.password === this.state.confirmPassword)) {
@@ -83,11 +89,25 @@ class SignUpModal extends Component {
             email: this.state.email,
             password: this.state.password
         })
-        .then(data => {
-            console.log(data)
-            // need to add if statement below to close the modal if successful
-            // this.handleSignUpModalClose();
-        })
+            .then(data => {
+                console.log(data)
+                // need to add if statement below to close the modal if successful
+                // this.handleSignUpModalClose();
+                if (data.data.errors) {
+                    this.setState({
+                        emailValidated: false,
+                        emailValidationMessage: data.data.errors.email.message
+                    })
+                } else if (data.data.driver) {
+                    this.setState({
+                        emailValidated: false,
+                        emailValidationMessage: "Email already in use. Please chose a different email address or sign in."
+                    })
+                } else if (data.data._id) {
+                    this.handleSignInModalOpen();
+                }
+            })
+            .catch(err => console.log(err))
         // and logging them in right away
     };
     handleSignUpModalClose() {
@@ -99,7 +119,7 @@ class SignUpModal extends Component {
             emailValidated: false,
             emailValidationMessage: "please enter a valid email",
             passwordValidated: false,
-            passwordValidationMessage: "please enter a valid password",confirmPasswordValidated: false,
+            passwordValidationMessage: "please enter a valid password", confirmPasswordValidated: false,
             confirmPasswordValidationMessage: "passwords must match",
         });
     };
@@ -115,7 +135,7 @@ class SignUpModal extends Component {
             emailValidated: false,
             emailValidationMessage: "please enter a valid email",
             passwordValidated: false,
-            passwordValidationMessage: "please enter a valid password",confirmPasswordValidated: false,
+            passwordValidationMessage: "please enter a valid password", confirmPasswordValidated: false,
             confirmPasswordValidationMessage: "passwords must match",
         });
     };
@@ -129,23 +149,23 @@ class SignUpModal extends Component {
                         <h3 className="has-text-centered is-size-3">Sign Up</h3>
                         {/* email input box */}
                         <InputBox
-                            label="email"                            
-                            inputClassName={this.state.emailValidated? "input is-success": "input is-danger"}
+                            label="email"
+                            inputClassName={this.state.emailValidated ? "input is-success" : "input is-danger"}
                             inputType="email"
                             inputId="signUpEmailInputBox"
                             inputValue={this.state.email}
-                            inputOnChange={this.handleInputChange}
+                            inputOnChange={this.handleEmailValidation}
                             inputName="email"
                             inputPlaceholder="enter your email"
                             leftIconClassName="fas fa-envelope"
-                            rightIconClassName= {this.state.emailValidated? "fas fa-check": "fas fa-exclamation-triangle"}
-                            paragraphClassName={this.state.emailValidated? "help is-success": "help is-danger"}
+                            rightIconClassName={this.state.emailValidated ? "fas fa-check" : "fas fa-exclamation-triangle"}
+                            paragraphClassName={this.state.emailValidated ? "help is-success" : "help is-danger"}
                             paragraphMessage={this.state.emailValidationMessage}
                         />
                         {/* Password input box */}
                         <InputBox
-                            label="password"                            
-                            inputClassName={this.state.passwordValidated? "input is-success": "input is-danger"}
+                            label="password"
+                            inputClassName={this.state.passwordValidated ? "input is-success" : "input is-danger"}
                             inputType="password"
                             inputId="signUpPasswordInputBox"
                             inputValue={this.state.password}
@@ -153,15 +173,15 @@ class SignUpModal extends Component {
                             inputName="password"
                             inputPlaceholder="7 character minimum"
                             leftIconClassName="fas fa-key"
-                            rightIconClassName= {this.state.passwordValidated? "fas fa-check": "fas fa-exclamation-triangle"}
-                            paragraphClassName={this.state.passwordValidated? "help is-success": "help is-danger"}
+                            rightIconClassName={this.state.passwordValidated ? "fas fa-check" : "fas fa-exclamation-triangle"}
+                            paragraphClassName={this.state.passwordValidated ? "help is-success" : "help is-danger"}
                             paragraphMessage={this.state.passwordValidationMessage}
                         />
 
                         {/* confirm password input box */}
                         <InputBox
-                            label="confirm password"                            
-                            inputClassName={this.state.confirmPasswordValidated? "input is-success": "input is-danger"}
+                            label="confirm password"
+                            inputClassName={this.state.confirmPasswordValidated ? "input is-success" : "input is-danger"}
                             inputType="password"
                             inputId="signUpConfirmPasswordInputBox"
                             inputValue={this.state.confirmPassword}
@@ -169,8 +189,8 @@ class SignUpModal extends Component {
                             inputName="confirmPassword"
                             inputPlaceholder="confirm password"
                             leftIconClassName="fas fa-key"
-                            rightIconClassName= {this.state.confirmPasswordValidated? "fas fa-check": "fas fa-exclamation-triangle"}
-                            paragraphClassName={this.state.confirmPasswordValidated? "help is-success": "help is-danger"}
+                            rightIconClassName={this.state.confirmPasswordValidated ? "fas fa-check" : "fas fa-exclamation-triangle"}
+                            paragraphClassName={this.state.confirmPasswordValidated ? "help is-success" : "help is-danger"}
                             paragraphMessage={this.state.confirmPasswordValidationMessage}
                         />
 
@@ -189,7 +209,7 @@ class SignUpModal extends Component {
                             <ModalSubmitBtn
                                 onClick={this.handleFormSubmit}
                                 id="modal-sign-up-submit-btn"
-                                disabled={this.state.confirmPasswordValidated && this.state.passwordValidated && this.state.emailValidated? "": "disabled"}
+                                disabled={this.state.confirmPasswordValidated && this.state.passwordValidated && this.state.emailValidated ? "" : "disabled"}
                             />
                             <ModalCancelBtn
                                 onClick={this.handleSignUpModalClose}

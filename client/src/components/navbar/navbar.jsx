@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 import SignInModal from "../SignInUpModals/SignInModal";
 import SignUpModal from "../SignInUpModals/SignUpModal";
 import Logo from "../../images/FaviconLogo options/Option2.JPG"
-// import APIArtist from "../../utils/APIArtists";
-
-
 
 class Nav extends Component {
   constructor(props) {

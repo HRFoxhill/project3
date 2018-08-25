@@ -29,7 +29,7 @@ var ArtistSchema = new Schema({
     ]
   },
   artistName: String, //Whatever they want to call themselves
-  medium: String, //autopopulated based on categories assigned to artworks
+  medium: Array, //autopopulated based on categories assigned to artworks
   phone: String, //phone number (optional)
   websiteURL: String, //artist's personal website URL if exists
   bio: String, //aka artist statement

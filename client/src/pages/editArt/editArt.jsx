@@ -27,12 +27,12 @@ componentDidMount = event => {
             console.log(data.data);
             console.log(this.state.art)
             this.setState({
-                url: data.data.url,
-                title: data.data.title,
+                url: data.data.art.url,
+                title: data.data.art.title,
                 // medium: data.data.medium,
-                description: data.data.description,
-                yearCreated: data.data.yearCreated,
-                dimensions: data.data.dimensions,
+                description: data.data.art.description,
+                yearCreated: data.data.art.yearCreated,
+                dimensions: data.data.art.dimensions,
                 art: data.data.art,
             })
             console.log(this.state.art.url)

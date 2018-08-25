@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SubmitCancel from "../../components/submit_cancel";
-import {ArtworkPanel, ArtworkContainer} from "../../components/artworkContainer";
+import {EditArtworkPanel, ArtworkContainer} from "../../components/artworkContainer";
 import APIArtist from "../../utils/APIArtists";
 
 class EditArt extends Component {
@@ -49,7 +49,7 @@ componentDidMount = event => {
                         {this.state.art.map(artwork => {
                             return (
                                 <div>
-                                <ArtworkPanel
+                                <EditArtworkPanel
                                     url={artwork.url}
                                     title={artwork.title}
                                     medium={artwork.medium}

@@ -147,7 +147,14 @@ h1 {
 }
 
 /* css for artist panel */
-#artistPanelContainer {
+.artist-panel-text {
+  padding: 5px;
+  
+}
+#artist-info-container {
+  padding: 20px;
+}
+/* #artistPanelContainer {
   width: 85%;
   height: 40%;
 }
@@ -161,7 +168,7 @@ h1 {
 #artistPanelSubtitle {
   font-size: 1.1em;
   /* height: 4vw; */
-}
+/* } */
 #artistPanelImage {
   margin-top: 75px;
   

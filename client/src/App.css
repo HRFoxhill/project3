@@ -168,7 +168,28 @@ h1.about-title{
 #portfolio-artwork {
   width: auto;
 }
+
+/* css for artist panel */
+#artistPanelContainer {
+  width: 85%;
+  height: 40%;
+}
+#artistPanelBox {
+  height: 45px!important;
+}
+#artistPanelTitle {
+  font-size: 4em;
+  height: 6vw;
+}
+#artistPanelSubtitle {
+  font-size: 1.1em;
+  /* height: 4vw; */
+}
+#artistPanelImage {
+  margin-top: 75px;
+  
+}
 #artwork-card {
   width: 30%;
-  margin: 10px;
+  margin: 15px;
 }

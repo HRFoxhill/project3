@@ -20,10 +20,11 @@ const App = () => (
           <Route exact path="/" component={Home} />
           <Route path="/searchMedium/:?=medium" component={SearchResults} />
           <Route path="/searchArtist/:?=medium" component={SearchResults} />         
+          <Route path="/search/" component={SearchResults} />         
           <Route path="/portfolio:id" component={Portfolio} />
           <Route path="/medium:medium" component={Medium} />
-          <Route exact path="/editinfo" component={EditInfo} />
-          <Route exact path="/editart" component={EditArt} />
+          <Route exact path="/editinfo:id" component={EditInfo} />
+          <Route exact path="/editart:id" component={EditArt} />
           <Route component={NoMatch} />
         </Switch>
       <Footer/>

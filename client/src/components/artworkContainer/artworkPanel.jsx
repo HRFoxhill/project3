@@ -1,25 +1,25 @@
 import React from "react";
-// import 'bulma/css/bulma.css';
-
+import { Link } from "react-router-dom";
 
 export const ArtworkPanel = props => (
-    <div class="card is-one-third" id="artwork-card">
-        <div class="card-image">
-            <figure class="image">
-                <img src={props.url} className="artwork-image" id="portfolio-artwork" alt="Placeholder image"/>
+    <div className="card is-one-third" id="artwork-card">
+        <div className="card-image">
+            <figure className="image">
+                <img src={props.url} className="artwork-image" id="portfolio-artwork" alt="Placeholder image" />
             </figure>
         </div>
-        <div class="card-content">
-            <div class="media">
-                <div class="media-content">
-                    <p class="title is-4">{props.title}</p>
+        <div className="card-content">
+            <div className="media">
+                <div className="media-content">
+                    <p className="title is-4">{props.title}</p>
                 </div>
             </div>
-            <div class="content">
-                <p class="subtitle is-6">{props.category}</p>
-                <p class="subtitle is-6">{props.dimensions}</p>
-                <p class="subtitle is-6">{props.yearCreated}</p>
-                <p class="subtitle is-6">{props.description}</p>
+            <div className="content">
+                <p className="subtitle is-6">{props.category}</p>
+                <p className="subtitle is-6">{props.dimensions}</p>
+                <p className="subtitle is-6">{props.yearCreated}</p>
+                <p className="subtitle is-6">{props.description}</p>
+                <Link to={"portfolio=" + props.artistId} className="subtitle is-6">{props.artistName}</Link>
             </div>
         </div>
     </div>

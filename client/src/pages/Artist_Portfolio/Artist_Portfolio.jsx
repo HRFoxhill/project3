@@ -1,6 +1,4 @@
-// HALEY!  hi :) see below 
 // http://localhost:3000/portfolio=5b7e9fda7432aaf5ad99f5bc
-//ObjectId("5b8020e07b4e1c21e08ecc36")
 // use the above url to test but use an id from your Artist collection in your DB (ours will all be different)
 
 // Also feel free to update the seedDB.js file with pictures, etc that better meet your needs
@@ -23,7 +21,8 @@ class portfolio extends Component {
         mediums: "",
         art: []
     };
-    componentDidMount = event => {
+
+    handleDisplayPortfolio = () => {
         let parsedUrlArtistId = window.location.href.split("=").pop();
         this.setState({
             _id: parsedUrlArtistId,
@@ -45,12 +44,24 @@ class portfolio extends Component {
                 console.log(this.state.art)
             })
             .catch(err => console.log(err));
-    }
+    };
+    componentDidMount = event => {
+        this.handleDisplayPortfolio()
+    };
+    componentDidUpdate = () => {
+        // !!this will also needs to be updated with when Joe has patch
+        let parsedUrlArtist = window.location.href.split("=").pop();
 
+        if (parsedUrlArtist !== this.state._id) {
+            this.handleDisplayPortfolio()
+        };
+    
+    };
     render() {
         return (
             <div>
                 <ArtistPanel
+                    id={this.state._id}
                     profilePhoto={this.state.profilePhoto}
                     artistName={this.state.artistName}
                     bio={this.state.bio}
@@ -58,10 +69,12 @@ class portfolio extends Component {
                     phone={this.state.phone}
                     categories={this.state.email}
                 />
+
                 <ArtworkContainer>
                     {this.state.art.map(artwork => {
                         return (
                             <ArtworkPanel
+                                key={artwork._id}
                                 url={artwork.url}
                                 title={artwork.title}
                                 category={artwork.medium}

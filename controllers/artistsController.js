@@ -54,7 +54,10 @@ module.exports = {
     db.Artist
       .findById({ _id: req.params.id })
       .populate("art")
-      .then(dbModel => res.json(dbModel))
+      .then(dbModel => {
+        console.log(req.user)
+        res.json(dbModel)
+      })
       .catch(err => res.status(422).json(err))
   },
   checkLogin: function (req, res) {

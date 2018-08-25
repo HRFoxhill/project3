@@ -40,6 +40,9 @@ export default {
    },
    checkLogin: function(body) {
     return axios.post("/api/login", body);
-   }
+   },
+   artistLogout: function() {
+     return axios.get("/api/logout");
+   },
 
 };

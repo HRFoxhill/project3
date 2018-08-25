@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SignInModal from "../SignInUpModals/SignInModal";
 import SignUpModal from "../SignInUpModals/SignUpModal";
-import Logo from "../../images/FaviconLogo options/Option2.JPG"
-// import APIArtist from "../../utils/APIArtists";
-
-
+import Logo from "../../images/FaviconLogo options/Option2.JPG";
+import APIArtists from "../../utils/APIArtists";
 
 class Nav extends Component {
   constructor(props) {
@@ -46,6 +44,12 @@ class Nav extends Component {
     // });
     // }
   };
+
+  handleLogout = () => {
+    APIArtists.artistLogout()
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
+  }
 
   render() {
     return (
@@ -89,7 +93,7 @@ class Nav extends Component {
               {/* search bar */}
               <div className="control">
                 <input
-                  className="input "
+                  className="input"
                   type="text"
                   placeholder="Search..."
                   id="navbarSearchBox"
@@ -101,7 +105,7 @@ class Nav extends Component {
               <div className="control">
                 <Link
                   className="button is-info"
-                  to={this.state.searchDropDownValue === "Medium" ? ("/searchMedium/?=" + this.state.searchBarValue) : this.state.searchDropDownValue === "Artist" ? ("/searchArtist/?=" + this.state.searchBarValue) : ""}
+                  to={this.state.searchDropDownValue === "Medium" ? ("/search/cat=medium/?=" + this.state.searchBarValue) : this.state.searchDropDownValue === "Artist" ? ("/search/cat=artist/?=" + this.state.searchBarValue) : ""}
                   onClick={this.updateSearchBarValue}
                 >
                   <span className="icon">
@@ -139,6 +143,24 @@ class Nav extends Component {
                     </span>
                     <span>Login | Sign-Up</span>
                   </a>
+                </p>
+              </div>
+            </div>
+
+            {/* Logout - Jon - I'm planning to just have one btn that changes props (signin/up or logout) based on some test to see if the user is logged in but I made a second until we get that if figured out. just FYI for your hamburger. It should still just be the one btn*/}
+            <div className="navbar-item">
+              <div className="field">
+                <p className="control">
+                  <Link className="button is-info"
+                    onClick={this.handleLogout}
+                    id="signInModalOpen"
+                    to="/"
+                  >
+                    <span className="icon">
+                      <i className="fas fa-sign-out-alt" />
+                    </span>
+                    <span>Logout</span>
+                  </Link>
                 </p>
               </div>
             </div>

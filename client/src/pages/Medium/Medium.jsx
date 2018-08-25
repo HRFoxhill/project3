@@ -1,31 +1,27 @@
 import React, { Component } from "react";
 import APIArt from "../../utils/APIArt";
 import APIArtists from "../../utils/APIArtists";
-import MediumPanel from "../../components/mediumPanel";
+import { ArtworkPanel, ArtworkContainer } from "../../components/artworkContainer";
 import ArtistCard from "../../components/artistCard";
-import {ArtworkContainer} from "../../components/artworkContainer";
+// import ArtworkContainer from "../../components/artworkContainer";
 
-// import mediumPanel from "../../components/artistPanel/mediumPanel";
 // import localShows from "../../components/localShows";
 
 class Medium extends Component {
     state = {
         medium: "",
         art: [],
-        
-        
-        // featuredPhoto: "",
-        // profilePhoto: "",
-        // artistName: "",
+        update: false
     };
     handleMediumSearch = () => {
+        console.log("RUNNING SEARCH....")
         let parsedUrlMedium = window.location.href.split("=").pop();
         let populatedArtArray = [];
 
         this.setState({
             medium: parsedUrlMedium,
         })
-        console.log(parsedUrlMedium)
+        // console.log(parsedUrlMedium)
 
         // get art by medium
         APIArt.getArtByMedium(parsedUrlMedium)
@@ -35,14 +31,15 @@ class Medium extends Component {
                     APIArtists.getArtistByArt(item._id)
                         .then(results => {
                             item.artistInfo = results.data[0]
-                            populatedArtArray.push(item);
-
+                            populatedArtArray.push(item);   
+                            this.setState({update:true})
                         })
                         .catch(err => console.log(err));
                 })
                 this.setState({
                     art: populatedArtArray
                 })
+                this.forceUpdate()
                 console.log(this.state.art)
             })
             .catch(err => console.log(err));
@@ -53,35 +50,35 @@ class Medium extends Component {
 
     componentDidUpdate = () => {
         let parsedUrlMedium = window.location.href.split("=").pop();
-
         if (parsedUrlMedium !== this.state.medium) {
-            this.handleMediumSearch();
+            this.handleMediumSearch()
         };
+        
+        //    this doesn't work - Joe taking over
+        // if (this.state.art.length) {
+        //     this.handleMediumSearch();
+        // }
     };
-
-    consoleLog = (data)=> {
-        console.log(data)
-    }
-    
+    artMap = () => this.state.art.map(artwork => {
+        return (
+            <ArtworkPanel
+                key={artwork._id}
+                url={artwork.url}
+                title={artwork.title}
+                category={artwork.medium}
+                dimensions={artwork.dimensions}
+                yearCreated={artwork.yearCreated}
+                description={artwork.description}
+                artistName={"By " + artwork.artistInfo.artistName}
+                artistId={artwork.artistInfo._id}
+            />
+        );
+    })
     render() {
         return (
             <div>
                 <ArtworkContainer>
-                    {this.state.art.map(art => {
-                        return (
-                            <MediumPanel
-                            
-                                artTitle={art.title}
-                                artMedium={art.medium}
-                                artURL={art.url}
-                                artDimensions={art.dimensions}
-                                artYearCreated={art.yearCreated}
-                                artDescription={art.description}
-                                artArtistName={art.artistInfo.artistName}
-                                artArtistWebsite={art.artistInfo.artistWebsite}
-                            />
-                        );
-                    })}
+                    {this.artMap()}
                 </ArtworkContainer>
             </div>
         )

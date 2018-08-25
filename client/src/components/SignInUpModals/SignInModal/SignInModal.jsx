@@ -7,7 +7,6 @@ import ModalCancelBtn from "../ModalCancelBtn";
 
 // APIs
 import APIArtists from "../../../utils/APIArtists";
-import APIArt from "../../../utils/APIArt";
 
 class SignUpModal extends Component {
     // If you need to have access to the parent component in the handler, you also need to bind the function to the component instance:
@@ -38,20 +37,6 @@ class SignUpModal extends Component {
         }, callback);
     };
 
-    // LEFT OFF HERE -- incomplete
-    // handleEmailValidation = event => {
-    //     // need to query DB for existing emails...
-    //     APIArtists.getArtByArtist("5b7d7b649752afd46dcff970")
-    //         .then(res =>
-    //             console.log(res)
-    //         )
-    //         .catch(err => console.log(err));
-    // };
-
-    // handlePasswordValidation = event => {
-
-    // };
-
     handleInputValidation = event => {
         this.handleInputChange(event, () => {
             if (this.state.email.length >= 1) {
@@ -63,7 +48,7 @@ class SignUpModal extends Component {
                 this.setState({
                     emailValidated: false,
                     emailValidationMessage: "please enter your email"
-                    
+
                 });
             };
             if (this.state.password.length >= 1) {
@@ -75,7 +60,7 @@ class SignUpModal extends Component {
                 this.setState({
                     passwordValidated: false,
                     passwordValidationMessage: "please enter your password"
-                    
+
                 });
             };
         });
@@ -84,32 +69,21 @@ class SignUpModal extends Component {
     handleFormSubmit = event => {
         // handling login
         APIArtists.checkLogin(this.state)
-        .then(data => {
-            let results = data.data.user;
-            console.log(results);
-            function isEmpty(myObject) {
-                for(var key in myObject) {
-                    if (myObject.hasOwnProperty(key)) false
-                }
-                return true;
-            }
-// ENDED OFF HERE: NOT FULLY WORKING!
-            if (isEmpty(results)) {
-                console.log("could not find email");
+            .then(data => {
+                let results = data.data.user;
+                console.log(results);
+                console.log("Logged in as: " + results[0].email);
+                this.handleSignInModalClose();
+            })
+            .catch(err => {
                 this.setState({
-                    emailValidationMessage: "invalid email"
-                });
-            } else if (results === false) {
-                console.log("incorrect password");
-                this.setState({
-                    passwordValidationMessage: "incorrect password"
-                });
-            } else if (results.length >= 1) {
-                console.log("'logged in'");
-                
-            }
-        })
-        .catch(err => console.log(err));
+                    emailValidated: false,
+                    emailValidationMessage: "incorrect email or password",
+                    passwordValidated: false,
+                    passwordValidationMessage: "incorrect email or password"
+                })
+                console.log("Failed to log in: " + err);
+            });
     };
 
     handleSignInModalClose() {
@@ -140,14 +114,14 @@ class SignUpModal extends Component {
 
     render() {
         return (
-            <div className="modal"/*{this.props.modalClassName}*/  id="SignInModal">
+            <div className="modal"/*{this.props.modalClassName}*/ id="SignInModal">
                 <div className="box">
                     <div className="modal-background"></div>
                     <div className="modal-content">
                         <h3 className="has-text-centered is-size-3">Sign In</h3>
                         <InputBox
-                            label="email"                            
-                            inputClassName={this.state.emailValidated? "input is-success": "input is-danger"}
+                            label="email"
+                            inputClassName={this.state.emailValidated ? "input is-success" : "input is-danger"}
                             inputType="email"
                             inputId="signInEmailInputBox"
                             inputValue={this.state.email}
@@ -155,14 +129,14 @@ class SignUpModal extends Component {
                             inputName="email"
                             inputPlaceholder="enter your email"
                             leftIconClassName="fas fa-envelope"
-                            rightIconClassName= {this.state.emailValidated? "fas fa-check": "fas fa-exclamation-triangle"}
-                            paragraphClassName={this.state.emailValidated? "help is-success": "help is-danger"}
+                            rightIconClassName={this.state.emailValidated ? "fas fa-check" : "fas fa-exclamation-triangle"}
+                            paragraphClassName={this.state.emailValidated ? "help is-success" : "help is-danger"}
                             paragraphMessage={this.state.emailValidationMessage}
                         />
                         {/* Password input box */}
                         <InputBox
-                            label="password"                            
-                            inputClassName={this.state.passwordValidated? "input is-success": "input is-danger"}
+                            label="password"
+                            inputClassName={this.state.passwordValidated ? "input is-success" : "input is-danger"}
                             inputType="password"
                             inputId="signInPasswordInputBox"
                             inputValue={this.state.password}
@@ -170,8 +144,8 @@ class SignUpModal extends Component {
                             inputName="password"
                             inputPlaceholder="enter your password"
                             leftIconClassName="fas fa-key"
-                            rightIconClassName= {this.state.passwordValidated? "fas fa-check": "fas fa-exclamation-triangle"}
-                            paragraphClassName={this.state.passwordValidated? "help is-success": "help is-danger"}
+                            rightIconClassName={this.state.passwordValidated ? "fas fa-check" : "fas fa-exclamation-triangle"}
+                            paragraphClassName={this.state.passwordValidated ? "help is-success" : "help is-danger"}
                             paragraphMessage={this.state.passwordValidationMessage}
                         />
                         {/* Submit/close btns */}
@@ -179,7 +153,7 @@ class SignUpModal extends Component {
                             <ModalSubmitBtn
                                 id="signInBtn"
                                 onClick={this.handleFormSubmit}
-                                disabled={this.state.passwordValidated && this.state.emailValidated? "": "disabled"}
+                                disabled={this.state.passwordValidated && this.state.emailValidated ? "" : "disabled"}
                             />
                             <ModalCancelBtn
                                 id="cancelBtn"
@@ -187,9 +161,9 @@ class SignUpModal extends Component {
                             />
                             <div className="control has-text-right">
                                 Don't have an account yet? &nbsp;
-                            <SignUpBtn 
-                              id="createAnAccountBtn"
-                            onClick={this.handleSignUpModalOpen}
+                            <SignUpBtn
+                                    id="createAnAccountBtn"
+                                    onClick={this.handleSignUpModalOpen}
                                 />
                             </div>
                         </div>

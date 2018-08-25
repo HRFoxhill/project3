@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import SubmitCancel from "../../components/submit_cancel";
 import { ArtworkPanel, ArtworkContainer } from "../../components/artworkContainer";
-import APIArtist from "../../utils/APIArtists";
+import APIArtists from "../../utils/APIArtists";
 import APIArt from "../../utils/APIArt";
 
 class EditArt extends Component {
@@ -30,7 +30,7 @@ class EditArt extends Component {
         })
         console.log(parsedUrlArtistId)
 
-        APIArtist.getArtByArtist(parsedUrlArtistId)
+        APIArtists.getArtByArtist(parsedUrlArtistId)
             .then(data => {
                 console.log(data.data);
                 this.setState({
@@ -71,7 +71,7 @@ class EditArt extends Component {
     };
 
     deleteArt = artId => {
-        console.log("deleting...need to refresh to see effect")
+        console.log("deleting...")
         APIArt.deleteArtPiece(artId)
             .then(data => {
                 this.setState({ update: true })
@@ -81,7 +81,7 @@ class EditArt extends Component {
     };
 
     updateArt = artId => {
-        console.log("updating...need to refresh to see effect")
+        console.log("updating...")
         APIArt.updateArtPiece(artId, {
             title: this.state.title,
             // medium: this.state.medium,
@@ -99,7 +99,7 @@ class EditArt extends Component {
     };
 
     addArt = () => {
-        console.log("adding...need to refresh to see effect")
+        console.log("adding...")
         APIArt.saveArt(this.state.artistId, {
             title: this.state.title,
             // medium: this.state.medium,
@@ -126,7 +126,7 @@ class EditArt extends Component {
             dimensions: "",
             artId: ""
         })
-    }
+    };
 
     handleInputChange = (event, callback) => {
         const { name, value } = event.target;
@@ -135,7 +135,6 @@ class EditArt extends Component {
         }, callback);
         console.log(this.state)
     };
-
 
     render() {
         return (
@@ -203,8 +202,8 @@ class EditArt extends Component {
     //form
         //url */}
                         <div className="tile is-parent is-8">
+                        <h1>Add/Update Art Piece Here</h1>
                             <div className="tile is-child box">
-                                <h1>Add/Update Art Piece Here</h1>
                                 <figure className="image is-50x50">
                                     <img className="artwork-photo" src={this.state.url} />
                                 </figure>

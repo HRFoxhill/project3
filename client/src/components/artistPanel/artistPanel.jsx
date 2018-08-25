@@ -2,12 +2,12 @@ import React from "react";
 // import 'bulma/css/bulma.css';
 
 const artistPanel = props => (
-  <section className="hero is-medium is-primary is-bold" id="PanelWrapper">
+  <section className="hero is-light" id="PanelWrapper">
     <div className="hero-body">
-      <div className="container">
-        <div className="level">
-          <div className="level-left">
-            <figure className="image is-2x3">
+      <div className="container" id="artistPanelContainer">
+        <div className="columns">
+          <div className="column is-one-fifth">
+            <figure className="image is-3x3">
               <img
                 className="is-rounded"
                 id="artistPanelImage"
@@ -15,19 +15,20 @@ const artistPanel = props => (
               />
             </figure>
           </div>
-
-            <div class="container" id="artist-info-container">
-              <p className="title is-3 is-center" id="artistPanelTitle">
+          <div className="column">
+            
+              <p className="title is-3 artist-panel-text" id="artistPanelTitle">
                 {props.artistName}
               </p>
-              <p className="subtitle is-5 artist-panel-text">
+              <p className="subtitle is-5 artist-panel-text ">
                 {props.websiteURL}
               </p>
-              <p className="subtitle is-5 artist-panel-text">{props.phone}</p>
-              <p className="subtitle is-5 artist-panel-text">
+              <p className="subtitle is-5 artist-panel-text ">{props.phone}</p>
+              <p className="subtitle is-5 artist-panel-text ">
                 {props.categories}
               </p>
-              <p className="subtitle is-5 artist-panel-bio">{props.bio}</p>
+              <p className="subtitle is-6 artist-panel-bio">{props.bio}</p>
+            
           </div>
         </div>
       </div>

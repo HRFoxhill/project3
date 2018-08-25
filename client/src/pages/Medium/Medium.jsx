@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 import APIArt from "../../utils/APIArt";
 import APIArtists from "../../utils/APIArtists";
 import { ArtworkPanel, ArtworkContainer } from "../../components/artworkContainer";
@@ -22,7 +21,7 @@ class Medium extends Component {
         this.setState({
             medium: parsedUrlMedium,
         })
-        console.log(parsedUrlMedium)
+        // console.log(parsedUrlMedium)
 
         // get art by medium
         APIArt.getArtByMedium(parsedUrlMedium)

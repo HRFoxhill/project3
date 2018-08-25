@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 import SubmitCancel from "../../components/submit_cancel";
+<<<<<<< HEAD
 import { EditArtworkPanel, ArtworkContainer } from "../../components/artworkContainer";
 import APIArtist from "../../utils/APIArtists";
+=======
+import { ArtworkPanel, ArtworkContainer } from "../../components/artworkContainer";
+import APIArtists from "../../utils/APIArtists";
+>>>>>>> 987141e2e64cf62bbca902449ef6dfaf8dd89982
 import APIArt from "../../utils/APIArt";
 
 class EditArt extends Component {
@@ -29,16 +34,13 @@ class EditArt extends Component {
             artistId: parsedUrlArtistId,
         })
         console.log(parsedUrlArtistId)
-        // this.addArt();
 
-        APIArtist.getArtByArtist(parsedUrlArtistId)
+        APIArtists.getArtByArtist(parsedUrlArtistId)
             .then(data => {
                 console.log(data.data);
                 this.setState({
                     art: data.data.art,
                 })
-                // this.setState({update:true})
-                // this.forceUpdate()
                 console.log(this.state.art)
             })
             .catch(err => console.log(err));
@@ -48,14 +50,11 @@ class EditArt extends Component {
         this.populateThePage();
     };
     componentDidUpdate = () => {
-        // !!this will also needs to be updated with Joe's patch and to actually make sense with the data on this page
-        // let parsedUrlArtistId = window.location.href.split(":").pop();
         let currentUpdateState = this.state.update
         if (currentUpdateState === true) {
             this.setState({ update: false })
             this.populateThePage()
         };
-
     };
 
     populateEditFields = artId => {
@@ -77,7 +76,7 @@ class EditArt extends Component {
     };
 
     deleteArt = artId => {
-        console.log("deleting...need to refresh to see effect")
+        console.log("deleting...")
         APIArt.deleteArtPiece(artId)
             .then(data => {
                 this.setState({ update: true })
@@ -87,7 +86,7 @@ class EditArt extends Component {
     };
 
     updateArt = artId => {
-        console.log("updating...need to refresh to see effect")
+        console.log("updating...")
         APIArt.updateArtPiece(artId, {
             title: this.state.title,
             // medium: this.state.medium,
@@ -105,7 +104,7 @@ class EditArt extends Component {
     };
 
     addArt = () => {
-        console.log("adding...need to refresh to see effect")
+        console.log("adding...")
         APIArt.saveArt(this.state.artistId, {
             title: this.state.title,
             // medium: this.state.medium,
@@ -132,7 +131,7 @@ class EditArt extends Component {
             dimensions: "",
             artId: ""
         })
-    }
+    };
 
     handleInputChange = (event, callback) => {
         const { name, value } = event.target;
@@ -141,7 +140,6 @@ class EditArt extends Component {
         }, callback);
         console.log(this.state)
     };
-
 
     render() {
         return (
@@ -209,8 +207,8 @@ class EditArt extends Component {
     //form
         //url */}
                         <div className="tile is-parent is-8">
+                        <h1>Add/Update Art Piece Here</h1>
                             <div className="tile is-child box">
-                                <h1>Add/Update Art Piece Here</h1>
                                 <figure className="image is-50x50">
                                     <img className="artwork-photo" src={this.state.url} />
                                 </figure>

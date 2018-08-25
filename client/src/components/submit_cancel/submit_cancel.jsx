@@ -4,7 +4,9 @@ const SubmitCancel = props => {
     return (
     <div className="field is-grouped is-grouped-centered">
         <p className="control">
-            <a className="button is-primary" onClick={props.addOnClick}>
+            <a className={"button is-primary " + props.hideAdd}
+                onClick={props.addOnClick}
+                >
             Add
             </a>
         </p>

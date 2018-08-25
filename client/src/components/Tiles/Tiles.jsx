@@ -11,89 +11,95 @@ class Tiles extends Component {
     return (
       <div className="medium-tiles">
         <div className="tile is-ancestor">
-          <Link className="tile is-parent" to={"/medium=" + this.props.cat1}>
+          <div className="tile is-parent">
             <Category
+              linkTo={"/medium=" + this.props.cat1}
               name={this.props.cat1}
               background={this.props.bg1}
               description={this.props.desc1}
             />
-          </Link>
-          <Link className="tile is-parent" to={"/medium=" + this.props.cat2}>
+          </div>
+          <div className="tile is-parent">
             <Category
+              linkTo={"/medium=" + this.props.cat2}
               name={this.props.cat2}
               background={this.props.bg2}
               description={this.props.desc2}
             />
-          </Link>
-          <Link className="tile is-parent" to={"/medium=" + this.props.cat3}>
+          </div>
+          <div className="tile is-parent">
             <Category
+              linkTo={"/medium=" + this.props.cat3}
               name={this.props.cat3}
               background={this.props.bg3}
               description={this.props.desc3}
             />
-          </Link>
+          </div>
         </div>
         <div className="tile is-ancestor">
           <div className="tile is-vertical is-8">
             <div className="tile">
               {/* vertical two tiles */}
               <div className="tile is-parent is-vertical">
-                {/* <Link className="tile" to={"/medium=" + this.props.cat4}> */}
                 <Category
+                  linkTo={"/medium=" + this.props.cat4}
                   name={this.props.cat4}
                   background={this.props.bg4}
                   description={this.props.desc4}
                 />
-                {/* </Link>
-                <Link className="tile" to={"/medium=" + this.props.cat5}> */}
                 <Category
+                  linkTo={"/medium=" + this.props.cat5}
                   name={this.props.cat5}
                   background={this.props.bg5}
                   description={this.props.desc5}
                 />
-                {/* </Link> */}
               </div>
 
-              <Link className="tile is-parent" to={"/medium=" + this.props.cat6}>
+              <div className="tile is-parent">
                 <Category
+                  linkTo={"/medium=" + this.props.cat6}
                   name={this.props.cat6}
                   background={this.props.bg6}
                   description={this.props.desc6}
                 />
-              </Link>
+              </div>
             </div>
-            <Link className="tile is-parent" to={"/medium=" + this.props.cat7}>
+            <div className="tile is-parent">
               <Category
+                linkTo={"/medium=" + this.props.cat7}
                 name={this.props.cat7}
                 background={this.props.bg7}
                 description={this.props.desc7}
               />
-            </Link>
+            </div>
           </div>
-          <Link className="tile is-parent" to={"/medium=" + this.props.cat8}>
+          <div className="tile is-parent">
             <Category
+              linkTo={"/medium=" + this.props.cat8}
               name={this.props.cat8}
               background={this.props.bg8}
               description={this.props.desc8}
               height={825}
             />
-          </Link>
+          </div>
         </div>
         <div className="tile is-ancestor">
-          <Link className="tile is-parent" to={"/medium=" + this.props.cat9}>
+          <div className="tile is-parent">
             <Category
+              linkTo={"/medium=" + this.props.cat9}
               name={this.props.cat9}
               background={this.props.bg9}
               description={this.props.desc9}
             />
-          </Link>
-          <Link className="tile is-parent is-8" to={"/medium=" + this.props.cat10}>
+          </div>
+          <div className="tile is-parent is-8">
             <Category
+              linkTo={"/medium=" + this.props.cat10}
               name={this.props.cat10}
               background={this.props.bg10}
               description={this.props.desc1}
             />
-          </Link>
+          </div>
         </div>
       </div >
     );

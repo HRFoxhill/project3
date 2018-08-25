@@ -42,7 +42,7 @@ class EditInfo extends Component {
             .catch(err => console.log(err));
     };
     componentDidMount = () => {
-        console.log(this.state)
+        // console.log(this.state)
         this.populateThePage();
     };
     componentDidUpdate = () => {
@@ -74,6 +74,10 @@ class EditInfo extends Component {
                 console.log(data)
             })
             .catch(err => console.log(err))
+    };
+    resetState = () => {
+        this.populateThePage();
+        this.setState({ update: true })
     };
 
     render() {
@@ -123,6 +127,7 @@ class EditInfo extends Component {
                 <SubmitCancel
                     hideAdd={"is-hidden"}
                     updateOnClick={() => this.updateArtist(this.state.artistId)}
+                    cancelOnClick={this.resetState}
                 />
 
             </div>

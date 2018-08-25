@@ -21,6 +21,6 @@ module.exports = function (app) {
   // If no API routes are hit, send the React app
   // !!!change to "../client/build/index.html" once we have a build folder
   app.use(function (req, res) {
-    res.sendFile(path.join(__dirname, "../client/public/index.html"));
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
   });
 }

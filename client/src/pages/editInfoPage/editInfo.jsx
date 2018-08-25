@@ -16,7 +16,7 @@ class EditInfo extends Component {
         mediums: ""
     };
     componentDidMount = event => {
-        let parsedUrlArtistId = window.location.href.split("=").pop();
+        let parsedUrlArtistId = window.location.href.split(":").pop();
         this.setState({
             _id: parsedUrlArtistId,
         })

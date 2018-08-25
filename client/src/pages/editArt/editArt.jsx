@@ -29,7 +29,6 @@ class EditArt extends Component {
             artistId: parsedUrlArtistId,
         })
         console.log(parsedUrlArtistId)
-        // this.addArt();
 
         APIArtist.getArtByArtist(parsedUrlArtistId)
             .then(data => {
@@ -37,8 +36,6 @@ class EditArt extends Component {
                 this.setState({
                     art: data.data.art,
                 })
-                // this.setState({update:true})
-                // this.forceUpdate()
                 console.log(this.state.art)
             })
             .catch(err => console.log(err));
@@ -48,14 +45,11 @@ class EditArt extends Component {
         this.populateThePage();
     };
     componentDidUpdate = () => {
-        // !!this will also needs to be updated with Joe's patch and to actually make sense with the data on this page
-        // let parsedUrlArtistId = window.location.href.split(":").pop();
         let currentUpdateState = this.state.update
         if (currentUpdateState === true) {
             this.setState({ update: false })
             this.populateThePage()
         };
-
     };
 
     populateEditFields = artId => {

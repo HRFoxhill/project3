@@ -10,8 +10,6 @@ module.exports = function (passport) {
     )
 
     router.get('/api/logout',
-
-
         function (req, res) {
             const old_user = req.user;
             req.logout();

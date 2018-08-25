@@ -6,7 +6,6 @@ import SignInBtn from "../SignInBtn";
 import InputBox from "../InputBox";
 import ModalSubmitBtn from "../ModalSubmitBtn"
 import ModalCancelBtn from "../ModalCancelBtn";
-// import { isThisHour } from "date-fns";
 
 // APIs
 import APIArtists from "../../../utils/APIArtists";
@@ -29,7 +28,6 @@ class SignUpModal extends Component {
 
         this.handleSignUpModalClose = this.handleSignUpModalClose.bind(this);
         this.handleSignInModalOpen = this.handleSignInModalOpen.bind(this);
-        // this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -91,8 +89,6 @@ class SignUpModal extends Component {
         })
             .then(data => {
                 console.log(data)
-                // need to add if statement below to close the modal if successful
-                // this.handleSignUpModalClose();
                 if (data.data.errors) {
                     this.setState({
                         emailValidated: false,
@@ -108,7 +104,6 @@ class SignUpModal extends Component {
                 }
             })
             .catch(err => console.log(err))
-        // and logging them in right away
     };
     handleSignUpModalClose() {
         document.querySelector("#SignUpModal").classList.remove("is-active");

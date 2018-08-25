@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import SubmitCancel from "../../components/submit_cancel";
-<<<<<<< HEAD
-import { EditArtworkPanel, ArtworkContainer } from "../../components/artworkContainer";
-import APIArtist from "../../utils/APIArtists";
-=======
 import { ArtworkPanel, ArtworkContainer } from "../../components/artworkContainer";
 import APIArtists from "../../utils/APIArtists";
->>>>>>> 987141e2e64cf62bbca902449ef6dfaf8dd89982
 import APIArt from "../../utils/APIArt";
 
 class EditArt extends Component {

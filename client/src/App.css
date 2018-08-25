@@ -1,3 +1,7 @@
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
 nav {
   margin-bottom: 20px;
 }
@@ -168,14 +172,37 @@ h1.about-title{
 #portfolio-artwork {
   width: auto;
 }
-
+/* css for portfolio page */
+.portfolio-div {
+  background-image: url("./images/Backgrounds/paint-texture2.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 /* css for artist panel */
 .artist-panel-text {
-  padding: 5px;
+  margin-left: 60px;
   
 }
 #artist-info-container {
   padding: 20px;
+}
+.artist-panel-bio {
+  margin-left: 60px;
+}
+#artistPanelContainer {
+  padding: 0px;
+  margin: 0px;
+}
+.dark-translucent {
+  background-color: rgba(0, 0, 0, .6);
+}
+.dark-translucentish {
+  background-color: rgba(0, 0, 0, .8);
+}
+.transparent-background {
+  background: transparent;
 }
 /* #artistPanelContainer {
   width: 85%;
@@ -193,8 +220,7 @@ h1.about-title{
   /* height: 4vw; */
 /* } */
 #artistPanelImage {
-  margin-top: 75px;
-  
+  margin-top: 10px;
 }
 #artwork-card {
   width: 30%;

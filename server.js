@@ -59,9 +59,9 @@ const routes = require('./routes')(app);
 
 // !!not sure we need the below code with pulling in the routes (not finished). Joe, what's your take? - Amanda
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

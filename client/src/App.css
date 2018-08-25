@@ -123,8 +123,19 @@ p.description.show{
   opacity:1;
   transition: max-height 0.3s ease-in;
 }
-
-h1 { 
+.about-container1{
+  position:relative;
+  text-align:center;
+  top:50px;
+  margin:15px;
+}
+.about-container2{
+  position:relative;
+  text-align:center;
+  bottom:50px;
+  margin:15px;
+}
+h1.about-title{ 
     display: block;
     font-size: 2em;
     margin-top: 0.67em;
@@ -133,20 +144,31 @@ h1 {
     margin-right: 0;
     font-weight: bold;
 }
+.parallax { 
+  /* The image used */
+  background-image: url("./images/DickBrewerArt/About-Background.jpg");
+
+  /* Set a specific height */
+  height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .carousel { 
     width: 50%;
     height: auto;
 }
 #artwork-panel {
-  margin: 0 px;
-  padding: 30 px;
+  margin: 0px;
+  padding: 30px;
 }
 #portfolio-artwork {
-  /* height: 400px; */
   width: auto;
 }
 #artwork-card {
   width: 30%;
   margin: 10px;
-  
 }

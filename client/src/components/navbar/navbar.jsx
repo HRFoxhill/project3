@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 import SignInModal from "../SignInUpModals/SignInModal";
 import SignUpModal from "../SignInUpModals/SignUpModal";
 import Logo from "../../images/FaviconLogo options/Option2.JPG"
-// import APIArtist from "../../utils/APIArtists";
-
-
 
 class Nav extends Component {
   constructor(props) {
@@ -89,7 +86,7 @@ class Nav extends Component {
               {/* search bar */}
               <div className="control">
                 <input
-                  className="input "
+                  className="input"
                   type="text"
                   placeholder="Search..."
                   id="navbarSearchBox"
@@ -101,7 +98,7 @@ class Nav extends Component {
               <div className="control">
                 <Link
                   className="button is-info"
-                  to={this.state.searchDropDownValue === "Medium" ? ("/searchMedium/?=" + this.state.searchBarValue) : this.state.searchDropDownValue === "Artist" ? ("/searchArtist/?=" + this.state.searchBarValue) : ""}
+                  to={this.state.searchDropDownValue === "Medium" ? ("/search/cat=medium/?=" + this.state.searchBarValue) : this.state.searchDropDownValue === "Artist" ? ("/search/cat=artist/?=" + this.state.searchBarValue) : ""}
                   onClick={this.updateSearchBarValue}
                 >
                   <span className="icon">

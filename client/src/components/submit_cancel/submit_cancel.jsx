@@ -4,12 +4,17 @@ const SubmitCancel = props => {
     return (
     <div className="field is-grouped is-grouped-centered">
         <p className="control">
-            <a className="button is-primary">
-            Submit
+            <a className="button is-primary" onClick={props.addOnClick}>
+            Add
             </a>
         </p>
         <p className="control">
-            <a className="button is-light">
+            <a className="button is-info" onClick={props.updateOnClick}>
+            Update
+            </a>
+        </p>
+        <p className="control">
+            <a className="button is-light" onClick={props.cancelOnClick}>
             Cancel
             </a>
         </p>

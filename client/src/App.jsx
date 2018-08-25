@@ -18,8 +18,9 @@ const App = () => (
       <Nav/>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/searchMedium/:?=medium" component={SearchResults} />
-          <Route path="/searchArtist/:?=medium" component={SearchResults} />
+          <Route path="/search/" component={SearchResults} />
+                        {/* searchMedium/?=asdasd */}
+          {/* <Route path="/searchArtist/" component={SearchResults} /> */}
           
           <Route path="/portfolio:id" component={Portfolio} />
           <Route path="/medium:medium" component={Medium} />

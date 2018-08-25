@@ -4,7 +4,7 @@ import React from "react";
 export const ArtworkContainer = props => (
 
   <section className="section">
-    <div class="columns">
+    <div className="columns">
       {props.children}
     </div>
   </section>

@@ -46,7 +46,7 @@ componentDidMount = event => {
               <div className="columns">
                 <div className="column">
                     <ArtworkContainer>
-                        {this.state.Artist.art.map(artwork => {
+                        {this.state.art.map(artwork => {
                             return (
                                 <div>
                                 <ArtworkPanel

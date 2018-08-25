@@ -89,7 +89,7 @@ class Nav extends Component {
               {/* search bar */}
               <div className="control">
                 <input
-                  className="input "
+                  className="input"
                   type="text"
                   placeholder="Search..."
                   id="navbarSearchBox"

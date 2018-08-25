@@ -5,63 +5,135 @@ import APIArtist from "../../utils/APIArtists";
 import APIArt from "../../utils/APIArt";
 
 class EditArt extends Component {
-    state = {
-        _id: "",
-        url: "",
-        title: "",
-        medium: "",
-        description: "",
-        yearCreated: "",
-        dimensions: "",
-        art: []
+    constructor(props) {
+        super(props);
+        this.state = {
+            artistId: "",
+            url: "http://via.placeholder.com/500x500",
+            title: "",
+            medium: "",
+            description: "",
+            yearCreated: "",
+            dimensions: "",
+            art: [],
+            artId: ""
+            // deletePiece: "",
+            // update: false,
+        };
+        this.handleInputChange = this.handleInputChange.bind(this);
     };
 
-    componentDidMount = event => {
-        let parsedUrlArtId = window.location.href.split(":").pop();
+    populateThePage = () => {
+        let parsedUrlArtistId = window.location.href.split(":").pop();
         this.setState({
-            _id: parsedUrlArtId,
+            artistId: parsedUrlArtistId,
         })
-        console.log(parsedUrlArtId)
-        this.addArt();
+        console.log(parsedUrlArtistId)
+        // this.addArt();
 
-
-        APIArtist.getArtByArtist(parsedUrlArtId)
+        APIArtist.getArtByArtist(parsedUrlArtistId)
             .then(data => {
                 console.log(data.data);
-                console.log(this.state.art)
-                if (data.data.art.length) {
                     this.setState({
-                        // url: data.data.art.url,
-                        // title: data.data.art.title,
-                        // medium: data.data.medium,
-                        // description: data.data.art.description,
-                        // yearCreated: data.data.art.yearCreated,
-                        // dimensions: data.data.art.dimensions,
                         art: data.data.art,
                     })
-                } else "You have not submitted any artwork yet"
-
+                    // this.setState({update:true})
+                // this.forceUpdate()
                 console.log(this.state.art)
             })
             .catch(err => console.log(err));
+    }
+
+    componentDidMount = event => {
+        this.populateThePage();
     };
+    componentDidUpdate = () => {
+        // !!this will also needs to be updated with Joe's patch and to actually make sense with the data on this page
+        let parsedUrlArtistId = window.location.href.split(":").pop();
+
+        if (parsedUrlArtistId !== this.state.artistId) {
+            this.populateThePage()
+        };
+
+    };
+
+    populateEditFields = artId => {
+        console.log(artId);
+        APIArt.getArtPiece(artId)
+        .then(data => {
+            console.log(data)
+            this.setState({
+                url: data.data.url,
+                title: data.data.title,
+                // medium: data.data.medium,
+                description: data.data.description,
+                yearCreated: data.data.yearCreated,
+                dimensions: data.data.dimensions,
+                artId: data.data._id
+            })
+        })
+        .catch(err => console.log(err))
+    };
+
+    deleteArt = artId => {
+        console.log("deleting...need to refresh to see effect")
+        APIArt.deleteArtPiece(artId)
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+    };
+
+    updateArt = artId => {
+        console.log("updating...need to refresh to see effect")
+        APIArt.updateArtPiece(artId, {
+            title: this.state.title,
+            // medium: this.state.medium,
+            url: this.state.url,
+            dimensions: this.state.dimensions,
+            yearCreated: this.state.yearCreated,
+            description: this.state.description,
+            artId: this.state.artId
+        })
+            .then(data => console.log(data))
+            .catch(err => console.log(err))
+    };
+
     addArt = () => {
-        APIArt.saveArt("5b7eaff94e58a9f983d13283", {
-            title: "Isis",
-            medium: "Mixed Media",
-            url: "http://dixplexia.com/thumbnails/pics/17Isisframe.jpg",
-            dimensions: "27x21",
-            yearCreated: "2017",
-            description: "Created using a 21,000 RPM grinder.",
+        console.log("adding...need to refresh to see effect")
+        APIArt.saveArt(this.state.artistId, {
+            title: this.state.title,
+            // medium: this.state.medium,
+            url: this.state.url,
+            dimensions: this.state.dimensions,
+            yearCreated: this.state.yearCreated,
+            description: this.state.description,
+        })
+        .then(data => {
+            console.log(data)
+        })
+        .catch(err => console.log(err))
+    };
+
+    resetState = () => {
+        this.setState({
+            artistId: "",
+            url: "http://via.placeholder.com/500x500",
+            title: "",
+            medium: "",
+            description: "",
+            yearCreated: "",
+            dimensions: "",
+            artId: ""
         })
     }
 
-    // handleInputChange = (event, callback) => {
-    //     const { name, value } = event.target;
-    //     this.setState({
-    //         [name]: value
-    //     }, callback);
-    // };
+    handleInputChange = (event, callback) => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        }, callback);
+        console.log(this.state)
+    };
+
 
     render() {
         return (
@@ -73,6 +145,7 @@ class EditArt extends Component {
                                 return (
                                     <div>
                                         <ArtworkPanel
+                                            key={artwork._id}
                                             url={artwork.url}
                                             title={artwork.title}
                                             medium={artwork.medium}
@@ -81,22 +154,30 @@ class EditArt extends Component {
                                             description={artwork.description}
                                         />
                                         <p className="buttons">
-                                            <a className="button is-info is-outlined">
+                                            {/* featured btn */}
+                                            <a className="button is-info is-outlined"
+                                            >
                                                 <span>Featured</span>
-                                                <span class="icon is-small">
-                                                    <i class="fas fa-star"></i>
+                                                <span className="icon is-small">
+                                                    <i className="fas fa-star"></i>
                                                 </span>
                                             </a>
-                                            <a className="button is-info is-outlined">
+                                            {/* edit btn */}
+                                            <a className="button is-info is-outlined"
+                                                onClick={() => this.populateEditFields(artwork._id)}
+                                            >
                                                 <span>Edit</span>
-                                                <span class="icon is-small">
-                                                    <i class="far fa-edit"></i>
+                                                <span className="icon is-small">
+                                                    <i className="far fa-edit"></i>
                                                 </span>
                                             </a>
-                                            <a className="button is-danger is-outlined">
+                                            {/* delete btn */}
+                                            <a className="button is-danger is-outlined"
+                                                onClick={() => this.deleteArt(artwork._id)}
+                                            >
                                                 <span>Delete</span>
-                                                <span class="icon is-small">
-                                                    <i class="fas fa-times"></i>
+                                                <span className="icon is-small">
+                                                    <i className="fas fa-times"></i>
                                                 </span>
                                             </a>
                                         </p>
@@ -121,13 +202,21 @@ class EditArt extends Component {
         //url */}
                         <div className="tile is-parent is-8">
                             <div className="tile is-child box">
+                            <h1>Add/Update Art Piece Here</h1>
                                 <figure className="image is-50x50">
-                                    <img className="artwork-photo" src="https://i.pinimg.com/originals/5e/12/50/5e125039e7283e37a51b52c6cb261aeb.jpg" />
+                                    <img className="artwork-photo" src={this.state.url} />
                                 </figure>
-                                <input className="input" type="text" placeholder="url"></input>
+                                <input
+                                    className="input"
+                                    type="text"
+                                    placeholder="url"
+                                    onChange={this.handleInputChange}
+                                    name="url"
+                                    value={this.state.url}
+                                />
                             </div>
                         </div>
-                        //title
+                        {/* title */}
                         <div className="field is-horizontal">
                             <div className="field-label is-normal">
                                 <label className="label">Title</label>
@@ -135,7 +224,14 @@ class EditArt extends Component {
                             <div className="field-body">
                                 <div className="field">
                                     <div className="control">
-                                        <input className="input" type="text" placeholder="Name" />
+                                        <input
+                                            className="input"
+                                            type="text"
+                                            placeholder="Name"
+                                            name="title"
+                                            onChange={this.handleInputChange}
+                                            value={this.state.title}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +244,14 @@ class EditArt extends Component {
                             <div className="field-body">
                                 <div className="field">
                                     <div className="control">
-                                        <input className="input" type="text" placeholder="100x100" />
+                                        <input
+                                            className="input"
+                                            type="text"
+                                            placeholder="100x100"
+                                            name="dimensions"
+                                            onChange={this.handleInputChange}
+                                            value={this.state.dimensions}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +276,14 @@ class EditArt extends Component {
                             <div className="field-body">
                                 <div className="field">
                                     <div className="control">
-                                        <input className="input" type="text" placeholder="2018" />
+                                        <input
+                                            className="input"
+                                            type="text"
+                                            placeholder="2018"
+                                            name="yearCreated"
+                                            onChange={this.handleInputChange}
+                                            value={this.state.yearCreated}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -181,12 +291,18 @@ class EditArt extends Component {
                         {/* //description */}
                         <div className="field is-horizontal">
                             <div className="field-label is-normal">
-                                <label className="label">Artist Statement</label>
+                                <label className="label">Description</label>
                             </div>
                             <div className="field-body">
                                 <div className="field">
                                     <div className="control">
-                                        <textarea className="textarea" placeholder="Artist Statement"></textarea>
+                                        <textarea
+                                            className="textarea"
+                                            placeholder="Artist Statement"
+                                            name="description"
+                                            onChange={this.handleInputChange}
+                                            value={this.state.description}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -202,7 +318,12 @@ class EditArt extends Component {
                         </div>
 
                         {/* //submit button */}
-                        <SubmitCancel />
+                        <SubmitCancel 
+                            addOnClick={this.addArt}
+                            updateOnClick={() => this.updateArt(this.state.artId)}
+                            cancelOnClick={this.resetState}
+                            
+                        />
                         {/* //save and return to portfolio button */}
                     </div>
                 </div>

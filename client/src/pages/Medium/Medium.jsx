@@ -21,7 +21,7 @@ class Medium extends Component {
         this.setState({
             medium: parsedUrlMedium,
         })
-        console.log(parsedUrlMedium)
+        // console.log(parsedUrlMedium)
 
         // get art by medium
         APIArt.getArtByMedium(parsedUrlMedium)

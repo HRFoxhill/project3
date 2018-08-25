@@ -83,7 +83,11 @@ class SignUpModal extends Component {
             email: this.state.email,
             password: this.state.password
         })
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data)
+            // need to add if statement below to close the modal if successful
+            // this.handleSignUpModalClose();
+        })
         // and logging them in right away
     };
     handleSignUpModalClose() {

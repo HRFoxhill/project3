@@ -101,7 +101,7 @@ class Nav extends Component {
               <div className="control">
                 <Link
                   className="button is-info"
-                  to={this.state.searchDropDownValue === "Medium" ? ("/searchMedium/?=" + this.state.searchBarValue) : this.state.searchDropDownValue === "Artist" ? ("/searchArtist/?=" + this.state.searchBarValue) : ""}
+                  to={this.state.searchDropDownValue === "Medium" ? ("/search/cat=medium/?=" + this.state.searchBarValue) : this.state.searchDropDownValue === "Artist" ? ("/search/cat=artist/?=" + this.state.searchBarValue) : ""}
                   onClick={this.updateSearchBarValue}
                 >
                   <span className="icon">

@@ -108,7 +108,8 @@ class SignUpModal extends Component {
             //     console.log("'logged in'");
                 
             // }
-            console.log("Logged in as: " + results[0].email)
+            console.log("Logged in as: " + results[0].email);
+            this.handleSignInModalClose();
         })
         .catch(err => console.log("Failed to log in: " + err));
     };

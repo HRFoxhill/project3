@@ -170,7 +170,14 @@ h1.about-title{
 }
 
 /* css for artist panel */
-#artistPanelContainer {
+.artist-panel-text {
+  padding: 5px;
+  
+}
+#artist-info-container {
+  padding: 20px;
+}
+/* #artistPanelContainer {
   width: 85%;
   height: 40%;
 }
@@ -184,7 +191,7 @@ h1.about-title{
 #artistPanelSubtitle {
   font-size: 1.1em;
   /* height: 4vw; */
-}
+/* } */
 #artistPanelImage {
   margin-top: 75px;
   
@@ -192,4 +199,10 @@ h1.about-title{
 #artwork-card {
   width: 30%;
   margin: 15px;
+}
+#edit-artwork-card {
+  font-size: 4em;
+}
+#edit-portfolio-artwork {
+font-size: 4em;
 }

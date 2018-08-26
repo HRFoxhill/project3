@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Description from "./description";
+import { Link } from "react-router-dom";
 
 
 class Category extends Component {
@@ -24,25 +25,25 @@ class Category extends Component {
 
   render() {
     return (
-      <article
-        style={{
-          backgroundImage: `url(${this.props.background})`,
-          height: this.props.height,
-          backgroundPosition: "center",
-          backgroundSize: "cover"
-        }}
-        onMouseEnter={this.hoverIn.bind(this)}
-        onMouseLeave={this.hoverOut.bind(this)}
-        className="tile is-child box"
-      >
-        <div className="box tile-box">
-          {this.props.name}
-          <Description
-            show={this.state.show}
-            input={this.props.description}
-          />
-        </div>
-      </article>
+        <Link to ={this.props.linkTo}
+          style={{
+            backgroundImage: `url(${this.props.background})`,
+            height: this.props.height,
+            backgroundPosition: "center",
+            backgroundSize: "cover"
+          }}
+          onMouseEnter={this.hoverIn.bind(this)}
+          onMouseLeave={this.hoverOut.bind(this)}
+          className="tile is-child box"
+        >
+          <div className="box tile-box">
+            {this.props.name}
+            <Description
+              show={this.state.show}
+              input={this.props.description}
+            />
+          </div>
+        </Link>
     );
   }
 }

@@ -21,8 +21,8 @@ class portfolio extends Component {
         mediums: "",
         art: []
     };
-    componentDidMount = event => {
-        // this still needs to be tested
+
+    handleDisplayPortfolio = () => {
         let parsedUrlArtistId = window.location.href.split("=").pop();
         this.setState({
             _id: parsedUrlArtistId,
@@ -44,11 +44,22 @@ class portfolio extends Component {
                 console.log(this.state.art)
             })
             .catch(err => console.log(err));
-    }
+    };
+    componentDidMount = event => {
+        this.handleDisplayPortfolio()
+    };
+    componentDidUpdate = () => {
+        // !!this will also needs to be updated with when Joe has patch
+        let parsedUrlArtist = window.location.href.split("=").pop();
 
+        if (parsedUrlArtist !== this.state._id) {
+            this.handleDisplayPortfolio()
+        };
+    
+    };
     render() {
         return (
-            <div>
+            <div class="portfolio-div">
                 <ArtistPanel
                     id={this.state._id}
                     profilePhoto={this.state.profilePhoto}
@@ -63,6 +74,7 @@ class portfolio extends Component {
                     {this.state.art.map(artwork => {
                         return (
                             <ArtworkPanel
+                                key={artwork._id}
                                 url={artwork.url}
                                 title={artwork.title}
                                 category={artwork.medium}

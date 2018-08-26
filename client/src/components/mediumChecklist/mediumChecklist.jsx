@@ -14,56 +14,85 @@ const MediumChecklist = props => {
                     {/* <div className="field-body"> */}
                         <div className="field">
                             <label className="checkbox">
-                                <input type="checkbox"/>
+                                <input 
+                                type="checkbox"
+                                checked={props.mediumCeramics}
+                                onClick={props.handleInputChange}
+                                name="mediumCeramics"
+                                />
                                 Ceramics
                             </label>
                         </div>
                         <div className="field">
                             <label className="checkbox">
-                                <input type="checkbox"/>
+                                <input type="checkbox"
+                                checked={props.mediumDigitArt}
+                                onClick={props.handleInputChange}
+                                name="mediumDigitArt"/>
                                 Digital Art
                             </label>
                         </div>
                         <div className="field">
                             <label className="checkbox">
-                                <input type="checkbox"/>
+                                <input type="checkbox"
+                                checked={props.mediumDrawing}
+                                onClick={props.handleInputChange}
+                                name="mediumDrawing"/>
                                 Drawing
                             </label>
                         </div>
                         <div className="field">
                             <label className="checkbox">
-                                <input type="checkbox"/>
+                                <input type="checkbox"
+                                checked={props.mediumGlass}
+                                onClick={props.handleInputChange}
+                                name="mediumGlass"/>
                                 Glass
                             </label>
                         </div>
                         <div className="field">
                             <label className="checkbox">
-                                <input type="checkbox"/>
+                                <input type="checkbox"
+                                checked={props.mediumIllustration}
+                                onClick={props.handleInputChange}
+                                name="mediumIllustration"/>
                                 Illustration
                             </label>
                         </div>
                         <div className="field">
                             <label className="checkbox">
-                                <input type="checkbox"/>
+                                <input type="checkbox"
+                                checked={props.mediumMixedMedia}
+                                onClick={props.handleInputChange}
+                                name="mediumMixedMedia"/>
                                 Mixed Media
                             </label>
                         </div>
                         <div className="field">
                             <label className="checkbox">
-                                <input type="checkbox"/>
+                                <input type="checkbox"
+                                checked={props.mediumPainting}
+                                onClick={props.handleInputChange}
+                                name="mediumPainting"/>
                                 Painting
                             </label>
                         </div>
                         <div className="field">
                             <label className="checkbox">
-                                <input type="checkbox"/>
+                                <input type="checkbox"
+                                checked={props.mediumPhotography}
+                                onClick={props.handleInputChange}
+                                name="mediumPhotography"/>
                                 Photography
                             </label>
                         </div>
                         <div className="field">
                             <label className="checkbox">
-                                <input type="checkbox"/>
-                                Scultpure
+                                <input type="checkbox"
+                                checked={props.mediumSculpture}
+                                onClick={props.handleInputChange}
+                                name="mediumSculpture"/>
+                                Sculpture
                             </label>
                         </div>
                     {/* </div> */}

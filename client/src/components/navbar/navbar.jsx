@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SignInModal from "../SignInUpModals/SignInModal";
 import SignUpModal from "../SignInUpModals/SignUpModal";
-import Logo from "../../images/FaviconLogo options/Option2.JPG";
+import Logo from "../../images/FaviconLogo options/LogoTransparent.png";
 import APIArtists from "../../utils/APIArtists";
 
 class Nav extends Component {

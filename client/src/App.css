@@ -32,7 +32,14 @@ nav {
   color: rgb(27, 27, 27);
 }
 .has-margins{
-  margin:0px 0 20px;
+  margin-bottom: 40px;
+}
+.margin-top{
+  margin-top:60px;
+}
+.has-border{
+  border-style:double;
+  border-color:rgb(173, 173, 173);
 }
 .categories-container {
   margin: 0 auto;
@@ -136,12 +143,16 @@ p.description.show{
   text-align:center;
   top:50px;
   margin:15px;
+  border:double;
+  border-color:rgb(170, 170, 170);
 }
 .about-container2{
   position:relative;
   text-align:center;
   bottom:50px;
   margin:15px;
+  border:double;
+  border-color:rgb(170, 170, 170);
 }
 h1.about-title{ 
     display: block;
@@ -150,16 +161,16 @@ h1.about-title{
     font-weight: bold;
 }
 .parallax { 
-  /* The image used */
   background-image: url("./images/DickBrewerArt/About-Background.jpg");
-  /* Set a specific height */
-  height: 500px; 
-
-  /* Create the parallax scrolling effect */
+  height: 400px; 
+  overflow-y:hidden;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-top:rgb(184, 184, 184);
+  border-bottom:rgb(184, 184, 184);
+  border-style:double;
 }
 .carousel { 
     width: 50%;
@@ -174,7 +185,7 @@ h1.about-title{
 }
 /* css for portfolio page */
 .portfolio-div {
-  background-image: url("./images/Backgrounds/paint-texture2.jpg");
+  background-image: url("./images/Backgrounds/cement-concrete.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -199,7 +210,7 @@ h1.about-title{
   background-color: rgba(0, 0, 0, .6);
 }
 .dark-translucentish {
-  background-color: rgba(0, 0, 0, .8);
+  background-color: rgba(253, 249, 244, 0.5);
 }
 .transparent-background {
   background: transparent;
@@ -231,4 +242,15 @@ h1.about-title{
 }
 #edit-portfolio-artwork {
 font-size: 4em;
+}
+/* Mediums Page Styling */
+.mediums-div {
+  background-image: url("./images/Backgrounds/cement-concrete.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.link-color {
+  color: #FFAD5B;
 }

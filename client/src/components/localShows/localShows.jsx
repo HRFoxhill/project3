@@ -4,7 +4,7 @@ const Shows = props => {
   return (
     <div>
 
-      <table class="table is-fullwidth is-narrow is-hoverable is-striped has-margins">
+      <table class="table is-fullwidth is-narrow is-hoverable is-striped has-margins has-border">
         <thead>
           <tr>
             <th>Title</th>

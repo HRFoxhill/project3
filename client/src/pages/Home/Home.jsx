@@ -26,7 +26,7 @@ class Home extends Component {
           cat3="Drawing"         bg3="https://i.ytimg.com/vi/LZ9Hpp8JygI/hqdefault.jpg"
           desc3="As with paintings, drawings are one of the oldest art forms around and can be traced back to prehistoric times"
           cat4="Illustration"    bg4="https://pbs.twimg.com/media/DVHsJLYWAAE_NxK.jpg"
-          desc4="An illustration is a decoration, interpretation or visual explanation of a text, concept or process, designed for integration in published media, such as posters, flyers, magazines, books, teaching materials, animations, video games and films."
+          desc4="An illustration is a decoration, interpretation or visual explanation of a text designed for integration in published media, such as posters, flyers, magazines and films."
           cat5="Painting"        bg5="https://www.artistsnetwork.com/store/media/catalog/product/cache/2/thumbnail/600x/17f82f742ffe127f42dca9de82fb58b1/z/e/zeiezkxc9z02tkqddjku.png"
           desc5="Painting is the practice of applying paint, pigment, color or other medium to a solid surface (support base)."
           cat6="Photography"     bg6="https://static.boredpanda.com/blog/wp-content/uploads/2015/05/owl-photography-sasi-smit-fb.jpg"

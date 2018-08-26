@@ -91,7 +91,7 @@ class Nav extends Component {
   render() {
     return (
 
-      <nav className="navbar is-light">
+      <nav className="navbar is-white">
         <SignInModal
         // modalClassName={this.state.signInModalOpen? "modal is-active":"modal"}
         />
@@ -141,7 +141,7 @@ class Nav extends Component {
               </div>
               <div className="control">
                 <Link
-                  className="button is-info"
+                  className="button login-button"
                   to={this.state.searchDropDownValue === "Medium" ? ("/search/cat=medium/?=" + this.state.searchBarValue) : this.state.searchDropDownValue === "Artist" ? ("/search/cat=artist/?=" + this.state.searchBarValue) : ""}
                   onClick={this.updateSearchBarValue}
                 >
@@ -171,7 +171,7 @@ class Nav extends Component {
             <div className="navbar-item" id="login-button-nav">
               <div className="field">
                 <p className="control">
-                  <a className="button is-info"
+                  <a className="button login-button"
                     onClick={this.handleSignInModalOpen}
                     id="signInModalOpen"
                   >
@@ -188,7 +188,7 @@ class Nav extends Component {
             <div className="navbar-item" id="logout-button-nav">
               <div className="field">
                 <p className="control">
-                  <Link className="button is-info"
+                  <Link className="button login-button"
                     onClick={this.handleLogout}
                     id="signInModalOpen"
                     to="/"

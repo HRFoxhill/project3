@@ -174,7 +174,7 @@ h1.about-title{
 }
 /* css for portfolio page */
 .portfolio-div {
-  background-image: url("./images/Backgrounds/paint-texture2.jpg");
+  background-image: url("./images/Backgrounds/cement-concrete.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -199,7 +199,7 @@ h1.about-title{
   background-color: rgba(0, 0, 0, .6);
 }
 .dark-translucentish {
-  background-color: rgba(0, 0, 0, .8);
+  background-color: rgba(253, 249, 244, 0.5);
 }
 .transparent-background {
   background: transparent;
@@ -231,4 +231,15 @@ h1.about-title{
 }
 #edit-portfolio-artwork {
 font-size: 4em;
+}
+/* Mediums Page Styling */
+.mediums-div {
+  background-image: url("./images/Backgrounds/cement-concrete.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.link-color {
+  color: #FFAD5B;
 }

@@ -44,5 +44,7 @@ export default {
    artistLogout: function() {
      return axios.get("/api/logout");
    },
-
+   checkUser: function(){
+     return axios.get("/api/checkUser")
+   }
 };

@@ -16,6 +16,16 @@ class EditInfo extends Component {
             phone: "",
             bio: "",
             profilePhoto: "",
+            mediumCeramics: "",
+            mediumDigitArts: "",
+            mediumDrawing: "",
+            mediumGlass: "",
+            mediumIllustration: "",
+            mediumMixedMedia: "",
+            mediumPainting: "",
+            mediumPhotography: "",
+            mediumSculpture: "",
+            mediumArray: [],
             update: false,
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -37,12 +47,13 @@ class EditInfo extends Component {
                     phone: data.data.phone,
                     bio: data.data.bio,
                     profilePhoto: data.data.profilePhoto,
-                })
+                    mediumArray: data.data.medium,
+                });
+                this.displayMediums();
             })
             .catch(err => console.log(err));
     };
     componentDidMount = () => {
-        // console.log(this.state)
         this.populateThePage();
     };
     componentDidUpdate = () => {
@@ -60,6 +71,34 @@ class EditInfo extends Component {
         console.log(this.state)
     };
     updateArtist = artistId => {
+        let newMediumArray = [];
+        if (this.state.mediumCeramics !== "") {
+            newMediumArray.push("Ceramics")
+        }
+        if (this.state.mediumDigitArt !== "") {
+            newMediumArray.push("Digit Art")
+        }
+        if (this.state.mediumDrawing !== "") {
+            newMediumArray.push("Drawing")
+        }
+        if (this.state.mediumGlass !== "") {
+            newMediumArray.push("Glass")
+        }
+        if (this.state.mediumIllustration !== "") {
+            newMediumArray.push("Illustration")
+        }
+        if (this.state.mediumMixedMedia !== "") {
+            newMediumArray.push("Mixed Media")
+        }
+        if (this.state.mediumPainting !== "") {
+            newMediumArray.push("Painting")
+        }
+        if (this.state.mediumPhotography !== "") {
+            newMediumArray.push("Photography")
+        }
+        if (this.state.mediumSculpture !== "") {
+            newMediumArray.push("Sculpture")
+        }
         console.log("updating...")
         APIArtists.updateArtist(artistId, {
             websiteUrl: this.state.websiteUrl,
@@ -68,6 +107,7 @@ class EditInfo extends Component {
             phone: this.state.phone,
             bio: this.state.bio,
             profilePhoto: this.state.profilePhoto,
+            medium: newMediumArray,
         })
             .then(data => {
                 this.setState({ update: true })
@@ -79,6 +119,45 @@ class EditInfo extends Component {
         this.populateThePage();
         this.setState({ update: true })
     };
+    displayMediums = () => {
+        if (this.state.mediumArray.indexOf("Ceramics") !== -1) {
+            this.setState({ mediumCeramics: "on" })
+        };
+        if (this.state.mediumArray.indexOf("Digit Art") !== -1) {
+            this.setState({ mediumDigitArt: "on" })
+        };
+        if (this.state.mediumArray.indexOf("Drawing") !== -1) {
+            this.setState({ mediumDrawing: "on" })
+        };
+        if (this.state.mediumArray.indexOf("Glass") !== -1) {
+            this.setState({ mediumGlass: "on" })
+        };
+        if (this.state.mediumArray.indexOf("Illustration") !== -1) {
+            this.setState({ mediumIllustration: "on" })
+        };
+        if (this.state.mediumArray.indexOf("Mixed Media") !== -1) {
+            this.setState({ mediumMixedMedia: "on" })
+        };
+        if (this.state.mediumArray.indexOf("Painting") !== -1) {
+            this.setState({ mediumPainting: "on" })
+        };
+        if (this.state.mediumArray.indexOf("Photography") !== -1) {
+            this.setState({ mediumPhotography: "on" })
+        };
+        if (this.state.mediumArray.indexOf("Sculpture") !== -1) {
+            this.setState({ mediumSculpture: "on" })
+        };
+    }
+
+
+    handleCheckboxSelection = medium => {
+        // need to capture each time a checkbox is selected by updating a state for each? If update is selected add them to array and send to db
+        if (this.state.medium === "on") {
+            this.setState({ medium: "" })
+        } else if (this.state.medium === "") {
+            this.setState({ medium: "on" })
+        }
+    }
 
     render() {
         return (
@@ -118,7 +197,16 @@ class EditInfo extends Component {
                     //checkbox list */}
                     <div className="column is-one-quarter">
                         <MediumChecklist
-
+                            mediumCeramics={this.state.mediumCeramics}
+                            mediumDigitArt={this.state.mediumDigitArt}
+                            mediumDrawing={this.state.mediumDrawing}
+                            mediumGlass={this.state.mediumGlass}
+                            mediumIllustration={this.state.mediumIllustration}
+                            mediumMixedMedia={this.state.mediumMixedMedia}
+                            mediumPainting={this.state.mediumPainting}
+                            mediumPhotography={this.state.mediumPhotography}
+                            mediumSculpture={this.state.mediumSculpture}
+                            handleInputChange={this.handleInputChange}
                         />
                     </div>
                 </div>
@@ -136,5 +224,6 @@ class EditInfo extends Component {
         );
     }
 }
+
 
 export default EditInfo;

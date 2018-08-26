@@ -1,3 +1,7 @@
+* {
+  font-family: 'Raleway', sans-serif;
+}
+
 nav {
   margin-bottom: 20px;
 }
@@ -26,6 +30,9 @@ nav {
 .nav-categories {
   margin: 0 3vw;
   color: rgb(27, 27, 27);
+}
+.has-margins{
+  margin:0px 0 20px;
 }
 .categories-container {
   margin: 0 auto;
@@ -83,6 +90,7 @@ strong.name{
 section.foot {
   position:relative;
   margin-top: 30px;
+  
   padding-top:20px;
   background: rgb(199, 199, 199);
 }
@@ -123,31 +131,80 @@ p.description.show{
   opacity:1;
   transition: max-height 0.3s ease-in;
 }
-
-h1 { 
+.about-container1{
+  position:relative;
+  text-align:center;
+  top:50px;
+  margin:15px;
+}
+.about-container2{
+  position:relative;
+  text-align:center;
+  bottom:50px;
+  margin:15px;
+}
+h1.about-title{ 
     display: block;
     font-size: 2em;
-    margin-top: 0.67em;
-    margin-bottom: 0.67em;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 0.67em 0;
     font-weight: bold;
+}
+.parallax { 
+  /* The image used */
+  background-image: url("./images/DickBrewerArt/About-Background.jpg");
+  /* Set a specific height */
+  height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .carousel { 
     width: 50%;
     height: auto;
 }
 #artwork-panel {
-  margin: 0 px;
-  padding: 30 px;
+  margin: 0px;
+  padding: 30px;
 }
 #portfolio-artwork {
-  /* height: 400px; */
   width: auto;
 }
-
+/* css for portfolio page */
+.portfolio-div {
+  background-image: url("./images/Backgrounds/paint-texture2.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 /* css for artist panel */
+.artist-panel-text {
+  margin-left: 60px;
+  
+}
+#artist-info-container {
+  padding: 20px;
+}
+.artist-panel-bio {
+  margin-left: 60px;
+}
 #artistPanelContainer {
+  padding: 0px;
+  margin: 0px;
+}
+.dark-translucent {
+  background-color: rgba(0, 0, 0, .6);
+}
+.dark-translucentish {
+  background-color: rgba(0, 0, 0, .8);
+}
+.transparent-background {
+  background: transparent;
+}
+/* #artistPanelContainer {
   width: 85%;
   height: 40%;
 }
@@ -161,10 +218,9 @@ h1 {
 #artistPanelSubtitle {
   font-size: 1.1em;
   /* height: 4vw; */
-}
+/* } */
 #artistPanelImage {
-  margin-top: 75px;
-  
+  margin-top: 10px;
 }
 #artwork-card {
   width: 30%;

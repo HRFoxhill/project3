@@ -13,8 +13,23 @@ class Nav extends Component {
       signInModalOpen: false,
       searchBarValue: "",
       searchDropDownValue: "Medium",
+      userLoggedIn: "",
+      artist: "",
+      update: ""
     };
   };
+
+  componentDidMount = () => {
+    this.handleSearchBarUpdate();
+    // document.cookie = "connect.sid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+  }
+
+  componentDidUpdate = () => {
+    if (this.state.update === true) {
+      this.handleSearchBarUpdate()
+      this.setState({ update: false })
+    }
+  }
 
   handleInputChange = (event, callback) => {
     const { name, value } = event.target;
@@ -30,8 +45,29 @@ class Nav extends Component {
 
   };
 
+
+
   handleSearchBarUpdate = event => {
-    
+    let login = document.getElementById("login-button-nav")
+    let logout = document.getElementById("logout-button-nav");
+    APIArtists.checkUser()
+      .then(data => {
+        if (!data.data.email) {
+          this.setState({ userLoggedIn: false, artist: "None", update: true })
+          logout.style.display = "none"
+          login.style.display = "block"
+          // document.cookie = "connect.sid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
+        }
+        else if (data.data.email) {
+          this.setState({ userLoggedIn: true, artist: data.data.email })
+          logout.style.display = "block"
+          login.style.display = "none"
+        }
+      })
+      .catch(err => console.log(err))
+    // this.setState({ userLoggedIn: true })
+
+
   };
 
 
@@ -46,9 +82,10 @@ class Nav extends Component {
   };
 
   handleLogout = () => {
+    this.setState({ userLoggedIn: false, artist: "None", update: true })
     APIArtists.artistLogout()
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
+      .then(data => console.log(data))
+      .catch(err => console.log(err))
   }
 
   render() {
@@ -64,7 +101,7 @@ class Nav extends Component {
           {/* logo */}
           <Link className="navbar-item" to="/">
             <img
-              src= {Logo}
+              src={Logo}
               alt="Logo Name"
               width="112"
               height="28"
@@ -99,7 +136,7 @@ class Nav extends Component {
                   id="navbarSearchBox"
                   onChange={this.handleInputChange}
                   name="searchBarValue"
-                  // value={this.state.searchBarValue}
+                // value={this.state.searchBarValue}
                 />
               </div>
               <div className="control">
@@ -131,7 +168,7 @@ class Nav extends Component {
 
 
             {/* Login/Signup */}
-            <div className="navbar-item">
+            <div className="navbar-item" id="login-button-nav">
               <div className="field">
                 <p className="control">
                   <a className="button is-info"
@@ -148,7 +185,7 @@ class Nav extends Component {
             </div>
 
             {/* Logout - Jon - I'm planning to just have one btn that changes props (signin/up or logout) based on some test to see if the user is logged in but I made a second until we get that if figured out. just FYI for your hamburger. It should still just be the one btn*/}
-            <div className="navbar-item">
+            <div className="navbar-item" id="logout-button-nav">
               <div className="field">
                 <p className="control">
                   <Link className="button is-info"

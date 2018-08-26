@@ -20,14 +20,12 @@ const artistPanel = props => (
               <p className="title is-3 artist-panel-text  has-text-white-ter" id="artistPanelTitle">
                 {props.artistName}
               </p>
-              <p className="subtitle is-5 artist-panel-text  has-text-grey-lighter">
-                {props.websiteURL}
-              </p>
               <p className="subtitle is-5 artist-panel-text  has-text-grey-lighter">{props.phone}</p>
               <p className="subtitle is-5 artist-panel-text  has-text-grey-lighter">
                 {props.categories}
               </p>
               <p className="subtitle is-6 artist-panel-bio has-text-grey-lighter">{props.bio}</p>
+              <a className="subtitle is-5 artist-panel-text  link-color" href={props.websiteURL}>Visit Website</a>
             
           </div>
         </div>

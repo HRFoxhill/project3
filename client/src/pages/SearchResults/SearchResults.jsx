@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
 import Category from "../..pages/Category";
 import ArtistCard from "../../components/artistCard";
 import localShows from "../../components/localShows";
 import {ArtworkPanel, ArtworkContainer} from "../../components/artworkContainer";
-=======
 import APIArt from "../../utils/APIArt";
 import APIArtists from "../../utils/APIArtists";
 
->>>>>>> da1ebc3e77c8b70329b36026b69de35ce32e60d1
 
 class SearchResults extends Component {
   state = {

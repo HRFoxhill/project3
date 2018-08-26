@@ -20,8 +20,15 @@ class Nav extends Component {
   };
 
   componentDidMount = () => {
+    let login = document.getElementById("login-button-nav")
+    let logout = document.getElementById("logout-button-nav");
+    let art = document.getElementById("art-button-nav")
+    let profile = document.getElementById("profile-button-nav")
+    art.style.display = "none"
+    profile.style.display = "none"
+    logout.style.display = "none"
+    login.style.display = "none"
     this.handleSearchBarUpdate();
-    // document.cookie = "connect.sid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
   }
 
   componentDidUpdate = () => {
@@ -60,7 +67,6 @@ class Nav extends Component {
           profile.style.display = "none"
           logout.style.display = "none"
           login.style.display = "block"
-          // document.cookie = "connect.sid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
         }
         else if (data.data.email) {
           this.setState({ userLoggedIn: true, artist: data.data._id })
@@ -71,7 +77,6 @@ class Nav extends Component {
         }
       })
       .catch(err => console.log(err))
-    // this.setState({ userLoggedIn: true })
 
 
   };
@@ -92,6 +97,7 @@ class Nav extends Component {
     APIArtists.artistLogout()
       .then(data => console.log(data))
       .catch(err => console.log(err))
+    window.location.reload();
   }
 
   render() {
@@ -179,9 +185,9 @@ class Nav extends Component {
 
                     to={"/editart:" + this.state.artist}
                   >
-                    {/* <span className="icon">
-                      <i className="fas fa-sign-out-alt" />
-                    </span> */}
+                    <span className="icon">
+                      <i className="fas fa-paint-brush" />
+                    </span>
                     <span>Artwork</span>
                   </Link>
                 </p>
@@ -195,9 +201,9 @@ class Nav extends Component {
 
                     to={"/editinfo:" + this.state.artist}
                   >
-                    {/* <span className="icon">
-                      <i className="fas fa-sign-out-alt" />
-                    </span> */}
+                    <span className="icon">
+                      <i className="far fa-user" />
+                    </span>
                     <span>Profile</span>
                   </Link>
                 </p>

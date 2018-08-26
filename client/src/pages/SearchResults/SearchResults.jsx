@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import ArtistCard from "../../components/artistCard";
+import localShows from "../../components/localShows";
+import { ArtworkPanel, ArtworkContainer } from "../../components/artworkContainer";
 import APIArt from "../../utils/APIArt";
 import APIArtists from "../../utils/APIArtists";
 

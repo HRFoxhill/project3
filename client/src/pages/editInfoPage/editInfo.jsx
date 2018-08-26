@@ -41,7 +41,7 @@ class EditInfo extends Component {
             .then(data => {
                 console.log(data.data);
                 this.setState({
-                    websiteUrl: data.data.websiteUrl,
+                    websiteUrl: data.data.websiteURL,
                     email: data.data.email,
                     artistName: data.data.artistName,
                     phone: data.data.phone,
@@ -101,7 +101,7 @@ class EditInfo extends Component {
         }
         console.log("updating...")
         APIArtists.updateArtist(artistId, {
-            websiteUrl: this.state.websiteUrl,
+            websiteURL: this.state.websiteUrl,
             email: this.state.email,
             artistName: this.state.artistName,
             phone: this.state.phone,

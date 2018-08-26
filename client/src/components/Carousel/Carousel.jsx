@@ -10,7 +10,7 @@ class carousel extends Component {
     };
 
     return (
-      <div className="has-margins">
+      <div className="has-margins margin-top">
       <Carousel
         autoPlay={true}
         showThumbs={false}

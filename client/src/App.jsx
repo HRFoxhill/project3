@@ -10,9 +10,10 @@ import Portfolio from "./pages/Artist_Portfolio";
 import Medium from "./pages/Medium";
 import EditInfo from "./pages/editInfoPage";
 import EditArt from "./pages/editArt";  
-
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 const App = () => (
+  <ParallaxProvider>
   <Router>
     <div id="featured">
       <Nav />
@@ -30,6 +31,7 @@ const App = () => (
       <Footer/>
     </div>
   </Router>
+  </ParallaxProvider>
 );
 
 export default App;

@@ -1,5 +1,5 @@
 * {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 nav {
@@ -80,7 +80,7 @@ strong.name{
 .social-title{
   position:relative;
   left:15px;
-  font-family:'Courier New', Courier, monospace;
+  /* font-family:'Courier New', Courier, monospace; */
   font-weight:bold;
   font-size:30px;
 }
@@ -179,17 +179,20 @@ h1.about-title{
 #artwork-panel {
   margin: 0px;
   padding: 30px;
+  border-radius: 10px;
+}
+#artwork-card {
+  margin: 0px;
+  padding: 0px;
+  border-radius: 10px;
+  border-color: transparent;
 }
 #portfolio-artwork {
   width: auto;
 }
 /* css for portfolio page */
 .portfolio-div {
-  background-image: url("./images/Backgrounds/cement-concrete.jpg");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: white;
 }
 /* css for artist panel */
 .artist-panel-text {
@@ -210,7 +213,8 @@ h1.about-title{
   background-color: rgba(0, 0, 0, .6);
 }
 .dark-translucentish {
-  background-color: rgba(253, 249, 244, 0.5);
+  /* background-color: rgba(252, 229, 201, 0.5); */
+  background-color: #ebebeb;
 }
 .transparent-background {
   background: transparent;
@@ -245,12 +249,12 @@ font-size: 4em;
 }
 /* Mediums Page Styling */
 .mediums-div {
-  background-image: url("./images/Backgrounds/cement-concrete.jpg");
+  background-color: white;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .link-color {
-  color: #FFAD5B;
+  color: #ff8a65;
 }

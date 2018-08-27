@@ -1,3 +1,7 @@
+Artsposé is an application intended to be utilized by Art Patrons to find and explore new mediums and artist portfolios to help expose, for now, the local Minneapolis Public to new art and artists. This app will allow Artists to create portfolio pages, after signing a disclaimer allowing the site to utilize any information they upload, that will include photos and bios (stretch goal to include prices and purchasing functionality) that may be used for medium (types of art) or artist highlights on the homepage. The app will, additionally, include local shows and their locations so that patrons can go see the art in-person. We believe this is valuable because many artists only have the time and money to promote their art themselves and often do not have the technical ability to go online with their material, this will allow them to be exposed to more patrons and found more easily when displaying at a gallery. We also would like to involve local businesses and allow them to work with an artist to hang/show their works on site to help with more artist exposure. 
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

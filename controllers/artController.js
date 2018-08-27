@@ -41,9 +41,9 @@ module.exports = {
       });
   },
   findByMedium: function (req, res) {
-    console.log(req.params.medium)
+    let medium = req.params.medium;
     db.Art
-      .find({ medium: req.params.medium })
+      .find({ medium: /medium/i })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   }

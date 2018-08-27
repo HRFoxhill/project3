@@ -22,17 +22,17 @@ const DevCard = props => {
         <nav className="level is-mobile  tile is-child">
           <div className="level-left">
             <a target="blank" className="level-item" href={props.github}>
-              <span className="icon footer-icon">
+              <span className="icon footer-icon github">
                 <i className="fab fa-github-square" />
               </span>
             </a>
             <a target="blank" className="level-item" href={props.linkedIn}>
-              <span className="icon footer-icon">
+              <span className="icon footer-icon linkedIn">
                 <i className="fab fa-linkedin" />
               </span>
             </a>
             <a target="blank" className="level-item" href={props.portfolio}>
-              <span className="icon footer-icon">
+              <span className="icon footer-icon portrait">
                 <i className="fas fa-portrait" />
               </span>
             </a>

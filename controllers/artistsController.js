@@ -76,6 +76,7 @@ module.exports = {
     let name = req.params.name
     db.Artist
       .find({ artistName: /name/i })
+      .populate("art")
       .then(dbModel => res.json(dbModel))
       .catch(err => {
         res.send(err)

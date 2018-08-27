@@ -12,8 +12,8 @@ let SidebarMenu = props => {
       <ul className="menu-list">
         <li>
           <a
-            onClick={this.handleSignInModalOpen}
-            id="signInModalOpen"
+            onClick={props.handleSignInModalOpen}
+            // id="signInModalOpen"
           >
             {" "}
             Login
@@ -21,7 +21,6 @@ let SidebarMenu = props => {
         </li>
         <li>
           <a href="#tile-title">Mediums</a>
-          <li />
           <Link className="nav-categories" to="/medium=Mixed%20Media">
             Mixed Media
           </Link>
@@ -82,10 +81,10 @@ class Nav extends Component {
   }
 
   componentDidMount = () => {
-    let login = document.getElementById("login-button-nav")
+    let login = document.getElementById("login-button-nav");
     let logout = document.getElementById("logout-button-nav");
-    let art = document.getElementById("art-button-nav")
-    let profile = document.getElementById("profile-button-nav")
+    let art = document.getElementById("art-button-nav");
+    let profile = document.getElementById("profile-button-nav");
     art.style.display = "none"
     profile.style.display = "none"
     logout.style.display = "none"
@@ -150,6 +149,7 @@ class Nav extends Component {
 
   handleSignInModalOpen = () => {
     // open sign-up
+    console.log("clicked")
     document.querySelector("#SignInModal").classList.add("is-active");
     // if (!this.state.modalOpen) {
     //   this.setState({
@@ -170,7 +170,8 @@ class Nav extends Component {
     const burgerActive = this.state.burgerActive;
     let menu;
     if (burgerActive) {
-      menu = <SidebarMenu />;
+      menu = <SidebarMenu 
+      handleSignInModalOpen={this.handleSignInModalOpen}/>;
     } else {
       menu = "";
     }
@@ -199,8 +200,8 @@ class Nav extends Component {
                       value={this.state.searchDropDownValue}
                       onChange={this.handleDropDownChange}
                     >
-                      <option class="option">Medium</option>
-                      <option class="option">Artist</option>
+                      <option className="option">Medium</option>
+                      <option className="option">Artist</option>
                     </select>
                   </span>
                 </p>

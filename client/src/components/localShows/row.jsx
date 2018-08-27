@@ -8,12 +8,12 @@ class Row extends Component {
     render() { 
         return ( 
             <tr>
-            <td> Abstract Art Show</td>
-            <td> 08/27/2018</td>
-            <td> 11:00-2:00</td>
-            <td>State Fair Grounds</td>
-            <td> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa animi earum perferendis nulla quidem! Expedita, voluptas sint cum dignissimos error nisi accusantium repellendus eligendi, quas, dolor et quisquam distinctio atque.</td>
-          </tr>
+            <td>{this.props.title}</td>
+            <td>{this.props.date}</td>
+            <td>{this.props.time}</td>
+            <td>{this.props.venue}</td>
+            <td>{this.props.details}</td>
+            </tr>
          );
     }
 }

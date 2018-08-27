@@ -342,3 +342,21 @@ h1.about-title {
 .edit-artwork-panel-container {
   border-radius: 10px;
 }
+.pinterest{
+  color: #CB2027;
+}
+.facebook{
+color: #2D4485;
+}
+.instagram{
+  color:rgb(50,50,50);
+}
+.linkedIn{
+  color:#0077B5;
+}
+.github{
+  color:rgb(50,50,50);
+}
+.portrait{
+  color:#FE9800;
+}

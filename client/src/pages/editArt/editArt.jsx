@@ -74,7 +74,7 @@ class EditArt extends Component {
     };
 
     deleteArt = artId => {
-        console.log("deleting...")
+        console.log("deleting..." + artId)
         APIArt.deleteArtPiece(artId)
             .then(data => {
                 this.setState({ update: true })
@@ -87,7 +87,7 @@ class EditArt extends Component {
         console.log("updating...")
         APIArt.updateArtPiece(artId, {
             title: this.state.title,
-            // medium: this.state.medium,
+            medium: this.state.medium,
             url: this.state.url,
             dimensions: this.state.dimensions,
             yearCreated: this.state.yearCreated,
@@ -105,7 +105,7 @@ class EditArt extends Component {
         console.log("adding...")
         APIArt.saveArt(this.state.artistId, {
             title: this.state.title,
-            // medium: this.state.medium,
+            medium: this.state.medium,
             url: this.state.url,
             dimensions: this.state.dimensions,
             yearCreated: this.state.yearCreated,

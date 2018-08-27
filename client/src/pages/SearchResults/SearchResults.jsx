@@ -57,9 +57,9 @@ class SearchResults extends Component {
   render() {
     return (
       <div>
-        <ArtistCard
+        {/* <ArtistCard
           
-        />
+        /> */}
 
       </div>
     );

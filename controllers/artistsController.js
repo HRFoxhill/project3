@@ -73,9 +73,9 @@ module.exports = {
       })
   },
   findArtistByName: function (req, res) {
-    console.log(req.params.name);
+    let name = req.params.name
     db.Artist
-      .find({ artistName: req.params.name })
+      .find({ artistName: /name/i })
       .then(dbModel => res.json(dbModel))
       .catch(err => {
         res.send(err)

@@ -31,7 +31,20 @@ class SearchResults extends Component {
       console.log("in the medium")
       APIArt.getArtByMedium(searchValue)
         .then(data => {
-          console.log(data.data);
+          data.data.forEach(item => {
+            APIArtists.getArtistByArt(item._id)
+              .then(results => {
+                item.artistInfo = results.data[0]
+                populatedArtArray.push(item);
+                this.setState({ update: true })
+              })
+              .catch(err => console.log(err));
+          })
+          this.setState({
+            art: populatedArtArray
+          })
+          this.forceUpdate()
+          console.log(this.state.art)
         })
         .catch(err => console.log(err));
     } else if (searchCategory === "artist") {

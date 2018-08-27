@@ -15,6 +15,9 @@ nav {
   display: flex;
   align-items: center;
 }
+.dropdown-item{
+  background-color:yellow;
+}
 .nav-div {
   position: absolute;
   bottom: -20px;
@@ -68,7 +71,7 @@ strong.name{
 .social-links{
   text-align:center;
   position:absolute;
-  right:-80px;
+  right:0px;
   top: 20px;
 }
 .social-icons {
@@ -87,6 +90,9 @@ section.foot {
 .login-button{
   background-color:rgb(70, 70, 70);
   color:white;
+}
+.login-button:hover{
+  color:#ff8a65;
 }
 div.tile-box {
   position: absolute;
@@ -268,4 +274,10 @@ font-size: 4em;
 }
 .link-color {
   color: #ff8a65;
+}
+
+@media only screen and (min-width: 1600px) {
+  .social-links{
+    right:-80px;
+  }
 }

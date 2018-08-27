@@ -8,7 +8,7 @@ class Tiles extends Component {
   render() {
     return (
       <div>
-        <h1 className="title is-1 tile-title">
+        <h1 className="title is-1 tile-title" id="tile-title">
           <span class="subtitle is-3">search by </span>
           Medium.
         </h1>

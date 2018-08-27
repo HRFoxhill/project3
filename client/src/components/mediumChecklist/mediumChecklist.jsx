@@ -26,9 +26,9 @@ const MediumChecklist = props => {
                         <div className="field">
                             <label className="checkbox">
                                 <input type="checkbox"
-                                checked={props.mediumDigitArt}
+                                checked={props.mediumDigitalArt}
                                 onClick={props.handleInputChange}
-                                name="mediumDigitArt"/>
+                                name="mediumDigitalArt"/>
                                 Digital Art
                             </label>
                         </div>

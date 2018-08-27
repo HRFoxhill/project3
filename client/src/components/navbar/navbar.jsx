@@ -13,50 +13,125 @@ let SidebarMenu = props => {
         <li>
           <a
             onClick={props.handleSignInModalOpen}
-            // id="signInModalOpen"
+          // id="signInModalOpen"
           >
             {" "}
             Login
           </a>
         </li>
         <li>
-          <a href="#tile-title">Mediums</a>
-          <Link className="nav-categories" to="/medium=Mixed%20Media">
+          <a href="#tile-title" onClick={props.toggleState}>Mediums</a>
+          <Link className="nav-categories" to="/medium=Mixed%20Media" onClick={props.toggleState}>
             Mixed Media
           </Link>
         </li>
         <li>
-          <Link className="nav-categories" to="/medium=Ceramics">
+          <Link className="nav-categories" to="/medium=Ceramics" onClick={props.toggleState}>
             Ceramics
           </Link>
         </li>
         <li>
-          <Link className="nav-categories" to="/medium=Drawing">
+          <Link className="nav-categories" to="/medium=Drawing" onClick={props.toggleState}>
             Drawing
           </Link>
         </li>
         <li>
-          <Link className="nav-categories" to="/medium=Illustration">
+          <Link className="nav-categories" to="/medium=Illustration" onClick={props.toggleState}>
             Illustration
           </Link>
         </li>
         <li>
-          <Link className="nav-categories" to="/medium=Painting">
+          <Link className="nav-categories" to="/medium=Painting" onClick={props.toggleState}>
             Painting
           </Link>
         </li>
         <li>
-          <Link className="nav-categories" to="/medium=Photography">
+          <Link className="nav-categories" to="/medium=Photography" onClick={props.toggleState}>
             Photography
           </Link>
         </li>
         <li>
-          <Link className="nav-categories" to="/medium=Sculpture">
+          <Link className="nav-categories" to="/medium=Sculpture" onClick={props.toggleState}>
             Sculpture
           </Link>
         </li>
         <li>
-          <Link className="nav-categories" to="/medium=Glass%20Works">
+          <Link className="nav-categories" to="/medium=Glass%20Works" onClick={props.toggleState}>
+            Glass Works
+          </Link>
+        </li>
+      </ul>
+    </aside>
+  );
+};
+let SidebarMenuLoggedIn = props => {
+  return (
+    <aside className="menu">
+      <p className="menu-label" />
+      <ul className="menu-list">
+        <li>
+          <a
+            onClick={props.handleLogout}
+          // id="signInModalOpen"
+          >
+            {" "}
+            Logout
+          </a>
+        </li>
+        <li>
+          <Link
+            to={"/editinfo:" + props.artist}
+            onClick={props.toggleState}
+          >
+            Profile
+            </Link>
+        </li>
+        <li>
+          <Link
+            to={"/editart:" + props.art}
+            onClick={props.toggleState}
+          >
+            Artworks
+            </Link>
+        </li>
+        <li>
+          <p>Mediums</p>
+          <Link className="nav-categories" to="/medium=Mixed%20Media" onClick={props.toggleState}>
+            Mixed Media
+          </Link>
+        </li>
+        <li>
+          <Link className="nav-categories" to="/medium=Ceramics" onClick={props.toggleState}>
+            Ceramics
+          </Link>
+        </li>
+        <li>
+          <Link className="nav-categories" to="/medium=Drawing" onClick={props.toggleState}>
+            Drawing
+          </Link>
+        </li>
+        <li>
+          <Link className="nav-categories" to="/medium=Illustration" onClick={props.toggleState}>
+            Illustration
+          </Link>
+        </li>
+        <li>
+          <Link className="nav-categories" to="/medium=Painting" onClick={props.toggleState}>
+            Painting
+          </Link>
+        </li>
+        <li>
+          <Link className="nav-categories" to="/medium=Photography" onClick={props.toggleState}>
+            Photography
+          </Link>
+        </li>
+        <li>
+          <Link className="nav-categories" to="/medium=Sculpture" onClick={props.toggleState}>
+            Sculpture
+          </Link>
+        </li>
+        <li>
+          <Link className="nav-categories" to="/medium=Glass%20Works" onClick={props.toggleState}>
             Glass Works
           </Link>
         </li>
@@ -85,10 +160,12 @@ class Nav extends Component {
     let logout = document.getElementById("logout-button-nav");
     let art = document.getElementById("art-button-nav");
     let profile = document.getElementById("profile-button-nav");
+    let hamburger = document.getElementById("side-bar-hamburger")
     art.style.display = "none"
     profile.style.display = "none"
     logout.style.display = "none"
     login.style.display = "none"
+    hamburger.style.display = "none"
     this.handleSearchBarUpdate();
   }
 
@@ -125,14 +202,20 @@ class Nav extends Component {
     let logout = document.getElementById("logout-button-nav");
     let art = document.getElementById("art-button-nav");
     let profile = document.getElementById("profile-button-nav");
+    let hamburger = document.getElementById("side-bar-hamburger")
     APIArtists.checkUser()
       .then(data => {
         if (!data.data.email) {
+          if (this.state.burgerActive) {
+            hamburger.style.display = "block"
+          }
+          else hamburger.style.display = "none"
           this.setState({ userLoggedIn: false, artist: "None", update: true })
           art.style.display = "none"
           profile.style.display = "none"
           logout.style.display = "none"
           login.style.display = "block"
+          // hamburger.style.display = "none"
         }
         else if (data.data.email) {
           this.setState({ userLoggedIn: true, artist: data.data._id })
@@ -140,6 +223,7 @@ class Nav extends Component {
           profile.style.display = "block"
           logout.style.display = "block"
           login.style.display = "none"
+          // hamburger.style.display = "none"
         }
       })
       .catch(err => console.log(err))
@@ -148,7 +232,7 @@ class Nav extends Component {
   };
 
   handleSignInModalOpen = () => {
-    // open sign-up
+    this.setState({ burgerActive: false })
     console.log("clicked")
     document.querySelector("#SignInModal").classList.add("is-active");
     // if (!this.state.modalOpen) {
@@ -159,7 +243,7 @@ class Nav extends Component {
   };
 
   handleLogout = () => {
-    this.setState({ userLoggedIn: false, artist: "None", update: true });
+    this.setState({ userLoggedIn: false, artist: "None", update: true, burgerActive: false });
     APIArtists.artistLogout()
       .then(data => console.log(data))
       .catch(err => console.log(err))
@@ -168,11 +252,26 @@ class Nav extends Component {
 
   render() {
     const burgerActive = this.state.burgerActive;
+    let loggedIn = this.state.userLoggedIn
     let menu;
-    if (burgerActive) {
-      menu = <SidebarMenu 
-      handleSignInModalOpen={this.handleSignInModalOpen}/>;
-    } else {
+    if (burgerActive && !loggedIn) {
+      let hamburger = document.getElementById("side-bar-hamburger")
+      hamburger.style.display = "block"
+      menu = <SidebarMenu
+        handleSignInModalOpen={this.handleSignInModalOpen}
+        toggleState={this.toggleState} />;
+    }
+    else if (burgerActive && loggedIn) {
+      let hamburger = document.getElementById("side-bar-hamburger")
+      hamburger.style.display = "block"
+      menu = <SidebarMenuLoggedIn
+        handleLogout={this.handleLogout}
+        artist={this.state.artist}
+        art={this.state.artist}
+        toggleState={this.toggleState}
+      />
+    }
+    else {
       menu = "";
     }
 
@@ -214,7 +313,7 @@ class Nav extends Component {
                     id="navbarSearchBox"
                     onChange={this.handleInputChange}
                     name="searchBarValue"
-                    // value={this.state.searchBarValue}
+                  // value={this.state.searchBarValue}
                   />
                 </div>
                 <div className="control">
@@ -349,7 +448,9 @@ class Nav extends Component {
             </div>
           </div>
         </nav>
-        {menu}
+        <div id="side-bar-hamburger">
+          {menu}
+        </div>
       </div>
     );
   }

@@ -12,13 +12,7 @@ const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(require('cookie-parser')());
-// Configure middleware
-// =====================================
-// Use morgan logger for logging requests
-// app.use(logger("dev"));
-// Use body-parser for handling form submissions
 
-// !!anyone know if we need both of these?
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 

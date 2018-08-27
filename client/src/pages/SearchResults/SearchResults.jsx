@@ -12,6 +12,7 @@ class SearchResults extends Component {
     searchValue: "",
     art: [],
     update: false,
+    results: [],
   };
 
   handleSearch = () => {
@@ -31,6 +32,7 @@ class SearchResults extends Component {
       console.log("in the medium")
       APIArt.getArtByMedium(searchValue)
         .then(data => {
+<<<<<<< HEAD
           data.data.forEach(item => {
             APIArtists.getArtistByArt(item._id)
               .then(results => {
@@ -45,6 +47,12 @@ class SearchResults extends Component {
           })
           this.forceUpdate()
           console.log(this.state.art)
+=======
+          console.log(data.data);
+          this.setState({
+            results: data.data
+          })
+>>>>>>> a1545376c4e90ecd9ba40545af424da67ae66d1b
         })
         .catch(err => console.log(err));
     } else if (searchCategory === "artist") {
@@ -52,6 +60,7 @@ class SearchResults extends Component {
       APIArtists.getArtistByName(searchValue)
         .then(data => {
           console.log(data.data);
+<<<<<<< HEAD
           data.data[0].art.forEach(item => {
             APIArt.getArtPiece(item._id)
               .then(results => {
@@ -67,7 +76,13 @@ class SearchResults extends Component {
           })
           this.forceUpdate()
           console.log(this.state.art)
+=======
+          // this.setState({
+          //   artistID: data.data
+          // })
+>>>>>>> a1545376c4e90ecd9ba40545af424da67ae66d1b
         })
+        // .then(APIArt.getArtbyArtist())
         .catch(err => console.log(err));
     }
   };
@@ -105,10 +120,24 @@ class SearchResults extends Component {
   render() {
     return (
       <div>
+<<<<<<< HEAD
         <ArtworkContainer>
           {this.artMap()}
         </ArtworkContainer>
 
+=======
+        {this.state.results.map(result => {
+          return (
+            <div className="artist-card">
+            <ArtistCard
+              url={result.url}
+              title={result.title}
+              // need artist ID and artist name to link to portfolio here
+            />
+            </div>
+          );
+        })}
+>>>>>>> a1545376c4e90ecd9ba40545af424da67ae66d1b
       </div>
     );
   }

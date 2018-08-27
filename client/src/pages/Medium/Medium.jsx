@@ -49,6 +49,7 @@ class Medium extends Component {
         };
     };
     artMap = () => this.state.art.map(artwork => {
+        console.log(artwork)
         return (
             <ArtworkPanel
                 key={artwork._id}

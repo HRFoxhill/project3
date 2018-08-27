@@ -1,5 +1,5 @@
 import React from "react";
-
+import Row from "./row";
 const Shows = props => {
   return (
     <div>
@@ -15,20 +15,7 @@ const Shows = props => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td> fdsa</td>
-            <td> fdsa</td>
-            <td> fdsa</td>
-            <td> fdsa</td>
-            <td> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa animi earum perferendis nulla quidem! Expedita, voluptas sint cum dignissimos error nisi accusantium repellendus eligendi, quas, dolor et quisquam distinctio atque.</td>
-          </tr>
-          <tr>
-            <td> fdsa</td>
-            <td> fdsa</td>
-            <td> fdsa</td>
-            <td> fdsa</td>
-            <td> fdsa</td>
-          </tr>
+            <Row/>
         </tbody>
       </table>
       </div>

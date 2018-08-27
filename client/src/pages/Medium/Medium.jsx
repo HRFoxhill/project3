@@ -2,10 +2,6 @@ import React, { Component } from "react";
 import APIArt from "../../utils/APIArt";
 import APIArtists from "../../utils/APIArtists";
 import { ArtworkPanel, ArtworkContainer } from "../../components/artworkContainer";
-import ArtistCard from "../../components/artistCard";
-// import ArtworkContainer from "../../components/artworkContainer";
-
-// import localShows from "../../components/localShows";
 
 class Medium extends Component {
     state = {
@@ -16,23 +12,21 @@ class Medium extends Component {
     handleMediumSearch = () => {
         console.log("RUNNING SEARCH....")
         let parsedUrlMedium = window.location.href.split("=").pop();
+        console.log(parsedUrlMedium);
         let populatedArtArray = [];
 
         this.setState({
             medium: parsedUrlMedium,
         })
-        // console.log(parsedUrlMedium)
 
-        // get art by medium
         APIArt.getArtByMedium(parsedUrlMedium)
             .then(data => {
-                // console.log(data.data);
                 data.data.forEach(item => {
                     APIArtists.getArtistByArt(item._id)
                         .then(results => {
                             item.artistInfo = results.data[0]
-                            populatedArtArray.push(item);   
-                            this.setState({update:true})
+                            populatedArtArray.push(item);
+                            this.setState({ update: true })
                         })
                         .catch(err => console.log(err));
                 })
@@ -53,11 +47,6 @@ class Medium extends Component {
         if (parsedUrlMedium !== this.state.medium) {
             this.handleMediumSearch()
         };
-        
-        //    this doesn't work - Joe taking over
-        // if (this.state.art.length) {
-        //     this.handleMediumSearch();
-        // }
     };
     artMap = () => this.state.art.map(artwork => {
         return (

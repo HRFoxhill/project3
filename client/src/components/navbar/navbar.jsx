@@ -199,8 +199,8 @@ class Nav extends Component {
                       value={this.state.searchDropDownValue}
                       onChange={this.handleDropDownChange}
                     >
-                      <option class="option">Medium</option>
-                      <option class="option">Artist</option>
+                      <option className="option">Medium</option>
+                      <option className="option">Artist</option>
                     </select>
                   </span>
                 </p>

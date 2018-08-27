@@ -11,17 +11,16 @@ export const ArtworkPanel = props => (
         <div className="card-content">
             <div className="media">
                 <div className="media-content">
-                    <p className="title is-4 has-text-grey-darker">{props.title}</p>
+                    <p className="title is-4 has-text-white-ter">{props.title}</p>
                 </div>
             </div>
             <div className="content">
-                <p className="subtitle is-6 has-text-grey">{props.category}</p>
-                <p className="subtitle is-6 has-text-grey">{props.dimensions}</p>
-                <p className="subtitle is-6 has-text-grey">{props.yearCreated}</p>
-                <p className="subtitle is-6 has-text-grey">{props.description}</p>
-                <Link to={"portfolio=" + props.artistId} className="subtitle is-6 link-color">{props.artistName}</Link>
-            </div>
+                <p className="subtitle is-6 has-text-grey-lighter">{props.category}</p>
+                <p className="subtitle is-6 has-text-grey-lighter">{props.dimensions}</p>
+                <p className="subtitle is-6 has-text-grey-lighter">{props.yearCreated}</p>
+                <p className="subtitle is-6 has-text-grey-lighter">{props.description}</p>
+                <Link to={"portfolio=" + props.artistId} className="subtitle is-6">{props.artistName}</Link>
+            </div> 
         </div>
     </div>
 );
-

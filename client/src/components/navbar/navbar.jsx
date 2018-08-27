@@ -7,9 +7,9 @@ import APIArtists from "../../utils/APIArtists";
 
 let SidebarMenu = props => {
   return (
-    <aside class="menu">
-      <p class="menu-label" />
-      <ul class="menu-list">
+    <aside className="menu">
+      <p className="menu-label" />
+      <ul className="menu-list">
         <li>
           <a
             onClick={this.handleSignInModalOpen}

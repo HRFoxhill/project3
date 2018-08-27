@@ -10,6 +10,7 @@ class SearchResults extends Component {
   state = {
     searchCategory: "",
     searchValue: "",
+    update: false,
   };
 
   handleSearch = () => {
@@ -24,43 +25,18 @@ class SearchResults extends Component {
     })
     console.log(searchCategory, searchValue)
 
-    if (this.state.searchCategory === "medium") {
+    if (searchCategory === "medium") {
       console.log("in the medium")
-      APIArt.getArtByMedium(this.state.searchValue)
-            .then(data => {
-                // console.log(data.data);
-                data.data.forEach(item => {
-                    APIArtists.getArtistByArt(item._id)
-                        .then(results => {
-                          console.log(results)
-                            // item.artistInfo = results.data[0]
-                            // populatedArtArray.push(item);   
-                            // this.setState({update:true})
-                        })
-                        .catch(err => console.log(err));
-                })
-                this.setState({
-                    // art: populatedArtArray
-                })
-                this.forceUpdate()
-                console.log(this.state.art)
-            })
-            .catch(err => console.log(err));
-    } else if (this.state.searchCategory === "artist") {
-      console.log("with the artists")
-      APIArtists.getArtistByName(this.state.searchValue)
+      APIArt.getArtByMedium(searchCategory)
         .then(data => {
           console.log(data.data);
-          this.setState({
-            // profilePhoto: data.data.profilePhoto,
-            // artistName: data.data.artistName,
-            // bio: data.data.bio,
-            // websiteURL: data.data.websiteURL,
-            // phone: data.data.phone,
-            // // medium: data.data.medium,
-            // art: data.data.art,
-          })
-          // console.log(this.state.art)
+        })
+        .catch(err => console.log(err));
+    } else if (searchCategory === "artist") {
+      console.log("with the artists")
+      APIArtists.getArtistByName(searchValue)
+        .then(data => {
+          console.log(data.data);
         })
         .catch(err => console.log(err));
     }

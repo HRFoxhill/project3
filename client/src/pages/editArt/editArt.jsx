@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SubmitCancel from "../../components/submit_cancel";
-import { ArtworkPanel, ArtworkContainer } from "../../components/artworkContainer";
+import { EditArtworkPanel, ArtworkContainer } from "../../components/artworkContainer";
 import APIArtists from "../../utils/APIArtists";
 import APIArt from "../../utils/APIArt";
 
@@ -12,6 +12,7 @@ class EditArt extends Component {
             url: "http://via.placeholder.com/500x500",
             title: "",
             medium: "",
+            artistMediums: [],
             description: "",
             yearCreated: "",
             dimensions: "",
@@ -35,8 +36,10 @@ class EditArt extends Component {
                 console.log(data.data);
                 this.setState({
                     art: data.data.art,
+                    artistMediums: data.data.medium
                 })
                 console.log(this.state.art)
+                console.log(this.state.artistMediums)
             })
             .catch(err => console.log(err));
     }
@@ -140,12 +143,13 @@ class EditArt extends Component {
         return (
             <div>
                 <div className="columns">
-                    <div className="column">
+                    <div className="column space-on-top your-artwork">
+                        <p className="has-text-centered title is-4">Your Artwork</p>
                         <ArtworkContainer>
                             {this.state.art.map(artwork => {
                                 return (
-                                    <div>
-                                        <ArtworkPanel
+                                    <div className="edit-artwork-panel-container">
+                                        <EditArtworkPanel
                                             key={artwork._id}
                                             url={artwork.url}
                                             title={artwork.title}
@@ -154,17 +158,17 @@ class EditArt extends Component {
                                             yearCreated={artwork.yearCreated}
                                             description={artwork.description}
                                         />
-                                        <p className="buttons">
+                                        <p className="buttons has-text-centered" id="edit-art-buttons">
                                             {/* featured btn */}
-                                            <a className="button is-info is-outlined"
+                                            <a className="button is-dark is-outlined"
                                             >
                                                 <span>Featured</span>
-                                                <span className="icon is-small">
+                                                <span className="icon is-small has-text-warning">
                                                     <i className="fas fa-star"></i>
                                                 </span>
                                             </a>
                                             {/* edit btn */}
-                                            <a className="button is-info is-outlined"
+                                            <a className="button is-dark is-outlined"
                                                 onClick={() => this.populateEditFields(artwork._id)}
                                             >
                                                 <span>Edit</span>
@@ -187,7 +191,7 @@ class EditArt extends Component {
                             })}
                         </ArtworkContainer>
                     </div>
-                    <div className="column">
+                    <div className="column space-on-top">
 
 
                         {/* // container
@@ -201,8 +205,8 @@ class EditArt extends Component {
 
     //form
         //url */}
+                        <p className="has-text-centered title is-4">Add/Update Art Piece Here</p>
                         <div className="tile is-parent is-8">
-                        <h1>Add/Update Art Piece Here</h1>
                             <div className="tile is-child box">
                                 <figure className="image is-50x50">
                                     <img className="artwork-photo" src={this.state.url} />
@@ -237,38 +241,8 @@ class EditArt extends Component {
                                 </div>
                             </div>
                         </div>
-                        {/* //dimensions __ X __ */}
-                        <div className="field is-horizontal">
-                            <div className="field-label is-normal">
-                                <label className="label">Dimensions (inches)</label>
-                            </div>
-                            <div className="field-body">
-                                <div className="field">
-                                    <div className="control">
-                                        <input
-                                            className="input"
-                                            type="text"
-                                            placeholder="100x100"
-                                            name="dimensions"
-                                            onChange={this.handleInputChange}
-                                            value={this.state.dimensions}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {/* //medium dropdown */}
-                        <div className="control">
-                            <div className="select">
-                                <select>
-                                    {/* {this.state.art.map(medium => {
-                        return (
-                        <option>{medium}</option>
-                    ) */}
-                                    })}
-                </select>
-                            </div>
-                        </div>
+                        
+                       
                         {/* //year YYYY */}
                         <div className="field is-horizontal">
                             <div className="field-label is-normal">
@@ -284,6 +258,26 @@ class EditArt extends Component {
                                             name="yearCreated"
                                             onChange={this.handleInputChange}
                                             value={this.state.yearCreated}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* //dimensions __ X __ */}
+                        <div className="field is-horizontal">
+                            <div className="field-label is-normal">
+                                <label className="label">Dimensions (inches)</label>
+                            </div>
+                            <div className="field-body">
+                                <div className="field">
+                                    <div className="control">
+                                        <input
+                                            className="input"
+                                            type="text"
+                                            placeholder="100x100"
+                                            name="dimensions"
+                                            onChange={this.handleInputChange}
+                                            value={this.state.dimensions}
                                         />
                                     </div>
                                 </div>
@@ -308,15 +302,36 @@ class EditArt extends Component {
                                 </div>
                             </div>
                         </div>
+                         {/* //medium dropdown */}
+                         <div className="field is-horizontal">
+                            <div className="field-label is-normal">
+                                <label className="label">Medium</label>
+                            </div>
+                            <div className="field-body">
+                                <div className="field">
+                                    <div className="control">
+                                        <div className="select">
+                                            <select>
+                                                {this.state.artistMediums.map(medium => {
+                                                return (
+                                                <option>{medium}</option>
+                                                )
+                                                })}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         {/* //SOLD(?) */}
-                        <div className="field">
+                        {/* <div className="field">
                             <div className="control">
                                 <label className="checkbox">
                                     <input type="checkbox" />
                                     Sold
-                    </label>
+                                </label>
                             </div>
-                        </div>
+                        </div> */}
 
                         {/* //submit button */}
                         <SubmitCancel

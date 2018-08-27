@@ -4,7 +4,7 @@ import React from "react";
 export const ArtworkContainer = props => (
 
   <section className="section transparent-background">
-    <div className="columns">
+    <div className="columns is-multiline">
       {props.children}
     </div>
   </section>

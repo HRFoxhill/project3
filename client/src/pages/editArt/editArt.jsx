@@ -94,10 +94,22 @@ class EditArt extends Component {
             dimensions: this.state.dimensions,
             yearCreated: this.state.yearCreated,
             description: this.state.description,
-            artId: this.state.artId
+            artId: this.state.artId,
         })
             .then(data => {
-                this.setState({ update: true })
+                this.setState({
+                    update: true,
+                    url: "http://via.placeholder.com/500x500",
+                    title: "",
+                    medium: "",
+                    artistMediums: [],
+                    description: "",
+                    yearCreated: "",
+                    dimensions: "",
+                    art: [],
+                    artId: "",
+                    mediumText: false
+                })
                 console.log(data)
             })
             .catch(err => console.log(err))

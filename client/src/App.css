@@ -269,3 +269,17 @@ font-size: 4em;
 .link-color {
   color: #ff8a65;
 }
+
+/* EditInfo Styling */
+.editInfo-div {
+  background-color: #ff8a65;
+  padding: 20px;
+}
+.submit-cancel-buttons {
+  margin-bottom: 10px;
+  
+}
+.submit-button {
+  background-color: rgb(70,70,70);
+  color: white;
+}

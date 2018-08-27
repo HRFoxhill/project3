@@ -163,7 +163,7 @@ class EditInfo extends Component {
 
     render() {
         return (
-            <div>
+            <div className="editInfo-div">
                 <div className="columns">
                     {/* //container
                         //form

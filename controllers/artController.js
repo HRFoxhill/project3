@@ -43,7 +43,7 @@ module.exports = {
   findByMedium: function (req, res) {
     let medium = req.params.medium;
     db.Art
-      .find({ medium: /medium/i })
+      .find({ medium: medium })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err))
   }

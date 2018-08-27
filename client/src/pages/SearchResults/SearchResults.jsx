@@ -9,6 +9,7 @@ class SearchResults extends Component {
     searchCategory: "",
     searchValue: "",
     update: false,
+    results: [],
   };
 
   handleSearch = () => {
@@ -28,6 +29,9 @@ class SearchResults extends Component {
       APIArt.getArtByMedium(searchValue)
         .then(data => {
           console.log(data.data);
+          this.setState({
+            results: data.data
+          })
         })
         .catch(err => console.log(err));
     } else if (searchCategory === "artist") {
@@ -35,7 +39,11 @@ class SearchResults extends Component {
       APIArtists.getArtistByName(searchValue)
         .then(data => {
           console.log(data.data);
+          // this.setState({
+          //   artistID: data.data
+          // })
         })
+        // .then(APIArt.getArtbyArtist())
         .catch(err => console.log(err));
     }
   };
@@ -55,10 +63,17 @@ class SearchResults extends Component {
   render() {
     return (
       <div>
-        {/* <ArtistCard
-          
-        /> */}
-
+        {this.state.results.map(result => {
+          return (
+            <div className="artist-card">
+            <ArtistCard
+              url={result.url}
+              title={result.title}
+              // need artist ID and artist name to link to portfolio here
+            />
+            </div>
+          );
+        })}
       </div>
     );
   }

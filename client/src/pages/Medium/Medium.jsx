@@ -76,7 +76,7 @@ class Medium extends Component {
     })
     render() {
         return (
-            <div class="mediums-div">
+            <div className="mediums-div">
                 <ArtworkContainer>
                     {this.artMap()}
                 </ArtworkContainer>

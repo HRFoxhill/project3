@@ -49,10 +49,7 @@ class Nav extends Component {
     this.setState({
       searchDropDownValue: selectedValue.target.value
     });
-
   };
-
-
 
   handleSearchBarUpdate = event => {
     let login = document.getElementById("login-button-nav")
@@ -149,13 +146,13 @@ class Nav extends Component {
                   id="navbarSearchBox"
                   onChange={this.handleInputChange}
                   name="searchBarValue"
-                // value={this.state.searchBarValue}
+                  // value={this.state.searchBarValue}
                 />
               </div>
               <div className="control">
                 <Link
                   className="button login-button"
-                  to={this.state.searchDropDownValue === "Medium" ? ("/search/cat=Medium/?=" + this.state.searchBarValue) : this.state.searchDropDownValue === "Artist" ? ("/search/cat=Artist/?=" + this.state.searchBarValue) : ""}
+                  to={this.state.searchDropDownValue === "Medium" ? ("/search/cat=medium/?=" + this.state.searchBarValue) : this.state.searchDropDownValue === "Artist" ? ("/search/cat=artist/?=" + this.state.searchBarValue) : ""}
                   onClick={this.updateSearchBarValue}
                 >
                   <span className="icon">
@@ -229,7 +226,7 @@ class Nav extends Component {
               </div>
             </div>
 
-            {/* Logout - Jon - I'm planning to just have one btn that changes props (signin/up or logout) based on some test to see if the user is logged in but I made a second until we get that if figured out. just FYI for your hamburger. It should still just be the one btn*/}
+            {/* Logout */}
             <div className="navbar-item" id="logout-button-nav">
               <div className="field">
                 <p className="control">

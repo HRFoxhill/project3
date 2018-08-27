@@ -59,7 +59,7 @@ class portfolio extends Component {
     };
     render() {
         return (
-            <div classNames="portfolio-div">
+            <div className="portfolio-div">
                 <ArtistPanel
                     id={this.state._id}
                     profilePhoto={this.state.profilePhoto}

@@ -3,10 +3,6 @@ const artistsController = require("../../controllers/artistsController");
 const artController = require("../../controllers/artController")
 const showsController = require("../../controllers/showsController")
 
-// app.get('/forbidden', (req,res) => {
-//     res.send(403, 'You are not authorized')
-// });
-
 // Protects routes from being used 
 // by users who are not logged in.
 // If the server doesn't find a valid

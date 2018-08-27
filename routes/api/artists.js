@@ -10,8 +10,6 @@ router.route("/")
 router
   .route("/:id")
   .get(artistsController.findArtistById)
-// .put(artistsController.updateArtist)
-// .delete(artistsController.removeArtist);
 
 // Matches with "/api/user/shows/:id"
 router

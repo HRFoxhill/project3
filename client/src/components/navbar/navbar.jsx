@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SignInModal from "../SignInUpModals/SignInModal";
 import SignUpModal from "../SignInUpModals/SignUpModal";
-import Logo from "../../images/FaviconLogo options/Option2.JPG";
+import Logo from "../../images/FaviconLogo options/LogoTransparent.png";
 import APIArtists from "../../utils/APIArtists";
 
 class Nav extends Component {
@@ -13,8 +13,30 @@ class Nav extends Component {
       signInModalOpen: false,
       searchBarValue: "",
       searchDropDownValue: "Medium",
+      userLoggedIn: "",
+      artist: "",
+      update: ""
     };
   };
+
+  componentDidMount = () => {
+    let login = document.getElementById("login-button-nav")
+    let logout = document.getElementById("logout-button-nav");
+    let art = document.getElementById("art-button-nav")
+    let profile = document.getElementById("profile-button-nav")
+    art.style.display = "none"
+    profile.style.display = "none"
+    logout.style.display = "none"
+    login.style.display = "none"
+    this.handleSearchBarUpdate();
+  }
+
+  componentDidUpdate = () => {
+    if (this.state.update === true) {
+      this.handleSearchBarUpdate()
+      this.setState({ update: false })
+    }
+  }
 
   handleInputChange = (event, callback) => {
     const { name, value } = event.target;
@@ -30,8 +52,33 @@ class Nav extends Component {
 
   };
 
+
+
   handleSearchBarUpdate = event => {
-    
+    let login = document.getElementById("login-button-nav")
+    let logout = document.getElementById("logout-button-nav");
+    let art = document.getElementById("art-button-nav")
+    let profile = document.getElementById("profile-button-nav")
+    APIArtists.checkUser()
+      .then(data => {
+        if (!data.data.email) {
+          this.setState({ userLoggedIn: false, artist: "None", update: true })
+          art.style.display = "none"
+          profile.style.display = "none"
+          logout.style.display = "none"
+          login.style.display = "block"
+        }
+        else if (data.data.email) {
+          this.setState({ userLoggedIn: true, artist: data.data._id })
+          art.style.display = "block"
+          profile.style.display = "block"
+          logout.style.display = "block"
+          login.style.display = "none"
+        }
+      })
+      .catch(err => console.log(err))
+
+
   };
 
 
@@ -46,15 +93,17 @@ class Nav extends Component {
   };
 
   handleLogout = () => {
+    this.setState({ userLoggedIn: false, artist: "None", update: true })
     APIArtists.artistLogout()
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
+      .then(data => console.log(data))
+      .catch(err => console.log(err))
+    window.location.reload();
   }
 
   render() {
     return (
 
-      <nav className="navbar is-light">
+      <nav className="navbar is-white">
         <SignInModal
         // modalClassName={this.state.signInModalOpen? "modal is-active":"modal"}
         />
@@ -64,7 +113,7 @@ class Nav extends Component {
           {/* logo */}
           <Link className="navbar-item" to="/">
             <img
-              src= {Logo}
+              src={Logo}
               alt="Logo Name"
               width="112"
               height="28"
@@ -99,12 +148,12 @@ class Nav extends Component {
                   id="navbarSearchBox"
                   onChange={this.handleInputChange}
                   name="searchBarValue"
-                  // value={this.state.searchBarValue}
+                // value={this.state.searchBarValue}
                 />
               </div>
               <div className="control">
                 <Link
-                  className="button is-info"
+                  className="button login-button"
                   to={this.state.searchDropDownValue === "Medium" ? ("/search/cat=medium/?=" + this.state.searchBarValue) : this.state.searchDropDownValue === "Artist" ? ("/search/cat=artist/?=" + this.state.searchBarValue) : ""}
                   onClick={this.updateSearchBarValue}
                 >
@@ -129,12 +178,44 @@ class Nav extends Component {
           <div className="navbar-start" />
           <div className="navbar-end">
 
-
-            {/* Login/Signup */}
-            <div className="navbar-item">
+            <div className="navbar-item" id="art-button-nav">
               <div className="field">
                 <p className="control">
-                  <a className="button is-info"
+                  <Link className="button is-info"
+
+                    to={"/editart:" + this.state.artist}
+                  >
+                    <span className="icon">
+                      <i className="fas fa-paint-brush" />
+                    </span>
+                    <span>Artwork</span>
+                  </Link>
+                </p>
+              </div>
+            </div>
+
+            <div className="navbar-item" id="profile-button-nav">
+              <div className="field">
+                <p className="control">
+                  <Link className="button is-info"
+
+                    to={"/editinfo:" + this.state.artist}
+                  >
+                    <span className="icon">
+                      <i className="far fa-user" />
+                    </span>
+                    <span>Profile</span>
+                  </Link>
+                </p>
+              </div>
+            </div>
+
+
+            {/* Login/Signup */}
+            <div className="navbar-item" id="login-button-nav">
+              <div className="field">
+                <p className="control">
+                  <a className="button login-button"
                     onClick={this.handleSignInModalOpen}
                     id="signInModalOpen"
                   >
@@ -148,10 +229,10 @@ class Nav extends Component {
             </div>
 
             {/* Logout - Jon - I'm planning to just have one btn that changes props (signin/up or logout) based on some test to see if the user is logged in but I made a second until we get that if figured out. just FYI for your hamburger. It should still just be the one btn*/}
-            <div className="navbar-item">
+            <div className="navbar-item" id="logout-button-nav">
               <div className="field">
                 <p className="control">
-                  <Link className="button is-info"
+                  <Link className="button login-button"
                     onClick={this.handleLogout}
                     id="signInModalOpen"
                     to="/"

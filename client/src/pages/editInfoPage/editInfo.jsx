@@ -41,7 +41,7 @@ class EditInfo extends Component {
             .then(data => {
                 console.log(data.data);
                 this.setState({
-                    websiteUrl: data.data.websiteUrl,
+                    websiteUrl: data.data.websiteURL,
                     email: data.data.email,
                     artistName: data.data.artistName,
                     phone: data.data.phone,
@@ -54,6 +54,8 @@ class EditInfo extends Component {
             .catch(err => console.log(err));
     };
     componentDidMount = () => {
+        let update = document.getElementById("update-success")
+        update.style.display = "none"
         this.populateThePage();
 
     };
@@ -78,7 +80,7 @@ class EditInfo extends Component {
         console.log("updating...")
         // this.updateMediumArray()
         APIArtists.updateArtist(artistId, {
-            websiteUrl: this.state.websiteUrl,
+            websiteURL: this.state.websiteUrl,
             email: this.state.email,
             artistName: this.state.artistName,
             phone: this.state.phone,
@@ -163,7 +165,7 @@ class EditInfo extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="editInfo-div">
                 <div className="columns">
                     {/* //container
                         //form
@@ -216,10 +218,14 @@ class EditInfo extends Component {
                 //SAVE CHANGES button */}
                 <SubmitCancel
                     hideAdd={"is-hidden"}
-                    updateOnClick={() => this.updateArtist(this.state.artistId)}
+                    updateOnClick={() => {
+                        this.updateArtist(this.state.artistId)
+                        let update = document.getElementById("update-success")
+                        update.style.display = "block"
+                    }}
                     cancelOnClick={this.resetState}
                 />
-
+                <div id="update-success" style={{ textAlign: 'center' }}>Profile Updated!</div>
             </div>
 
 

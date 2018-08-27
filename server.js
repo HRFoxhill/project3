@@ -12,13 +12,7 @@ const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(require('cookie-parser')());
-// Configure middleware
-// =====================================
-// Use morgan logger for logging requests
-// app.use(logger("dev"));
-// Use body-parser for handling form submissions
 
-// !!anyone know if we need both of these?
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -59,9 +53,9 @@ const routes = require('./routes')(app);
 
 // !!not sure we need the below code with pulling in the routes (not finished). Joe, what's your take? - Amanda
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

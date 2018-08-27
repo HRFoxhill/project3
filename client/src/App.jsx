@@ -9,19 +9,19 @@ import Footer from "./components/footer";
 import Portfolio from "./pages/Artist_Portfolio";
 import Medium from "./pages/Medium";
 import EditInfo from "./pages/editInfoPage";
-import EditArt from "./pages/editArt";
-
+import EditArt from "./pages/editArt";  
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 const App = () => (
+  <ParallaxProvider>
   <Router>
-    <div id= "featured">
-      <Nav/>
+    <div id="featured">
+      <Nav />
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/search/" component={SearchResults} />
-                        {/* searchMedium/?=asdasd */}
-          {/* <Route path="/searchArtist/" component={SearchResults} /> */}
-          
+          <Route path="/searchMedium/:?=medium" component={SearchResults} />
+          <Route path="/searchArtist/:?=medium" component={SearchResults} />         
+          <Route path="/search/" component={SearchResults} />         
           <Route path="/portfolio:id" component={Portfolio} />
           <Route path="/medium:medium" component={Medium} />
           <Route exact path="/editinfo:id" component={EditInfo} />
@@ -31,6 +31,7 @@ const App = () => (
       <Footer/>
     </div>
   </Router>
+  </ParallaxProvider>
 );
 
 export default App;

@@ -1,4 +1,6 @@
 var router = require('express').Router()
+const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn
+
 
 module.exports = function (passport) {
     router.post('/api/login',
@@ -6,8 +8,7 @@ module.exports = function (passport) {
         function (req, res) {
             console.log("Req: " + req.user)
             res.json({ success: (req.user ? "Yes" : "No"), user: req.user });
-        }
-    )
+        });
 
     router.get('/api/logout',
         function (req, res) {
@@ -17,6 +18,12 @@ module.exports = function (passport) {
             res.json({ success: (req.user ? "No" : "Yes"), user: req.user, "old_user": old_user });
         });
 
+    router.get('/api/checkUser',
+        ensureLoggedIn(),
+        function (req, res) {
+            console.log("CHECK REQ: " + req.user)
+            res.json(req.user)
+        })
     return router;
 
 }

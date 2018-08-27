@@ -17,7 +17,7 @@ class EditInfo extends Component {
             bio: "",
             profilePhoto: false,
             mediumCeramics: false,
-            mediumDigitArts: false,
+            mediumDigitalArts: false,
             mediumDrawing: false,
             mediumGlass: false,
             mediumIllustration: false,
@@ -102,8 +102,8 @@ class EditInfo extends Component {
         if (this.state.mediumArray.indexOf("Ceramics") !== -1) {
             this.setState({ mediumCeramics: true })
         };
-        if (this.state.mediumArray.indexOf("Digit Art") !== -1) {
-            this.setState({ mediumDigitArt: true })
+        if (this.state.mediumArray.indexOf("Digital Art") !== -1) {
+            this.setState({ mediumDigitalArt: true })
         };
         if (this.state.mediumArray.indexOf("Drawing") !== -1) {
             this.setState({ mediumDrawing: true })
@@ -134,8 +134,8 @@ class EditInfo extends Component {
             if (this.state.mediumCeramics === true) {
                 newMediumArray.push("Ceramics")
             }
-            if (this.state.mediumDigitArt === true) {
-                newMediumArray.push("Digit Art")
+            if (this.state.mediumDigitalArt === true) {
+                newMediumArray.push("Digital Art")
             }
             if (this.state.mediumDrawing === true) {
                 newMediumArray.push("Drawing")
@@ -202,7 +202,7 @@ class EditInfo extends Component {
                     <div className="column is-one-quarter">
                         <MediumChecklist
                             mediumCeramics={this.state.mediumCeramics}
-                            mediumDigitArt={this.state.mediumDigitArt}
+                            mediumDigitalArt={this.state.mediumDigitalArt}
                             mediumDrawing={this.state.mediumDrawing}
                             mediumGlass={this.state.mediumGlass}
                             mediumIllustration={this.state.mediumIllustration}

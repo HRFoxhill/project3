@@ -132,6 +132,7 @@ class Nav extends Component {
                     id="navbarSearchDropdown"
                     value={this.state.searchDropDownValue}
                     onChange={this.handleDropDownChange}
+                    name="searchDropDownValue"
                   >
                     <option>Medium</option>
                     <option>Artist</option>
@@ -154,7 +155,7 @@ class Nav extends Component {
               <div className="control">
                 <Link
                   className="button login-button"
-                  to={this.state.searchDropDownValue === "Medium" ? ("/search/cat=medium/?=" + this.state.searchBarValue) : this.state.searchDropDownValue === "Artist" ? ("/search/cat=artist/?=" + this.state.searchBarValue) : ""}
+                  to={this.state.searchDropDownValue === "Medium" ? ("/search/cat=Medium/?=" + this.state.searchBarValue) : this.state.searchDropDownValue === "Artist" ? ("/search/cat=Artist/?=" + this.state.searchBarValue) : ""}
                   onClick={this.updateSearchBarValue}
                 >
                   <span className="icon">

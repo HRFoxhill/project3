@@ -20,7 +20,7 @@ const Slide = props => {
         overflow:"hidden"
       };
   return (
-    <div class="slide-container" style={container}>
+    <div className="slide-container" style={container}>
       <h1 style={title}>{props.title}</h1>
       <img src={props.image} style={images}/>
       <p className="legend">{props.description}</p>

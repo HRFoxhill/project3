@@ -42,13 +42,11 @@ class SearchResults extends Component {
                 this.setState({
                     // art: populatedArtArray
                 })
-                this.forceUpdate()
-                console.log(this.state.art)
             })
             .catch(err => console.log(err));
     } else if (this.state.searchCategory === "artist") {
       console.log("with the artists")
-      APIArtists.getArtistByName(this.state.searchValue)
+      APIArtists.getArtistByName({ $regex: /this.state.searchValue/, $options: 'i' })
         .then(data => {
           console.log(data.data);
           this.setState({

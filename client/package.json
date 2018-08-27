@@ -17,5 +17,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://github.com/HRFoxhill/project3"
+  "homepage": "https://artspose.herokuapp.com/"
 }

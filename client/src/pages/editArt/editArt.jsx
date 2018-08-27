@@ -18,9 +18,9 @@ class EditArt extends Component {
             dimensions: "",
             art: [],
             artId: "",
-            // deletePiece: "",
             update: false,
             mediumText: false,
+            success: ""
         };
         this.handleInputChange = this.handleInputChange.bind(this);
     };
@@ -79,7 +79,7 @@ class EditArt extends Component {
         console.log("deleting..." + artId)
         APIArt.deleteArtPiece(artId)
             .then(data => {
-                this.setState({ update: true })
+                this.setState({ update: true, success: "Artwork succesfully removed!" })
                 console.log(data)
             })
             .catch(err => console.log(err))
@@ -108,7 +108,8 @@ class EditArt extends Component {
                     dimensions: "",
                     art: [],
                     artId: "",
-                    mediumText: false
+                    mediumText: false,
+                    success: "Artwork successfully updated!"
                 })
                 console.log(data)
             })
@@ -126,7 +127,20 @@ class EditArt extends Component {
             description: this.state.description,
         })
             .then(data => {
-                this.setState({ update: true })
+                this.setState({
+                    update: true,
+                    url: "http://via.placeholder.com/500x500",
+                    title: "",
+                    medium: "",
+                    artistMediums: [],
+                    description: "",
+                    yearCreated: "",
+                    dimensions: "",
+                    art: [],
+                    artId: "",
+                    mediumText: false,
+                    success: "Artwork Succesfully Added!"
+                })
                 console.log(data)
             })
             .catch(err => console.log(err))
@@ -183,7 +197,10 @@ class EditArt extends Component {
                                             </a>
                                             {/* edit btn */}
                                             <a className="button is-dark is-outlined"
-                                                onClick={() => this.populateEditFields(artwork._id)}
+                                                onClick={() => {
+                                                    this.populateEditFields(artwork._id)
+                                                    this.setState({success: ""})
+                                                }}
                                             >
                                                 <span>Edit</span>
                                                 <span className="icon is-small">
@@ -206,19 +223,6 @@ class EditArt extends Component {
                         </ArtworkContainer>
                     </div>
                     <div className="column space-on-top">
-
-
-                        {/* // container
-    //previews
-        //panel
-            //photo
-            //info
-            //edit button
-            //delete button
-            //featured choice
-
-    //form
-        //url */}
                         <p className="has-text-centered title is-4">Add/Update Art Piece Here</p>
                         <div className="tile is-parent is-8">
                             <div className="tile is-child box">
@@ -358,7 +362,7 @@ class EditArt extends Component {
                             cancelOnClick={this.resetState}
 
                         />
-                        {/* //save and return to portfolio button */}
+                        <div style={{ textAlign: "center" }}>{this.state.success}</div>
                     </div>
                 </div>
             </div>

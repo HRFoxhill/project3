@@ -24,6 +24,7 @@ class SignUpModal extends Component {
             passwordValidated: false,
             passwordValidationMessage: "please enter a valid password", confirmPasswordValidated: false,
             confirmPasswordValidationMessage: "passwords must match",
+            agreedToTerms: false,
         };
 
         this.handleSignUpModalClose = this.handleSignUpModalClose.bind(this);
@@ -35,7 +36,9 @@ class SignUpModal extends Component {
     };
 
     handleInputChange = (event, callback) => {
-        const { name, value } = event.target;
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
         this.setState({
             [name]: value
         }, callback);
@@ -116,6 +119,7 @@ class SignUpModal extends Component {
             passwordValidated: false,
             passwordValidationMessage: "please enter a valid password", confirmPasswordValidated: false,
             confirmPasswordValidationMessage: "passwords must match",
+            agreedToTerms: false,
         });
     };
     handleSignInModalOpen() {
@@ -132,6 +136,7 @@ class SignUpModal extends Component {
             passwordValidated: false,
             passwordValidationMessage: "please enter a valid password", confirmPasswordValidated: false,
             confirmPasswordValidationMessage: "passwords must match",
+            agreedToTerms: false,
         });
     };
 
@@ -193,7 +198,13 @@ class SignUpModal extends Component {
                         <div className="field">
                             <div className="control">
                                 <label className="checkbox">
-                                    <input type="checkbox" />
+                                    <input 
+                                        type="checkbox" 
+                                        checked={this.state.agreedToTerms}
+                                        name="agreedToTerms"
+                                        onClick={this.handleInputChange}
+
+                                        />
                                     I agree to the <a href="#">terms and conditions</a>
                                 </label>
                             </div>
@@ -204,7 +215,7 @@ class SignUpModal extends Component {
                             <ModalSubmitBtn
                                 onClick={this.handleFormSubmit}
                                 id="modal-sign-up-submit-btn"
-                                disabled={this.state.confirmPasswordValidated && this.state.passwordValidated && this.state.emailValidated ? "" : "disabled"}
+                                disabled={this.state.confirmPasswordValidated && this.state.passwordValidated && this.state.emailValidated && this.state.agreedToTerms ? "" : "disabled"}
                             />
                             <ModalCancelBtn
                                 onClick={this.handleSignUpModalClose}

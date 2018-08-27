@@ -1,7 +1,6 @@
 import React from "react";
-// import 'bulma/css/bulma.css';
 
-const artistPanel = props => (
+const mediumCard = props => (
   <section className="hero dark-translucent" id="PanelWrapper">
     <div className="hero-body">
       <div className="container" id="artistPanelContainer">
@@ -34,5 +33,5 @@ const artistPanel = props => (
   </section>
 );
 
-export default artistPanel;
+export default mediumCard;
 

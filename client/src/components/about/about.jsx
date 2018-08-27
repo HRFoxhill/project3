@@ -8,8 +8,8 @@ const About = props => {
         <div className="container">
           <div className="columns">
           <Parallax
-        offsetYMax={-30}
-        offsetYMin={-100}
+        offsetYMax={-50}
+        offsetYMin={-80}
         slowerScrollRate
     >
             <div className="column about-container1 box" id="card-1">
@@ -21,8 +21,8 @@ const About = props => {
             </div>
             </Parallax>
             <Parallax
-        offsetYMax={-30}
-        offsetYMin={30}
+        offsetYMax={-20}
+        offsetYMin={20}
         slowerScrollRate
     >
             <div className="column about-container2 box" id="card-2">
@@ -36,7 +36,7 @@ const About = props => {
             </Parallax>
             <Parallax
         offsetYMax={-60}
-        offsetYMin={0}
+        offsetYMin={-30}
         slowerScrollRate={false}
     >
             <div className="column about-container1 box" id="card-3">

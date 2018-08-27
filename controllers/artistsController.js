@@ -18,16 +18,11 @@ module.exports = {
   },
   createArtist: function (req, res) {
     db.Artist
-      .create(req.body)
-      // .then(dbArtist => {
-      //   let hash = bcrypt.hashSync(dbArtist.password, saltRounds)
-      //   return db.Artist.findOneAndUpdate({ _id: dbArtist._id }, { local: { password: hash, email: dbArtist.email }, password: hash }, { new: true })
-      // })
+      .create(req.body)  
       .then(dbModel => res.json(dbModel))
       .catch(err => {
         console.log(err);
         res.send(err)
-        // res.status(422).json(err)
       });
   },
   updateArtist: function (req, res) {
@@ -75,7 +70,6 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => {
         res.send(err)
-        // res.status(422).json(err)
       })
   },
   findArtistByName: function (req, res) {

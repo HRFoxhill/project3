@@ -71,9 +71,9 @@ class SignUpModal extends Component {
         APIArtists.checkLogin(this.state)
             .then(data => {
                 let results = data.data.user;
-                console.log(results);
                 console.log("Logged in as: " + results[0].email);
                 this.handleSignInModalClose();
+                window.location.reload();
             })
             .catch(err => {
                 this.setState({

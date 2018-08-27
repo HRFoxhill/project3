@@ -25,7 +25,7 @@ const artistPanel = props => (
                 {props.categories}
               </p>
               <p className="subtitle is-6 artist-panel-bio has-text-grey-lighter">{props.bio}</p>
-              <a className="subtitle is-5 artist-panel-text  link-color" href={props.websiteURL}>Visit Website</a>
+              <a className="subtitle is-5 artist-panel-text  link-color" href={props.websiteURL} target="_blank">Visit Website</a>
             
           </div>
         </div>

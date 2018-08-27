@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export const EditArtworkPanel = props => (
-    <div className="card is-one-third" id="edit-artwork-card">
+    <div className="card" id="edit-artwork-card">
         <div className="card-image">
             <figure className="image">
                 <img src={props.url} className="artwork-image" id="edit-portfolio-artwork" alt="Placeholder image" />

@@ -82,9 +82,16 @@ class Nav extends Component {
   }
 
   componentDidMount = () => {
+    let login = document.getElementById("login-button-nav")
+    let logout = document.getElementById("logout-button-nav");
+    let art = document.getElementById("art-button-nav")
+    let profile = document.getElementById("profile-button-nav")
+    art.style.display = "none"
+    profile.style.display = "none"
+    logout.style.display = "none"
+    login.style.display = "none"
     this.handleSearchBarUpdate();
-    // document.cookie = "connect.sid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
-  };
+  }
 
   componentDidUpdate = () => {
     if (this.state.update === true) {
@@ -122,22 +129,23 @@ class Nav extends Component {
     APIArtists.checkUser()
       .then(data => {
         if (!data.data.email) {
-          this.setState({ userLoggedIn: false, artist: "None", update: true });
-          art.style.display = "none";
-          profile.style.display = "none";
-          logout.style.display = "none";
-          login.style.display = "block";
-          // document.cookie = "connect.sid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"
-        } else if (data.data.email) {
-          this.setState({ userLoggedIn: true, artist: data.data._id });
-          art.style.display = "block";
-          profile.style.display = "block";
-          logout.style.display = "block";
-          login.style.display = "none";
+          this.setState({ userLoggedIn: false, artist: "None", update: true })
+          art.style.display = "none"
+          profile.style.display = "none"
+          logout.style.display = "none"
+          login.style.display = "block"
+        }
+        else if (data.data.email) {
+          this.setState({ userLoggedIn: true, artist: data.data._id })
+          art.style.display = "block"
+          profile.style.display = "block"
+          logout.style.display = "block"
+          login.style.display = "none"
         }
       })
-      .catch(err => console.log(err));
-    // this.setState({ userLoggedIn: true })
+      .catch(err => console.log(err))
+
+
   };
 
   handleSignInModalOpen = () => {
@@ -154,8 +162,9 @@ class Nav extends Component {
     this.setState({ userLoggedIn: false, artist: "None", update: true });
     APIArtists.artistLogout()
       .then(data => console.log(data))
-      .catch(err => console.log(err));
-  };
+      .catch(err => console.log(err))
+    window.location.reload();
+  }
 
   render() {
     const burgerActive = this.state.burgerActive;

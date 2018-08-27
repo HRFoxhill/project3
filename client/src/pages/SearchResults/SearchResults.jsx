@@ -27,7 +27,7 @@ class SearchResults extends Component {
 
     if (searchCategory === "medium") {
       console.log("in the medium")
-      APIArt.getArtByMedium(searchCategory)
+      APIArt.getArtByMedium(searchValue)
         .then(data => {
           console.log(data.data);
         })

@@ -7,9 +7,9 @@ import APIArtists from "../../utils/APIArtists";
 
 let SidebarMenu = props => {
   return (
-    <aside class="menu">
-      <p class="menu-label" />
-      <ul class="menu-list">
+    <aside className="menu">
+      <p className="menu-label" />
+      <ul className="menu-list">
         <li>
           <a
             onClick={this.handleSignInModalOpen}
@@ -167,83 +167,6 @@ class Nav extends Component {
   }
 
   render() {
-    return (
-
-      <nav className="navbar is-white">
-        <SignInModal
-        // modalClassName={this.state.signInModalOpen? "modal is-active":"modal"}
-        />
-        <SignUpModal />
-        <div className="navbar-brand">
-
-          {/* logo */}
-          <Link className="navbar-item" to="/">
-            <img
-              src={Logo}
-              alt="Logo Name"
-              width="112"
-              height="28"
-            />
-          </Link>
-
-
-          {/* search */}
-          <div className="navbar-item search-bar">
-            <div className="field has-addons">
-
-              {/* search dropdown menu */}
-              <p className="control">
-                <span className="select">
-                  <select
-                    id="navbarSearchDropdown"
-                    value={this.state.searchDropDownValue}
-                    onChange={this.handleDropDownChange}
-                    name="searchDropDownValue"
-                  >
-                    <option>Medium</option>
-                    <option>Artist</option>
-                  </select>
-                </span>
-              </p>
-
-              {/* search bar */}
-              <div className="control">
-                <input
-                  className="input"
-                  type="text"
-                  placeholder="Search..."
-                  id="navbarSearchBox"
-                  onChange={this.handleInputChange}
-                  name="searchBarValue"
-                  // value={this.state.searchBarValue}
-                />
-              </div>
-              <div className="control">
-                <Link
-                  className="button login-button"
-                  to={this.state.searchDropDownValue === "Medium" ? ("/search/cat=medium/?=" + this.state.searchBarValue) : this.state.searchDropDownValue === "Artist" ? ("/search/cat=artist/?=" + this.state.searchBarValue) : ""}
-                  onClick={this.updateSearchBarValue}
-                >
-                  <span className="icon">
-                    <i className="fas fa-search" />
-                  </span>
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* burger */}
-          <div className="navbar-burger burger">
-            <span />
-            <span />
-            <span />
-          </div>
-        </div>
-
-        {/* navbar menu */}
-        <div className="navbar-menu">
-          <div className="navbar-start" />
-          <div className="navbar-end">
     const burgerActive = this.state.burgerActive;
     let menu;
     if (burgerActive) {

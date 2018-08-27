@@ -20,6 +20,7 @@ class EditArt extends Component {
             artId: "",
             // deletePiece: "",
             update: false,
+            mediumText: false,
         };
         this.handleInputChange = this.handleInputChange.bind(this);
     };
@@ -63,11 +64,12 @@ class EditArt extends Component {
                 this.setState({
                     url: data.data.url,
                     title: data.data.title,
-                    // medium: data.data.medium,
+                    medium: data.data.medium,
                     description: data.data.description,
                     yearCreated: data.data.yearCreated,
                     dimensions: data.data.dimensions,
-                    artId: data.data._id
+                    artId: data.data._id,
+                    mediumText: true
                 })
             })
             .catch(err => console.log(err))
@@ -315,7 +317,7 @@ class EditArt extends Component {
                                                 name="medium"
                                                 onChange={this.handleInputChange}
                                                 value={this.state.medium}
-                                            ><option>Select medium</option>
+                                            ><option>{this.state.mediumText ? this.state.medium : "Select Medium"}</option>
                                                 {this.state.artistMediums.map(medium => {
                                                     return (
                                                         <option>{medium}</option>

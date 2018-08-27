@@ -254,9 +254,16 @@ h1.about-title{
 }
 #edit-artwork-card {
   font-size: 4em;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
 }
 #edit-portfolio-artwork {
-font-size: 4em;
+  width: 100%;
+}
+#edit-art-buttons {
+  margin: 20px;
+  margin-top: 5px;
 }
 /* Mediums Page Styling */
 .mediums-div {
@@ -282,4 +289,20 @@ font-size: 4em;
 .submit-button {
   background-color: rgb(70,70,70);
   color: white;
+}
+.is-logo-color {
+  background-color: #ff8a65;
+  color: white;
+}
+.space-on-top {
+  margin-top: 30px;
+}
+.less-space-on-top {
+  margin-top: 20px;
+}
+.your-artwork {
+  border-radius: 10px;
+}
+.edit-artwork-panel-container {
+  border-radius: 10px;
 }

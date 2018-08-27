@@ -20,6 +20,7 @@ class EditArt extends Component {
             artId: "",
             // deletePiece: "",
             update: false,
+            mediumText: false,
         };
         this.handleInputChange = this.handleInputChange.bind(this);
     };
@@ -63,18 +64,19 @@ class EditArt extends Component {
                 this.setState({
                     url: data.data.url,
                     title: data.data.title,
-                    // medium: data.data.medium,
+                    medium: data.data.medium,
                     description: data.data.description,
                     yearCreated: data.data.yearCreated,
                     dimensions: data.data.dimensions,
-                    artId: data.data._id
+                    artId: data.data._id,
+                    mediumText: true
                 })
             })
             .catch(err => console.log(err))
     };
 
     deleteArt = artId => {
-        console.log("deleting...")
+        console.log("deleting..." + artId)
         APIArt.deleteArtPiece(artId)
             .then(data => {
                 this.setState({ update: true })
@@ -87,7 +89,7 @@ class EditArt extends Component {
         console.log("updating...")
         APIArt.updateArtPiece(artId, {
             title: this.state.title,
-            // medium: this.state.medium,
+            medium: this.state.medium,
             url: this.state.url,
             dimensions: this.state.dimensions,
             yearCreated: this.state.yearCreated,
@@ -105,7 +107,7 @@ class EditArt extends Component {
         console.log("adding...")
         APIArt.saveArt(this.state.artistId, {
             title: this.state.title,
-            // medium: this.state.medium,
+            medium: this.state.medium,
             url: this.state.url,
             dimensions: this.state.dimensions,
             yearCreated: this.state.yearCreated,
@@ -241,8 +243,8 @@ class EditArt extends Component {
                                 </div>
                             </div>
                         </div>
-                        
-                       
+
+
                         {/* //year YYYY */}
                         <div className="field is-horizontal">
                             <div className="field-label is-normal">
@@ -302,8 +304,8 @@ class EditArt extends Component {
                                 </div>
                             </div>
                         </div>
-                         {/* //medium dropdown */}
-                         <div className="field is-horizontal">
+                        {/* //medium dropdown */}
+                        <div className="field is-horizontal">
                             <div className="field-label is-normal">
                                 <label className="label">Medium</label>
                             </div>
@@ -311,11 +313,15 @@ class EditArt extends Component {
                                 <div className="field">
                                     <div className="control">
                                         <div className="select">
-                                            <select>
+                                            <select
+                                                name="medium"
+                                                onChange={this.handleInputChange}
+                                                value={this.state.medium}
+                                            ><option>{this.state.mediumText ? this.state.medium : "Select Medium"}</option>
                                                 {this.state.artistMediums.map(medium => {
-                                                return (
-                                                <option>{medium}</option>
-                                                )
+                                                    return (
+                                                        <option>{medium}</option>
+                                                    )
                                                 })}
                                             </select>
                                         </div>

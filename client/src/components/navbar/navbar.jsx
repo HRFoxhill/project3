@@ -95,7 +95,7 @@ let SidebarMenuLoggedIn = props => {
             </Link>
         </li>
         <li>
-          <p>Mediums</p>
+          <a href="#tile-title" onClick={props.toggleState}>Mediums</a>
           <Link className="nav-categories" to="/medium=Mixed%20Media" onClick={props.toggleState}>
             Mixed Media
           </Link>

@@ -5,14 +5,14 @@ const ArtistCard = props => (
         <div className="card">
             <div className="card-image">
                 <figure className="image is-4by3">
-                    <img src={props.art[0]} alt="Artwork image"/>
+                    <img src={props.art[0]} alt="Artwork"/>
                 </figure>
             </div>
             <div className="card-content">
                 <div className="media">
                     <div className="media-left">
                         <figure className="image is-48x48">
-                            <img src={props.profilePhoto} alt="Profile image"/>
+                            <img src={props.profilePhoto} alt="Profile"/>
                         </figure>
                     </div>
                     <div className="media-content">

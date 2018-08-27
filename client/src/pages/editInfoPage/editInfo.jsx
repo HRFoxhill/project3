@@ -36,7 +36,6 @@ class EditInfo extends Component {
         })
         APIArtists.getArtByArtist(parsedUrlArtistId)
             .then(data => {
-                console.log(data.data);
                 this.setState({
                     websiteUrl: data.data.websiteURL,
                     email: data.data.email,
@@ -48,7 +47,6 @@ class EditInfo extends Component {
                 })
             })
             .then( () => {
-                console.log(this.state.mediumArray)
                 this.displayMediumChecks();
             })
             .catch(err => console.log(err));
@@ -86,8 +84,7 @@ class EditInfo extends Component {
             medium: this.state.mediumArray
         })
             .then(data => {
-                this.setState({ update: true })
-                console.log(data)
+                this.setState({ update: true });
             })
             .catch(err => console.log(err))
     };
@@ -164,14 +161,6 @@ class EditInfo extends Component {
         return (
             <div className="editInfo-div">
                 <div className="columns">
-                    {/* //container
-                        //form
-                            //basic info
-                                //website url (optional)
-                                //phone # (optional)
-                                //artist statement
-                                //gallery address/name?
-                                //style choice: light or dark checkboxes */}
                     <div className="column is-two-thirds">
                         <BasicInfoForm
                             artistName={this.state.artistName}
@@ -211,8 +200,7 @@ class EditInfo extends Component {
                         />
                     </div>
                 </div>
-                {/* //submit a show
-                //SAVE CHANGES button */}
+                {/* submit button */}
                 <SubmitCancel
                     hideAdd={"is-hidden"}
                     updateOnClick={() => {
@@ -224,11 +212,8 @@ class EditInfo extends Component {
                 />
                 <div id="update-success" style={{ textAlign: 'center' }}>Profile Updated!</div>
             </div>
-
-
         );
-    }
-}
-
+    };
+};
 
 export default EditInfo;

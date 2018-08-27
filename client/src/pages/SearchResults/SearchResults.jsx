@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ArtistCard from "../../components/artistCard";
+// import ArtistCard from "../../components/artistCard";
 import localShows from "../../components/localShows";
 import { ArtworkPanel, ArtworkContainer } from "../../components/artworkContainer";
 import APIArt from "../../utils/APIArt";
@@ -57,9 +57,9 @@ class SearchResults extends Component {
   render() {
     return (
       <div>
-        <ArtistCard
+        {/* <ArtistCard
           
-        />
+        /> */}
 
       </div>
     );

@@ -23,7 +23,7 @@ const Slide = props => {
         backgroundColor:"rgba(80,80,80,0.9)"
       }
   return (
-    <div class="slide-container" style={container}>
+    <div className="slide-container" style={container}>
       <h1 style={title}>{props.title}</h1>
       <img src={props.image} style={images}/>
       <p className="legend" style={description}>{props.description}</p>

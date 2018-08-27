@@ -284,6 +284,7 @@ h1.about-title {
   width: 30%;
   margin: 15px;
 }
+
 #edit-artwork-card {
   font-size: 4em;
   width: 100%;
@@ -341,4 +342,9 @@ h1.about-title {
 }
 .edit-artwork-panel-container {
   border-radius: 10px;
+}
+.artist-card {
+  width: 400px;
+  margin: 20px;
+  margin-top: 40px;
 }

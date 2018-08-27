@@ -57,7 +57,9 @@ class SearchResults extends Component {
   render() {
     return (
       <div>
-        what up world
+        <ArtistCard
+          
+        />
 
       </div>
     );

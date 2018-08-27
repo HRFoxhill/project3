@@ -9,7 +9,7 @@ class Tiles extends Component {
     return (
       <div>
         <h1 className="title is-1 tile-title" id="tile-title">
-          <span class="subtitle is-3">search by </span>
+          <span className="subtitle is-3">search by </span>
           Medium.
         </h1>
         <div className="medium-tiles">

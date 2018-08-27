@@ -67,17 +67,17 @@ const Footer = props => {
           </div>
           <div className="social-links">
           <p className="social-title">Connect With Us:</p>
-            <a className="social-icons">
+            <a className="social-icons facebook">
               <i className="fab fa-facebook" />
             </a>
-            <a className="social-icons">
+            <a className="social-icons twitter">
               <i className="fab fa-twitter-square" />
             </a>
             <br />
-            <a className="social-icons">
+            <a className="social-icons pinterest">
               <i className="fab fa-pinterest-square" />
             </a>
-            <a className="social-icons">
+            <a className="social-icons instagram">
               <i className="fab fa-instagram" />
             </a>
           </div>

@@ -18,7 +18,6 @@ class EditArt extends Component {
             dimensions: "",
             art: [],
             artId: "",
-            // deletePiece: "",
             update: false,
             mediumText: false,
         };
@@ -194,19 +193,6 @@ class EditArt extends Component {
                         </ArtworkContainer>
                     </div>
                     <div className="column space-on-top">
-
-
-                        {/* // container
-    //previews
-        //panel
-            //photo
-            //info
-            //edit button
-            //delete button
-            //featured choice
-
-    //form
-        //url */}
                         <p className="has-text-centered title is-4">Add/Update Art Piece Here</p>
                         <div className="tile is-parent is-8">
                             <div className="tile is-child box">

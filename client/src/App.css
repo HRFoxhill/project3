@@ -1,7 +1,6 @@
 * {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
-
 nav {
   margin-bottom: 20px;
 }
@@ -23,16 +22,27 @@ nav {
   right: 0;
   padding: 0;
   margin: 0;
-  background: rgb(206, 206, 206);
+  background: #ff8a65;
   font-size: 14px;
   font-weight: bolder;
-}
+  border-top:inset;
+  border-width: 1px;
+  border-color: rgb(197, 197, 197);
+} 
 .nav-categories {
   margin: 0 3vw;
   color: rgb(27, 27, 27);
 }
 .has-margins{
-  margin:0px 0 20px;
+  margin-bottom: 40px;
+}
+.margin-top{
+  margin-top:60px;
+}
+.has-border{
+  border-style:solid;
+  border-width:1px;
+  border-color:rgb(173, 173, 173);
 }
 .categories-container {
   margin: 0 auto;
@@ -43,37 +53,15 @@ nav {
 strong.name{
   font-size:12px;
 }
-.dev-bottom-row{
-  position:relative;
-  left:30px;
-  bottom:20px;
-}
 .card-container {
   font-size: 11px;
   line-height: 15px;
   margin: 5px;
-  border-radius: 10px;
-  background: -moz-linear-gradient(
-    top,
-    rgba(243, 248, 253, 1) 0%,
-    rgba(250, 252, 254, 0) 100%
-  ); /* FF3.6-15 */
-  background: -webkit-linear-gradient(
-    top,
-    rgba(243, 248, 253, 1) 0%,
-    rgba(250, 252, 254, 0) 100%
-  ); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    rgba(243, 248, 253, 1) 0%,
-    rgba(250, 252, 254, 0) 100%
-  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f8fd', endColorstr='#00fafcfe',GradientType=0 ); /* IE6-9 */
 }
 .social-title{
   position:relative;
   left:15px;
-  font-family:'Courier New', Courier, monospace;
+  /* font-family:'Courier New', Courier, monospace; */
   font-weight:bold;
   font-size:30px;
 }
@@ -90,9 +78,15 @@ strong.name{
 section.foot {
   position:relative;
   margin-top: 30px;
-  
+  border-top-style:inset;
+  border-width:1px;
+  border-top-color:rgb(255, 255, 255);
   padding-top:20px;
-  background: rgb(199, 199, 199);
+  background-image: linear-gradient(to right top, #ff6f43, #ff7e57, #ff8d6a, #ff9c7e, #ffaa91);
+}
+.login-button{
+  background-color:rgb(70, 70, 70);
+  color:white;
 }
 div.tile-box {
   position: absolute;
@@ -131,35 +125,63 @@ p.description.show{
   opacity:1;
   transition: max-height 0.3s ease-in;
 }
+#card-1{
+  background-image: linear-gradient(to right top, #ff8965, #ff9170, #ff9a7b, #ffa286, #ffaa91);
+}
+#card-2{
+  background-image: linear-gradient(to right top, #ffaa91, #ffb39c, #ffbba6, #ffc4b1, #ffccbc);
+}
+#card-3{
+  background-image: linear-gradient(to right top, #ff8965, #ff9170, #ff9a7b, #ffa286, #ffaa91);
+}
 .about-container1{
   position:relative;
   text-align:center;
   top:50px;
   margin:15px;
+  border:outset !important;
+  border-width: 1px !important;
+  border-color:#f57953 !important;
+  -webkit-box-shadow: -2px 3px 20px -2px rgba(0,0,0,0.75);
+-moz-box-shadow: -2px 3px 20px -2px rgba(0,0,0,0.75);
+box-shadow: -2px 3px 20px -2px rgba(0,0,0,0.75);
 }
 .about-container2{
   position:relative;
   text-align:center;
   bottom:50px;
   margin:15px;
+  border:outset !important;
+  border-width: 1px !important;
+  border-color:#f57953 !important;
+  -webkit-box-shadow: -2px 3px 20px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: -2px 3px 20px -2px rgba(0,0,0,0.75);
+  box-shadow: -2px 3px 20px -2px rgba(0,0,0,0.75);
 }
 h1.about-title{ 
     display: block;
     font-size: 2em;
     margin: 0.67em 0;
     font-weight: bold;
+    
+}
+.tile-title{
+  text-align:center;
+  margin-top:60px;
 }
 .parallax { 
-  /* The image used */
   background-image: url("./images/DickBrewerArt/About-Background.jpg");
-  /* Set a specific height */
-  height: 500px; 
-
-  /* Create the parallax scrolling effect */
+  height: 400px; 
+  overflow-y:hidden;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-top-style:inset;
+  border-bottom-style:inset;
+  border-width:1px;
+  border-top-color:rgb(255, 255, 255);
+  border-bottom-color:rgb(170, 170, 170);
 }
 .carousel { 
     width: 50%;
@@ -168,17 +190,20 @@ h1.about-title{
 #artwork-panel {
   margin: 0px;
   padding: 30px;
+  border-radius: 10px;
+}
+#artwork-card {
+  margin: 0px;
+  padding: 0px;
+  border-radius: 10px;
+  border-color: transparent;
 }
 #portfolio-artwork {
   width: auto;
 }
 /* css for portfolio page */
 .portfolio-div {
-  background-image: url("./images/Backgrounds/paint-texture2.jpg");
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: white;
 }
 /* css for artist panel */
 .artist-panel-text {
@@ -199,7 +224,8 @@ h1.about-title{
   background-color: rgba(0, 0, 0, .6);
 }
 .dark-translucentish {
-  background-color: rgba(0, 0, 0, .8);
+  /* background-color: rgba(252, 229, 201, 0.5); */
+  background-color: #ebebeb;
 }
 .transparent-background {
   background: transparent;
@@ -231,4 +257,15 @@ h1.about-title{
 }
 #edit-portfolio-artwork {
 font-size: 4em;
+}
+/* Mediums Page Styling */
+.mediums-div {
+  background-color: white;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.link-color {
+  color: #ff8a65;
 }

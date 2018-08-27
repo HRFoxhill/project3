@@ -4,14 +4,14 @@ const expect = chai.expect
 
 describe('ArtSpose', function () {
   // Recommended: 5s locally, 10s to remote server, 30s from airplane ¯\_(ツ)_/¯
-  this.timeout('30s')
+  this.timeout('20s')
 
   let nightmare = null
   beforeEach(() => {
     nightmare = new Nightmare({ show: true })
   })
 
-    it('should load without error', done => {
+    it('should successfully arrive at the home page', done => {
       // your actual testing urls will likely be `http://localhost:port/path`
       nightmare.goto('http://localhost:3000/')
         .end()
@@ -20,9 +20,10 @@ describe('ArtSpose', function () {
     })
 
     
-    it('should load without error', done => {
+    it('should successfully arrive at the Paintings medium page', done => {
       // your actual testing urls will likely be `http://localhost:port/path`
-      nightmare.goto('http://localhost:3000/medium=Sculpture')
+      nightmare.goto('http://localhost:3000/medium=Painting')
+      .wait(1500)
         .end()
         .then(function (result) { done() })
         .catch(done)
@@ -52,16 +53,17 @@ describe('ArtSpose', function () {
       .click("#signInModalOpen")
       .wait("#signInEmailInputBox")
             .type("#signInEmailInputBox", "heatheriscool")
-            .type("#signInPasswordInputBox", "password")
-    .click(".fas")
+            .type("#signInPasswordInputBox", "pAssword")
+      .wait(1000)
+    .click("#signInBtn")
     .evaluate(function () {
-      console.log("Thanks Joe",document.querySelector(".is-success"));
+      console.log("Thanks Joe",document.querySelector(".help"));
       
-      return document.querySelector(".is-success")[0].innerText
+      return document.querySelector(".help")[0].innerText
     })
     .end()
     .then(function (result) {
-      expect(result).to.equal("invalid email");
+      expect(result).to.equal("incorrect email or password");
       done()
     })
    

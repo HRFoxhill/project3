@@ -3,8 +3,8 @@ import React from "react";
 const Shows = props => {
   return (
     <div>
-
-      <table class="table is-fullwidth is-narrow is-hoverable is-striped has-margins">
+      <h1 className="title is-1 tile-title">Local Exhibitions</h1>
+      <table class="table is-fullwidth is-narrow is-hoverable is-striped has-margins has-border">
         <thead>
           <tr>
             <th>Title</th>

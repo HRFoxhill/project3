@@ -241,8 +241,8 @@ class EditArt extends Component {
                                 </div>
                             </div>
                         </div>
-                        
-                       
+
+
                         {/* //year YYYY */}
                         <div className="field is-horizontal">
                             <div className="field-label is-normal">
@@ -302,8 +302,8 @@ class EditArt extends Component {
                                 </div>
                             </div>
                         </div>
-                         {/* //medium dropdown */}
-                         <div className="field is-horizontal">
+                        {/* //medium dropdown */}
+                        <div className="field is-horizontal">
                             <div className="field-label is-normal">
                                 <label className="label">Medium</label>
                             </div>
@@ -311,11 +311,15 @@ class EditArt extends Component {
                                 <div className="field">
                                     <div className="control">
                                         <div className="select">
-                                            <select>
+                                            <select
+                                                name="medium"
+                                                onChange={this.handleInputChange}
+                                                value={this.state.medium}
+                                            ><option>Select medium</option>
                                                 {this.state.artistMediums.map(medium => {
-                                                return (
-                                                <option>{medium}</option>
-                                                )
+                                                    return (
+                                                        <option>{medium}</option>
+                                                    )
                                                 })}
                                             </select>
                                         </div>

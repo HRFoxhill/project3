@@ -54,6 +54,8 @@ class EditInfo extends Component {
             .catch(err => console.log(err));
     };
     componentDidMount = () => {
+        let update = document.getElementById("update-success")
+        update.style.display = "none"
         this.populateThePage();
     };
     componentDidUpdate = () => {
@@ -214,10 +216,14 @@ class EditInfo extends Component {
                 //SAVE CHANGES button */}
                 <SubmitCancel
                     hideAdd={"is-hidden"}
-                    updateOnClick={() => this.updateArtist(this.state.artistId)}
+                    updateOnClick={() => {
+                        this.updateArtist(this.state.artistId)
+                        let update = document.getElementById("update-success")
+                        update.style.display = "block"
+                    }}
                     cancelOnClick={this.resetState}
                 />
-
+                <div id="update-success" style={{ textAlign: 'center' }}>Profile Updated!</div>
             </div>
 
 

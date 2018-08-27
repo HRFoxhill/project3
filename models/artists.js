@@ -6,11 +6,7 @@ var Schema = mongoose.Schema;
 // Using the Schema constructor, create a new UserSchema object
 // This is similar to a Sequelize model
 var ArtistSchema = new Schema({
-  // for authentication/password
-  // local: {
-  //   email: String, //unique, fixed structure
-  //   password: String, //limitations needed
-  // },
+
   email: {
     type: String,
     unique: true,

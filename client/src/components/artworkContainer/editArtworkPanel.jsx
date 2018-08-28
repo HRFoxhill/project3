@@ -5,7 +5,7 @@ export const EditArtworkPanel = props => (
     <div className="card" id="edit-artwork-card">
         <div className="card-image">
             <figure className="image">
-                <img src={props.url} className="artwork-image" id="edit-portfolio-artwork" alt="Placeholder image" />
+                <img src={props.url} className="artwork-image" id="edit-portfolio-artwork" alt="Placeholder" />
             </figure>
         </div>
         <div className="card-content">

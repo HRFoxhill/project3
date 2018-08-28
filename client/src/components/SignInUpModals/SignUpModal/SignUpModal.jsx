@@ -1,5 +1,3 @@
-// update modal to set className on modal based on is-open? Or maybe can't because that's based on the navbar
-
 import React, { Component } from "react";
 import "./SignUpModal.css";
 import SignInBtn from "../SignInBtn";
@@ -11,7 +9,6 @@ import ModalCancelBtn from "../ModalCancelBtn";
 import APIArtists from "../../../utils/APIArtists";
 
 class SignUpModal extends Component {
-    // If you need to have access to the parent component in the handler, you also need to bind the function to the component instance:
     constructor(props) {
         super(props);
 
@@ -29,10 +26,6 @@ class SignUpModal extends Component {
 
         this.handleSignUpModalClose = this.handleSignUpModalClose.bind(this);
         this.handleSignInModalOpen = this.handleSignInModalOpen.bind(this);
-    }
-
-    componentDidMount() {
-        // do I need this?
     };
 
     handleInputChange = (event, callback) => {
@@ -45,7 +38,6 @@ class SignUpModal extends Component {
     };
     handleEmailValidation = event => {
         this.handleInputChange(event, () => {
-            // !!this could be made way better but will work for now (actually match email format)
             if (this.state.email.length >= 1) {
                 this.setState({
                     emailValidated: true,
@@ -56,7 +48,6 @@ class SignUpModal extends Component {
     };
     handlePasswordConfirmValidation = event => {
         this.handleInputChange(event, () => {
-            // console.log(this.state.password, this.state.confirmPassword)
             if (this.state.password.length >= 7) {
                 this.setState({
                     passwordValidated: true,
@@ -85,13 +76,11 @@ class SignUpModal extends Component {
 
     handleFormSubmit = event => {
         // saving to database 
-        console.log("submit")
         APIArtists.saveArtist({
             email: this.state.email,
             password: this.state.password
         })
             .then(data => {
-                console.log(data)
                 if (data.data.errors) {
                     this.setState({
                         emailValidated: false,
@@ -142,7 +131,7 @@ class SignUpModal extends Component {
 
     render() {
         return (
-            <div className="modal"/*{this.props.modalClassName}*/ id="SignUpModal">
+            <div className="modal" id="SignUpModal">
                 <div className="box">
                     <div className="modal-background"></div>
                     <div className="modal-content">
@@ -233,7 +222,7 @@ class SignUpModal extends Component {
                 </div>
             </div>
         )
-    }
+    };
 };
 
 export default SignUpModal;

@@ -11,10 +11,7 @@ let SidebarMenu = props => {
       <p className="menu-label" />
       <ul className="menu-list">
         <li>
-          <a
-            onClick={props.handleSignInModalOpen}
-          // id="signInModalOpen"
-          >
+          <a onClick={props.handleSignInModalOpen}>
             {" "}
             Login
           </a>
@@ -233,13 +230,7 @@ class Nav extends Component {
 
   handleSignInModalOpen = () => {
     this.setState({ burgerActive: false })
-    console.log("clicked")
     document.querySelector("#SignInModal").classList.add("is-active");
-    // if (!this.state.modalOpen) {
-    //   this.setState({
-    //     signInModalOpen: true,
-    // });
-    // }
   };
 
   handleLogout = () => {

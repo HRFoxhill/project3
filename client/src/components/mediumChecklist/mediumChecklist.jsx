@@ -49,7 +49,7 @@ const MediumChecklist = props => {
                                 checked={props.mediumGlass}
                                 onClick={props.handleInputChange}
                                 name="mediumGlass" />
-                            Glass
+                            Glass Works
                             </label>
                     </div>
                     <div className="field">

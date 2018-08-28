@@ -98,7 +98,7 @@ class SearchResults extends Component {
         dimensions={artwork.dimensions}
         yearCreated={artwork.yearCreated}
         description={artwork.description}
-        artistName={"By " + artwork.artistInfo}
+        artistName={"By " + artwork.artistInfo.artistName}
         artistId={artwork.artistInfo._id}
       />
     );

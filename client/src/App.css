@@ -366,3 +366,9 @@ color: #2D4485;
 .portrait{
   color:#CB2027;
 }
+@media screen and (max-width: 667px) {
+  #artwork-card {
+    width: 100%;
+    margin: 15px;
+  }
+}

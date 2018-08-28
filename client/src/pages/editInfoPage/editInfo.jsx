@@ -101,7 +101,7 @@ class EditInfo extends Component {
         if (this.state.mediumArray.indexOf("Drawing") !== -1) {
             this.setState({ mediumDrawing: true })
         } else this.setState({ mediumDrawing: false });
-        if (this.state.mediumArray.indexOf("Glass") !== -1) {
+        if (this.state.mediumArray.indexOf("Glass Works") !== -1) {
             this.setState({ mediumGlass: true })
         } else this.setState({ mediumGlass: false });
         if (this.state.mediumArray.indexOf("Illustration") !== -1) {
@@ -134,7 +134,7 @@ class EditInfo extends Component {
                 newMediumArray.push("Drawing")
             }
             if (this.state.mediumGlass === true) {
-                newMediumArray.push("Glass")
+                newMediumArray.push("Glass Works")
             }
             if (this.state.mediumIllustration === true) {
                 newMediumArray.push("Illustration")

@@ -14,7 +14,9 @@ class portfolio extends Component {
         mediums: "",
         art: []
     };
+    // function to be called onMount and onUpdate
     handleDisplayPortfolio = () => {
+        // gets the url and splits off everything after the "=" which in this case will be the artist id
         let parsedUrlArtistId = window.location.href.split("=").pop();
         this.setState({
             _id: parsedUrlArtistId,

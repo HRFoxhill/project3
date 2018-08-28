@@ -95,7 +95,7 @@ const AlArtSeed = [
 let dickId = "";
 let lauraId = "";
 let alId = "";
-
+// below enters all the artists into the DB and then basically hard codes their associations with their art - works to get us all started. Not very scalable - better to add through website now that that functionality is working
 db.Artist
     .remove({})
     .then(() => db.Artist.collection.insertMany(artistSeed))

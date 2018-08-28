@@ -361,7 +361,6 @@ color: #2D4485;
 .portrait{
   color:#CB2027;
 }
-<<<<<<< HEAD
 .section-title{
   display:block;
   margin:0 auto;
@@ -430,11 +429,9 @@ input.checkbox{
     width:60vw;
   }
 }
-=======
 @media screen and (max-width: 667px) {
   #artwork-card {
     width: 100%;
     margin: 15px;
   }
 }
->>>>>>> 6c90f3989fbfe6bf0045aee5efa5c9adfe729d79

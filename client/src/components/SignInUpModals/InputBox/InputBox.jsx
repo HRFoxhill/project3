@@ -1,7 +1,5 @@
 import React from "react";
 
-// The ...props means, spread all of the passed props onto this element
-// That way we don't have to define them all individually
 const InputBox = props => (
     <div className="field">
         <label className="label">{props.label}</label>
@@ -16,7 +14,6 @@ const InputBox = props => (
         </div>
         <p className={props.paragraphClassName}>{props.paragraphMessage}</p>
     </div>
-
 );
 
 export default InputBox;

@@ -5,7 +5,7 @@ export default {
   getArtists: function() {
     return axios.get("/api/user");
   },
-  // save Artist
+  // saves/adds Artist to db
   saveArtist: function(UserData) {
     return axios.post("/api/user", UserData);
   },
@@ -23,18 +23,22 @@ export default {
     return axios.delete("/api/protected/user/" + id);
   },
   // ==========================
+  // Gets artist by id and populates their show array
   getShowsByArtist: function(id) {
     return axios.get("/api/user/shows/" + id);
   },
   // ==========================
+// Gets artist by id and populates their art array
   getArtByArtist: function(id) {
     return axios.get("/api/user/art/" + id);
   },
    // ==========================
+  //  Gets artist by name
   getArtistByName: function(name) {
     let noSpaceName = name.replace(/\s+/g, "%20");
     return axios.get("/api/user/artist/" + noSpaceName);
   },
+  // Gets artist by art id
   getArtistByArt: function(id) {
     return axios.get("/api/user/art/artist/" + id);
    },

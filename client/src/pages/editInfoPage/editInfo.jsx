@@ -73,7 +73,6 @@ class EditInfo extends Component {
         }, callback);
     };
     updateArtist = () => {
-        console.log("updating...")
         APIArtists.updateArtist(this.state.artistId, {
             websiteURL: this.state.websiteUrl,
             email: this.state.email,

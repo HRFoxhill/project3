@@ -35,7 +35,7 @@ class SearchResults extends Component {
           data.data.forEach(item => {
             APIArtists.getArtistByArt(item._id)
               .then(results => {
-                item.artistInfo = results.data[0]
+                item.artistInfo = results.data[0].artistName
                 populatedArtArray.push(item);
                 this.setState({ update: true })
               })
@@ -56,7 +56,7 @@ class SearchResults extends Component {
           data.data[0].art.forEach(item => {
             APIArt.getArtPiece(item._id)
               .then(results => {
-                console.log("READ THIS JOE!: " + results.data)
+                console.log("artist name" + data.data[0].artistName)
                 item.artistInfo = data.data[0].artistName
                 populatedArtArray.push(item);
                 this.setState({ update: true })
@@ -98,7 +98,7 @@ class SearchResults extends Component {
         dimensions={artwork.dimensions}
         yearCreated={artwork.yearCreated}
         description={artwork.description}
-        artistName={"By " + artwork.artistInfo.artistName}
+        artistName={"By " + artwork.artistInfo}
         artistId={artwork.artistInfo._id}
       />
     );

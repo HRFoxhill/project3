@@ -1,4 +1,8 @@
-Artsposé is an application intended to be utilized by Art Patrons to find and explore new mediums and artist portfolios to help expose, for now, the local Minneapolis Public to new art and artists. This app will allow Artists to create portfolio pages, after signing a disclaimer allowing the site to utilize any information they upload, that will include photos and bios (stretch goal to include prices and purchasing functionality) that may be used for medium (types of art) or artist highlights on the homepage. The app will, additionally, include local shows and their locations so that patrons can go see the art in-person. We believe this is valuable because many artists only have the time and money to promote their art themselves and often do not have the technical ability to go online with their material, this will allow them to be exposed to more patrons and found more easily when displaying at a gallery. We also would like to involve local businesses and allow them to work with an artist to hang/show their works on site to help with more artist exposure. 
+Artsposé is an application intended to be utilized by Art Patrons to find and explore new mediums and artist portfolios. We seek to help the local Minneapolis Public discover new art and artists. This app will allow Artists to create portfolio pages allowing the site to utilize any information they upload, that will include photos and bios, for medium (types of art) or artist highlights on the homepage. The app will also include local shows and their locations so that patrons can go see the art in-person. 
+
+We believe this app is valuable because many artists only have the time and money to promote their art themselves and often do not have the technical ability to go online with their material, this will allow them to reach more patrons and to be discovered more easily through the site. We also would like to involve local businesses and allow them to work with an artist to hang/show their works on site to help with more artist exposure. 
+
+Please visit our deployed application here: https://artspose.herokuapp.com/
 
 
 
@@ -10,7 +14,7 @@ You can find the most recent version of this guide [here](https://github.com/fac
 ## Table of Contents
 
 - [Updating to New Releases](#updating-to-new-releases)
-- [Sending Feedback](#sending-feedback)
+- [Sending Feedback](#sending-feedback)f
 - [Folder Structure](#folder-structure)
 - [Available Scripts](#available-scripts)
   - [npm start](#npm-start)

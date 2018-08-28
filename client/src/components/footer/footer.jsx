@@ -48,7 +48,7 @@ const Footer = props => {
             />
             <DevCard
               name="Joe Gathje"
-              img="https://files.slack.com/files-tmb/T9LAT4A0J-FCGCZHG4V-e9ace7a6b1/joe_480.jpg"
+              img="https://i.imgur.com/fOe3f0P.jpg"
               role="Back-End"
               bio="Resident curmudgeon, Back-End wizard, and a heck of a nice guy."
               github="https://github.com/jgathje"

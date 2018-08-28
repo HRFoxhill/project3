@@ -29,18 +29,14 @@ class EditArt extends Component {
         let parsedUrlArtistId = window.location.href.split(":").pop();
         this.setState({
             artistId: parsedUrlArtistId,
-        })
-        console.log(parsedUrlArtistId)
+        });
 
         APIArtists.getArtByArtist(parsedUrlArtistId)
             .then(data => {
-                console.log(data.data);
                 this.setState({
                     art: data.data.art,
                     artistMediums: data.data.medium
-                })
-                console.log(this.state.art)
-                console.log(this.state.artistMediums)
+                });
             })
             .catch(err => console.log(err));
     }
@@ -57,10 +53,8 @@ class EditArt extends Component {
     };
 
     populateEditFields = artId => {
-        console.log(artId);
         APIArt.getArtPiece(artId)
             .then(data => {
-                console.log(data)
                 this.setState({
                     url: data.data.url,
                     title: data.data.title,
@@ -70,23 +64,20 @@ class EditArt extends Component {
                     dimensions: data.data.dimensions,
                     artId: data.data._id,
                     mediumText: true
-                })
+                });
             })
             .catch(err => console.log(err))
     };
 
     deleteArt = artId => {
-        console.log("deleting..." + artId)
         APIArt.deleteArtPiece(artId)
             .then(data => {
-                this.setState({ update: true, success: "Artwork succesfully removed!" })
-                console.log(data)
+                this.setState({ update: true, success: "Artwork successfully removed!" })
             })
             .catch(err => console.log(err))
     };
 
     updateArt = artId => {
-        console.log("updating...")
         APIArt.updateArtPiece(artId, {
             title: this.state.title,
             medium: this.state.medium,
@@ -110,14 +101,12 @@ class EditArt extends Component {
                     artId: "",
                     mediumText: false,
                     success: "Artwork successfully updated!"
-                })
-                console.log(data)
+                });
             })
             .catch(err => console.log(err))
     };
 
     addArt = () => {
-        console.log("adding...")
         APIArt.saveArt(this.state.artistId, {
             title: this.state.title,
             medium: this.state.medium,
@@ -140,8 +129,7 @@ class EditArt extends Component {
                     artId: "",
                     mediumText: false,
                     success: "Artwork Succesfully Added!"
-                })
-                console.log(data)
+                });
             })
             .catch(err => console.log(err))
     };
@@ -156,7 +144,7 @@ class EditArt extends Component {
             yearCreated: "",
             dimensions: "",
             artId: ""
-        })
+        });
     };
 
     handleInputChange = (event, callback) => {
@@ -164,7 +152,6 @@ class EditArt extends Component {
         this.setState({
             [name]: value
         }, callback);
-        console.log(this.state)
     };
 
     render() {
@@ -259,8 +246,6 @@ class EditArt extends Component {
                                 </div>
                             </div>
                         </div>
-
-
                         {/* //year YYYY */}
                         <div className="field is-horizontal">
                             <div className="field-label is-normal">
@@ -367,7 +352,7 @@ class EditArt extends Component {
                 </div>
             </div>
         )
-    }
-}
+    };
+};
 
 export default EditArt;

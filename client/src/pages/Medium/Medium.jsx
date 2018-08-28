@@ -10,9 +10,7 @@ class Medium extends Component {
         update: false
     };
     handleMediumSearch = () => {
-        console.log("RUNNING SEARCH....")
         let parsedUrlMedium = window.location.href.split("=").pop();
-        console.log(parsedUrlMedium);
         let populatedArtArray = [];
 
         this.setState({
@@ -24,7 +22,7 @@ class Medium extends Component {
                 data.data.forEach(item => {
                     APIArtists.getArtistByArt(item._id)
                         .then(results => {
-                            item.artistInfo = results.data[0]
+                            item.artistInfo = results.data[0];
                             populatedArtArray.push(item);
                             this.setState({ update: true })
                         })
@@ -33,11 +31,10 @@ class Medium extends Component {
                 this.setState({
                     art: populatedArtArray
                 })
-                this.forceUpdate()
-                console.log(this.state.art)
+                this.forceUpdate();
             })
             .catch(err => console.log(err));
-    }
+    };
     componentDidMount = () => {
         this.handleMediumSearch();
     };
@@ -49,7 +46,6 @@ class Medium extends Component {
         };
     };
     artMap = () => this.state.art.map(artwork => {
-        console.log(artwork)
         return (
             <ArtworkPanel
                 key={artwork._id}

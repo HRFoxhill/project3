@@ -5,7 +5,7 @@ export const ArtworkPanel = props => (
     <div className="card is-one-third dark-translucentish" id="artwork-card">
         <div className="card-image">
             <figure className="image">
-                <img src={props.url} className="artwork-image" id="portfolio-artwork" alt="Placeholder image" />
+                <img src={props.url} className="artwork-image" id="portfolio-artwork" alt="Placeholder" />
             </figure>
         </div>
         <div className="card-content">
@@ -19,7 +19,7 @@ export const ArtworkPanel = props => (
                 <p className="subtitle is-6 has-text-grey">{props.dimensions}</p>
                 <p className="subtitle is-6 has-text-grey">{props.yearCreated}</p>
                 <p className="subtitle is-6 has-text-grey">{props.description}</p>
-                <Link to={"portfolio=" + props.artistId} className="subtitle is-6 link-color">{props.artistName}</Link>
+                <Link to={"/portfolio=" + props.artistId} className="subtitle is-6 link-color">{props.artistName}</Link>
             </div> 
         </div>
     </div>

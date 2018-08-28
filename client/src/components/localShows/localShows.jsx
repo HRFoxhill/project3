@@ -3,7 +3,7 @@ import Row from "./row";
 const Shows = props => {
   return (
     <div>
-      <img src="https://i.imgur.com/Hkbfty8.png" alt=""/>
+      <img class="section-title" src="https://i.imgur.com/Hkbfty8.png" alt="Local Exhibitions"/>
       <table className="table is-fullwidth is-narrow is-hoverable is-striped has-margins has-border">
         <thead>
           <tr>

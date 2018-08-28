@@ -310,11 +310,6 @@ h1.about-title {
   color: #ff8a65;
 }
 
-@media only screen and (min-width: 1600px) {
-  .social-links {
-    right: -80px;
-  }
-}
 /* EditInfo Styling */
 .editInfo-div {
   background-color: #ff8a65;
@@ -366,9 +361,80 @@ color: #2D4485;
 .portrait{
   color:#CB2027;
 }
+<<<<<<< HEAD
+.section-title{
+  display:block;
+  margin:0 auto;
+}
+.has-margin-top{
+  margin-top:50px;
+}
+.modal-input{
+  width:90%;
+}
+.modal-box{
+  position:relative;
+  background-image: linear-gradient(to bottom, #fdf2f0, #fdf5f6, #fdf8fb, #fdfcfe, #ffffff);
+}
+#SignInModal.is-active{
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 0.2s;
+}
+aside.menu{
+  animation: slideFade 0.2s 1 0s ease-out;
+}
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes slideFade{
+  0%{
+      transform: translateY(-50px);
+      opacity: 0;
+      }
+  100%{
+      transform: translateY(0);
+      opacity:1;
+      }
+}
+.signIn-close{
+  top:-270px;
+}
+input.checkbox{
+  margin-right:5px;
+}
+.delete{
+  position:relative !important;
+  bottom:400px;
+  left: 570px;
+  background-color:#ff8a65;
+}
+.delete:hover{
+  background-color:#f0592c;
+}
+@media only screen and (min-width: 1600px) {
+  .social-links {
+    right: -80px;
+  }
+}
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1300px) {
+  .tiles-container{
+    width:60vw;
+  }
+}
+=======
 @media screen and (max-width: 667px) {
   #artwork-card {
     width: 100%;
     margin: 15px;
   }
 }
+>>>>>>> 6c90f3989fbfe6bf0045aee5efa5c9adfe729d79

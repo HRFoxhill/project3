@@ -26,7 +26,7 @@ class Home extends Component {
           <Shows />
         </div>
         <About />
-        <div className="container">
+        <div className="container tiles-container">
           <Tiles
             cat1="Mixed Media"
             bg1="https://www.powertex.co.uk/img/customgallery/1/2/0/120.jpg"

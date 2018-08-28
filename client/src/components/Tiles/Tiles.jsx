@@ -8,10 +8,7 @@ class Tiles extends Component {
   render() {
     return (
       <div>
-        <h1 className="title is-1 tile-title" id="tile-title">
-          <span className="subtitle is-3">search by </span>
-          Medium.
-        </h1>
+        <img class="section-title has-margin-top" src="https://i.imgur.com/n0mt6Js.png" alt="search by Medium."/>
         <div className="medium-tiles">
           <div className="tile is-ancestor">
             <div className="tile is-parent">
